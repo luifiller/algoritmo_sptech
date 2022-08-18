@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabores Pizza</title>
+</head>
+<body>
+    <h2>Cardápio de pizzas</h2>
+
+    Insira o sabor da pizza: <input type="text" id="in_sabor"><br><br>
+
+    Insira o preço da pizza: R$<input type="number" id="in_preco"><br><br>
+
+    Insira a quantidade de amigos para rachar o preço da pizza: <input type="text" id="in_amigos"><br><br>
+
+    <button onclick="pedido()">Pedir pizza</button>
+
+    <div id="div_titulo">
+        Informações pedido:
+        <div id="div_pedido_preco"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function pedido(){
+        var rachado = `${in_preco.value / in_amigos.value}`
+        div_pedido_preco.innerHTML = `A pizza de ${in_sabor.value} custa R$${in_preco.value} e cada amigo vai pagar R$${rachado}`
+    }
+</script>
