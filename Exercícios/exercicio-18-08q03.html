@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média de alunos</title>
+</head>
+<body>
+    <h2>Cálculo de média de alunos</h2>
+    1ª nota: <input type="number" id="in_nota1"><br>
+    2ª nota: <input type="number" id="in_nota2"><br>
+
+    <button onclick="media_notas()">Ver média</button>
+
+    <div id="div_titulo">
+        Informações alunos
+        <div id="div_resultado"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function media_notas(){
+        div_resultado.innerHTML = `Sua média foi de ${(Number(in_nota1.value) + Number(in_nota2.value))/2}`
+    }
+</script>
