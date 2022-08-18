@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Cálculo de gasto de torneiras</h2>
+    Quantos minutos 1ª torneira fica pingando: <input type="number" id="in_pingando1"><br>
+    Quantos minutos 2ª torneira fica pingando: <input type="number" id="in_pingando2"><br>
+    Quantos minutos 3ª torneira fica pingando: <input type="number" id="in_pingando3"><br>
+
+    <button onclick="calculo_pingo()">Calcular</button>
+    
+<div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function calculo_pingo(){
+        alert(`Suas 3 torneiras, juntas, desperdiçam ${(Number(in_pingando1.value)*15) + (Number(in_pingando2.value)*15) + (Number(in_pingando3.value)*15)} litros de água.`)
+    }
+</script>
