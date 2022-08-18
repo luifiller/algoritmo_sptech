@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diário</title>
+</head>
+<body>
+    <h1>Meu querido diário</h1>
+    Digite uma memória para ser registrada em seu diário: <input id="inp_memoria" type="text"><br><br>
+
+    <button onclick="registro_memoria()">Registrar Memória</button>
+    <button onclick="apagar_registro()">Limpar registros</button><br><br>
+    <div id="div_titulo">
+        <strong>Registro das suas memórias:</strong> 
+        <div id="div_texto"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function registro_memoria(){
+        div_texto.innerHTML += `<br>${inp_memoria.value}` 
+        inp_memoria.value = ''
+    }
+
+    function apagar_registro(){
+        div_texto.innerHTML = ''
+    }
+</script>
