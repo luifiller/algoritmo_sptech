@@ -27,7 +27,6 @@
 
 <script>
     function pedido(){
-        var rachado = `${in_preco.value / in_amigos.value}`
-        div_pedido_preco.innerHTML = `A pizza de ${in_sabor.value} custa R$${in_preco.value} e cada amigo vai pagar R$${rachado}`
+        div_pedido_preco.innerHTML = `A pizza de ${in_sabor.value} custa R$${Number(in_preco.value)} e cada amigo vai pagar R$${Number(in_preco.value) / Number(in_amigos.value)}`
     }
 </script>
