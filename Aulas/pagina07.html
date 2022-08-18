@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    <h2>Calculadora loka</h2>
+    1º número: <input type="number" id="in_n1"><br>
+    2º número: <input type="number" id="in_n2"><br><br>
+
+    <button onclick="multiplicar()">Multiplicar</button>
+    <button onclick="dividir()">Dividir</button>
+    <button onclick="subtrair()">Subtrair</button>
+    <button onclick="somar()">Somar</button><br><br>
+
+    <div id="div_titulo">
+        O resultado da operação é:
+    <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+<script>
+    function multiplicar(){
+        div_resultado.innerHTML = `O resultado da multiplicação é: ${Number(in_n1.value) * Number(in_n2.value)}`
+    }
+
+    function dividir(){
+        div_resultado.innerHTML = `${Number(in_n1.value) / (in_n2.value)}`
+    }
+
+    function subtrair(){
+        div_resultado.innerHTML = Number(in_n1.value) - Number(in_n2.value)
+    }
+
+    function somar(){
+        div_resultado.innerHTML = Number(in_n1.value) + Number(in_n2.value)
+    }
+</script>
