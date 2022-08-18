@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzas</title>
+</head>
+<body>
+    Sabor de pizza: <input type="text" id="in_pizza"><br>
+    Preço da pizza: <input type="text" id="in_preco"><br>
+    Prazo de entrega (em minutos): <input type="text" id="in_prazo"><br>
+    <button onclick="pedido()">Pedir pizza!</button>
+
+<div id="div_pizza">
+    <!-- O pedido aparecerá aqui -->
+</div>
+
+</body>
+</html>
+
+<script>
+/*
+inner.HTML é o conteúdo de uma tag qualquer
+*/
+    function pedido(){
+        div_pizza.innerHTML = `A pizza de ${in_pizza.value}, que custou R$ ${in_preco.value} chegará em ${in_prazo.value} minutos.`  
+    }
+</script>

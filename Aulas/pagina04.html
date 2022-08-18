@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutas</title>
+</head>
+<body>
+    
+    <h1>Registro de frutas</h1><br>
+    Nome: <input type="text" id="in_fruta"><br>
+    Preço: <input type="text" id="in_preco"><br>
+    <button onclick="registrar()">Registrar</button>
+
+    <div id="div_resultado">
+        Seu resultado vai aparecer aqui
+    </div>
+
+</body>
+</html>
+
+<script>
+    function registrar(){
+        div_resultado.innerHTML = `Fruta cadastrada: ${in_fruta.value} <br> Preço: ${in_preco.value}`
+    }
+</script>

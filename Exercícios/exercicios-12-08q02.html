@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpolação e Concatenação</title>
+</head>
+<body>
+    Nome do filme favorito: <input type="text" id="in_filme_fav"><br>
+    Vezes que assistiu: <input type="number" id="in_qtd_assistiu"><br>
+    Última vez que assistiu: <input type="text" id="in_ult_assistiu"><br>
+    <button onclick="analisar_filme()">Analisar filme</button>
+</body>
+</html>
+
+<script>
+    function analisar_filme(){
+        alert(`Você já assistiu ${in_filme_fav.value} pela última vez em ${in_ult_assistiu.value}, e já o assistiu ${in_qtd_assistiu.value} vezes.`)
+    }
+</script>

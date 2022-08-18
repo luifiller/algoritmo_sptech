@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagem de ônibus</title>
+</head>
+<body>
+    Nome da linha do ônibus: <input type="text" id="in_onibus"> <br>
+    Tempo de viagem: <input type="number" id="in_tempo_viagem"><br>
+    Dia de viagem: <input type="date" id="in_data_viagem"><br>
+    <button onclick="registrar()">Registrar viagem</button>
+</body>
+</html>
+
+<script>
+    function registrar(){
+        alert("Registrando sua linha de ônibus")
+        alert(in_onibus.value)
+        alert("Registrando o tempo da viagem")
+        alert(in_tempo_viagem.value)
+        alert("Registrando o dia da viagem")
+        alert(in_data_viagem.value)
+    }
+</script>
