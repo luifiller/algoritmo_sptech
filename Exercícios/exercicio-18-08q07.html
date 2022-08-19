@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball</title>
+</head>
+<body>
+    Insira o nome do guerreiro: <input type="text" id="in_nome"><br>
+    Insira o valor do ki normal do guerreiro: <input type="number" id="in_ki_normal"><br>
+    
+    <button onclick="calculo_ki()">Ver ki em cada forma</button>
+</body>
+</html>
+
+<script>
+    function calculo_ki(){
+        alert(`O ki do guerreiro ${in_nome.value} na forma Super Sayajin é ${Number(in_ki_normal.value)*50}`)
+        alert(`O ki do guerreiro ${in_nome.value} na forma Super Sayajin 2 é ${Number(in_ki_normal.value)*100}`)
+    }
+</script>
+
