@@ -28,6 +28,6 @@
     }
 
     function calculo_imcM(){
-        div_titulo.innerHTML = `Seu IMC, considerando que é uma mulher é: ${Number(in_peso.value)/(Number(in_altura.value)*Number(in_altura.value))}`
+        div_titulo.innerHTML = `Seu IMC, considerando que é uma mulher é: ${Number(in_peso.value)/(Number(in_altura.value)*Number(in_altura.value))-(Number(in_peso.value)/(Number(in_altura.value)*Number(in_altura.value))*0.1)}`
     }
 </script>
