@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Cálculo descontos salário CLT</h2>
+
+    Insira o valor do salário bruto: <input type="number" id="in_sal_bruto">
+
+    <button onclick="calculo_salario()">Calcular salário líquido</button>
+</body>
+</html>
+
+<script>
+    function calculo_salario(){
+        alert(`Apesar de seu bruto ser R$${Number(in_sal_bruto.value)}, após os descontos, você receberá somente R$${Number(in_sal_bruto.value)-((Number(in_sal_bruto.value)*33.3)/100)}`)
+    }
+</script>

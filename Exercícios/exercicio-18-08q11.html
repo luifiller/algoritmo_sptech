@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrecadação</title>
+</head>
+<body>
+    <h2>Arrecadação de dinheiro dos jogos</h2>
+    Insira quantidade de ingressos de estudantes vendidos: <input type="number" id="in_ingresso_estudante"><br> 
+    Insira quantidade de ingressos comuns vendidos: <input type="number" id="in_ingresso_comum"><br> 
+    Insira valor do ingresso de comuns: <input type="number" id="in_preco_comum"><br>
+
+    <button onclick="arrecadacao()">Calcular arrecadação</button>
+
+</body>
+</html>
+
+<script>
+    function arrecadacao(){
+        alert(`A arrecadação foi de R$${((Number(in_preco_comum.value)/2) * (Number(in_ingresso_estudante.value))) + (Number(in_preco_comum.value) * Number(in_ingresso_comum.value))}`)
+    }
+</script>

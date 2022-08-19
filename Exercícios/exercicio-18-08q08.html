@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cáluclo Média</title>
+</head>
+<body>
+    <h2>Cálculo média de avaliações</h2>
+    Insira a nota da avaliação continuada: <input type="number" id="in_continuada"><br>
+    Insira a nota da avaliação semestral: <input type="number" id="in_semestral"><br>
+    Insira seu nome: <input type="text" id="in_nome"><br>
+
+    <button onclick="calcular_media()">Calcular média</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_media"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    function calcular_media(){
+        div_media.innerHTML = (`A média de ${in_nome.value} será de ${((Number(in_continuada.value)*0.4)+(Number(in_semestral.value)*0.6))}`)
+    }
+</script>

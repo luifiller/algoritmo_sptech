@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cáclulo IMC</title>
+</head>
+<body>
+    <h2>Cálculo IMC</h2>
+
+    Insira o peso: <input type="number" id="in_peso"><br>
+    Insira o altura: <input type="number" id="in_altura"><br>
+
+    <button onclick="calculo_imcH()">IMC Homem</button>
+    <button onclick="calculo_imcM()">IMC Mulher</button>
+
+    <div id="div_titulo">
+        Resultado:
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calculo_imcH(){
+        div_titulo.innerHTML = `Seu IMC, considerando que é uma homem é: ${Number(in_peso.value)/(Number(in_altura.value)*Number(in_altura.value))}`
+    }
+
+    function calculo_imcM(){
+        div_titulo.innerHTML = `Seu IMC, considerando que é uma mulher é: ${Number(in_peso.value)/(Number(in_altura.value)*Number(in_altura.value))}`
+    }
+</script>
