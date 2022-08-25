@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo refrigerante</title>
+</head>
+<body>
+    <h1>Cálculo de consumo de refrigerante</h1>
+
+    Insira quantidade de refigerantes que toma por dia: <input type="number" id="in_qtdRefri"><br>
+
+    <button onclick="calcular_refri()">Quantos refri?</button>
+
+    <div id="div_titulo">
+        Resultado
+        <div id="div_resultado"></div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    function calcular_refri(){
+        var tot_Refri = Number(in_qtdRefri.value) * 365 
+        
+        div_resultado.innerHTML = `A quantidade de refigerantes que você toma por ano é: ${tot_Refri}.`
+
+        if (tot_Refri >= 500){
+            div_resultado.innerHTML = `A quantidade de refigerantes que você toma por ano é: ${tot_Refri}. <br>`
+            div_resultado.innerHTML += `Cuidado com a diabetes!`
+        }
+    }
+</script>

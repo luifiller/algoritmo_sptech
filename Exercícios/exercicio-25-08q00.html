@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media dolar</title>
+</head>
+<body>
+     <h1>Cálculo da média do dolar</h1>
+
+    <p id="enunciado">
+        Uma pessoa deseja saber a média do dólar nos últimos 5 anos.
+        Solicite o valor do dolar nos ultimos 5 anos.
+        Faça um código que calcule a média.
+        Exibir abaixo do botão o valor da média.
+    </p>
+
+    Insira o valor do dolar no 1º ano <input type="number" id="in_ano1"><br>
+    Insira o valor do dolar no 2º ano <input type="number" id="in_ano2"><br>
+    Insira o valor do dolar no 3º ano <input type="number" id="in_ano3"><br>
+    Insira o valor do dolar no 4º ano <input type="number" id="in_ano4"><br>
+    Insira o valor do dolar no 5º ano <input type="number" id="in_ano5"><br>
+
+    <button onclick="calcular_media()">Calcular média</button>
+    <button onclick="calcular_soma()">Calcular soma</button>
+    <button onclick="limpar_tela()">Limpar resultado</button>
+
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_media"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calcular_media(){
+        var ano1 = Number(in_ano1.value);
+        var ano2 = Number(in_ano2.value);
+        var ano3 = Number(in_ano3.value);
+        var ano4 = Number(in_ano4.value);
+        var ano5 = Number(in_ano5.value);
+
+        var media = (ano1 + ano2 + ano3 + ano4 + ano5)/5;
+
+        div_media.innerHTML += `A média dos valores do dólar nos útlimos 5 anos é: ${media}. <br>`;
+    }
+
+    function calcular_soma(){
+        var ano1 = Number(in_ano1.value);
+        var ano2 = Number(in_ano2.value);
+        var ano3 = Number(in_ano3.value);
+        var ano4 = Number(in_ano4.value);
+        var ano5 = Number(in_ano5.value);
+
+        var soma = (ano1 + ano2 + ano3 + ano4 + ano5)        
+
+        div_media.innerHTML += `A soma dos valores dos 5 anos é: ${soma}. <br>`
+    }
+
+    function limpar_tela(){
+        div_media.innerHTML = ''
+    }
+
+</script>   

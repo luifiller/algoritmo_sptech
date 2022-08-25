@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p id="enunciado">
+        Solicite ao usuário seu salário
+        Ao clicar no botão 'Ver desconto'
+        Somento caso o salário dele for maior que 7000 ele tem um desconto de 200
+        Dai aparece na tela uma frase como esta: Seu salário após o desconto será R$X
+    </p> -->
+
+    <h2>Cálculo de desconto</h2>
+
+    Qual é seu salário? <input type="text" id="in_salario"> <br>
+    <button onclick="ver_desconto()">Ver desconto</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_desconto"></div>
+    </div>
+
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_analise"></div>
+    </div>
+
+
+</body>
+</html>
+
+<script>
+    function ver_desconto(){
+        var salario = Number(in_salario.value)
+
+        // aquilo que vai entre os parenteses é chamado de 'condição', a qual pode ser 'verdadeiro' ou 'falso'
+        // a estrutura 'if/else' é de decisão/condição
+        if (salario > 7000) {
+            salario = salario - 200
+        }
+
+        div_desconto.innerHTML = `Salário líquido: R$ ${salario}`
+    }
+
+    function analisar(){
+        div_analise.innerHTML = `` //limpando div
+
+        var salario = Number(in_salario.value)
+
+        if (salario < 2000){
+            div_analise.innerHTML += `É menor que 2000 <br>` 
+        }
+
+        if (salario <= 2000){
+            div_analise.innerHTML += `É menor ou igual a 2000 <br>`
+        }
+
+        if (salario > 5000){
+            div_analise.innerHTML += `É maior que 5000 <br>`
+        }
+
+        if (salario >= 5000){
+            div_analise.innerHTML += `É maior ou igual a 5000 <br>`
+        }
+
+        // '=' atribui valor à uma variável | '==' é o sinal de 'igual'
+        if (salario == 4000) {
+            div_analise.innerHTML += `É igual a 4000 <br>`
+        }
+
+        // '!=' significa 'diferente' 
+        if (salario != 8000) {
+            div_analise.innerHTML += `NÃO É 8000 <br>`
+        }
+
+    }
+
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza e amigos</title>
+</head>
+<body>
+    <h1>Divisão de valor de pizza com amigos</h1>
+
+    Insira o valor da pizza: <input type="number" id="in_valorPizza"><br>
+    Insira a quantidade de amigos: <input type="number" id="in_qtdAmigos"><br>
+
+    <button onclick="calcular_pizza()">Rola a pizza?</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calcular_pizza(){
+        var valorPizza = Number(in_valorPizza.value)
+        var qtdAmigos = Number(in_qtdAmigos.value)
+
+        var divisao_Pizza =  valorPizza/qtdAmigos
+
+        div_resultado.innerHTML = `Cada amigo vai pagar R$ ${divisao_Pizza} pela pizza. <br>`
+
+        if (divisao_Pizza > 20){
+            div_resultado.innerHTML += `Deu ruim! Pizza muito cara!` 
+        }
+
+    }
+</script>
