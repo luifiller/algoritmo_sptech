@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de energia</title>
+</head>
+<body>
+    <h1>Cálculo de consumo de energia</h1>
+    
+    Insira a quantidade de kWh consumida por mês: <input type="number" id="in_qtdConsumo"><br>
+
+    <button onclick="calcular_conta()">Caluclar conta de luz</button>
+
+</body>
+</html>
+
+<script>
+    function calcular_conta(){
+        var consumo = Number(in_qtdConsumo.value)
+
+        var tot_conta = consumo * 0.85
+
+        if (consumo < 100){
+            tot_conta = tot_conta * 0.9
+            // caso colocar um '*' antes do '=' ele multiplica -> (tot_conta *= 0.9) 
+        }
+        alert(`O valor da conta é R$ ${tot_conta}`)
+    }
+</script>

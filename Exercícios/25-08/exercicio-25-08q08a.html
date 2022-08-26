@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peso elevador</title>
+</head>
+<body>
+    <h1>Calculo de peso no elevador</h1>
+
+    Insira a quantidade de homens que entraram no elevado: <input type="number" id="in_qtdH"><br>
+    Insira a quantidade de mulheres que entraram no elevado: <input type="number" id="in_qtdM"><br>
+
+    <button onclick="analisar_peso()">Analisar peso</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function analisar_peso(){
+        var qtdH = Number(in_qtdH.value)
+        var qtdM = Number(in_qtdM.value)
+
+        var peso_estimado = (qtdH * 80) + (qtdM * 60)
+
+        div_resultado.innerHTML = `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${peso_estimado}kg.`
+
+        if (peso_estimado > 800){
+            if (peso_estimado < 1000){
+                div_resultado.innerHTML += `<div style="color: blue;">Será necessário descer alguém para que o elevador se movimente.</div>`
+            }
+            if (peso_estimado >= 1000){
+                div_resultado.innerHTML += `<div style="color: red;">Será necessário descer alguém para que o elevador se movimente.</div>`
+            }
+        }
+    }
+</script>
