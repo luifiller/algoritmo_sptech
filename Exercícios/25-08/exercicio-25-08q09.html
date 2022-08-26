@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horas em Séries</title>
+</head>
+<body>
+    <h1>Cálculo de horas dedicas à séries</h1>
+    
+    Insira o nome da última série(Sitcom) que assistiu: <input type="text" id="in_serie"><br>
+    Insira o total de episódios que assistiu da série: <input type="number" id="in_qtdEP"><br>
+
+    <button onclick="verificar_nivel()">Verificar nível</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function verificar_nivel(){
+        var qtdEP = Number(in_qtdEP.value)
+
+        var tot_Min = qtdEP * 0.366667
+
+        div_resultado.innerHTML = `Vejo que você gosta da série ${in_serie.value}. <br>`
+
+        if (tot_Min > 30) {
+            div_resultado.innerHTML += `Uau, você realmente gosta dessa série!`
+        }
+    }
+</script>

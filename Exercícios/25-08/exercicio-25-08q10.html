@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saldo Bancário</title>
+</head>
+<body>
+    <h1>Verificação de saldo de conta bancaária</h1>
+
+    Insira o valor de seu saldo na conta do banco: <input type="number" id="in_saldo"><br>
+    
+    <button onclick="verificar_financas()">Verificar finanças</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function verificar_financas(){
+        var saldo = Number(in_saldo.value)
+        
+        if (saldo == 0) {
+            div_resultado.innerHTML = `<div style="color: black;">Conta zerada</div>`
+        }
+
+        if (saldo < 0) {
+            div_resultado.innerHTML = `<div style="color: red;">Está devendo!</div>`
+        }
+
+        if (saldo > 0) {
+            div_resultado.innerHTML = `<div style="color: blue;">Saldo positivo! 🙂</div>`
+        }
+    }
+</script>

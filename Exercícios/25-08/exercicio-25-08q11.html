@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Familiar</title>
+</head>
+<body>
+    <h1>Análise de família</h1>
+
+    Insira a quantidade de filhos que você possui: <input type="number" id="in_qtdFilhos"><br>
+
+    <button onclick="analisar_familia()">Analisar família</button>
+
+    <div id="div_titulo">
+        Análise:
+        <div id="div_analise"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function analisar_familia(){
+        var qtdFilhos = Number(in_qtdFilhos.value)
+
+        if (qtdFilhos >= 1) {
+            div_analise.innerHTML = `Não tem TV.<br>`
+        }
+
+        if (qtdFilhos >= 2) {
+            div_analise.innerHTML += `Não tem internet.<br>`
+        }
+
+        if (qtdFilhos >= 3) {
+            div_analise.innerHTML += `Não tem video game.<br>`
+        }
+
+        if (qtdFilhos >= 4) {
+            div_analise.innerHTML += `Não tem Netflix.<br>`
+        }
+    }
+</script>
