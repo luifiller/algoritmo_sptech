@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservação de alimentos</title>
+</head>
+<body>
+    <h1>Verificar temperatura para conservar alimentos</h1>
+    
+    Insira a temperatura do ambiente: <input type="number" id="in_temp"><br>
+
+    <button onclick="verificar_clima()">Verificar clima</button>
+
+    <div id="div_clima"></div>
+</body>
+</html>
+
+<script>
+    function verificar_clima(){
+        var temp = Number(in_temp.value)
+
+        if (temp < 10){
+            div_clima.innerHTML = `Apropriada p/ conservar alimento <br> <img src="https://img.itdg.com.br/tdg/images/recipes/000/190/963/357146/357146_original.jpg?mode=crop&width=710&height=400" alt="alimento em bom estado">`
+        } else {
+            div_clima.innerHTML = `Inapropriada p/ conservar alimento <br> <img src="https://istoe.com.br/wp-content/uploads/2016/05/as_17469257723665994.jpg" alt="alimento estragado">`
+        }
+    }
+
+</script>

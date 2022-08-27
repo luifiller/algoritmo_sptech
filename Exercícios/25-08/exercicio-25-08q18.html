@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação aluno</title>
+</head>
+<body>
+    <h1>Verificação de situação de alunos</h1>
+    
+    Insira a 1ª nota: <input type="number" id="in_nota1"><br> 
+    Insira a 2ª nota: <input type="number" id="in_nota2"><br> 
+
+    <button onclick="verificar_situacao()">Verificar situação</button>
+
+</body>
+</html>
+
+<script>
+    function verificar_situacao(){
+        var nota1 = Number(in_nota1.value)
+        var nota2 = Number(in_nota2.value)
+
+        var media = (nota1 + nota2)/2
+
+        if (media >= 6){
+            alert(`Parabéns, aprovado!`)
+        } else {
+            alert(`Tente outra vez...`)
+        }
+    }
+</script>
