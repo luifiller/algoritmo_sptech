@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimento Elevador</title>
+</head>
+<body>
+    <h1>Movimentação de elevador</h1>
+
+    Insira a quantidade de homens no elevador: <input type="number" id="in_qtdH"><br>
+    Insira a quantidade de mulheres no elevador: <input type="number" id="in_qtdM"><br>
+
+    <button onclick="ligar_elevador()">Ligar elevador</button>
+
+    <div id="div_elevador"></div>
+
+</body>
+</html>
+
+<script>
+    function ligar_elevador(){
+        var qtdH = Number(in_qtdH.value)
+        var qtdM = Number(in_qtdM.value)
+    
+        var tot_peso = (qtdH * 90) + (qtdM * 70)
+
+        if (tot_peso < 500){
+            div_elevador.innerHTML = `<div style="color: green;">Elevador vai se mover, pois está com ${tot_peso}kg.</div>`
+        } else {
+            div_elevador.innerHTML = `<div style="color: red;">Alguém precisa descer. Precisa perder ${tot_peso}kg para mover o elevador.</div>`
+        }
+    }
+</script>

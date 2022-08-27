@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevador</title>
+</head>
+<body>
+    <h1>Peso total elevador</h1>
+
+    Insira o peso total do elevador: <input type="number" id="in_totPeso"><br>
+
+    <button onclick="ligar_elevador()">Ligar elevador</button>
+
+    <div id="div_titulo"></div>
+
+</body>
+</html>
+
+<script>
+    function ligar_elevador(){
+        var totPeso = Number(in_totPeso.value)
+        if (totPeso < 500) {
+            alert(`Elevador vai se mover.`)
+        } else {
+            alert(`Alguém precisa descer do elevador.`)
+        }
+    }
+</script>
