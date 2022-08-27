@@ -25,11 +25,12 @@
         var qtdM = Number(in_qtdM.value)
     
         var tot_peso = (qtdH * 90) + (qtdM * 70)
+        var peso_extra = tot_peso - 500
 
         if (tot_peso < 500){
             div_elevador.innerHTML = `<div style="color: green;">Elevador vai se mover, pois está com ${tot_peso}kg.</div>`
         } else {
-            div_elevador.innerHTML = `<div style="color: red;">Alguém precisa descer. Precisa perder ${tot_peso}kg para mover o elevador.</div>`
+            div_elevador.innerHTML = `<div style="color: red;">Alguém precisa descer. Precisa perder ${peso_extra}kg para mover o elevador.</div>`
         }
     }
 </script>
