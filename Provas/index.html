@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicativo de Carona</title>
+</head>
+<body>
+    <h1>Aplicativo de Carona</h1>
+
+    Inserir distância da corrida (em km): <input type="number" id="in_dist"><br>
+    Inserir volume de chamadas do aplicativo (número de 0 a 100): <input type="number" id="in_volChamadas"><br>
+
+    <button onclick="calcular_custoViagem()">Calcular custo da viagem</button><br><br>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calcular_custoViagem(){
+        var distancia = Number(in_dist.value)
+        var volume_chamadas = Number(in_volChamadas.value)
+
+        var tot_corrida = (7 + (1.5 * distancia)) 
+        
+        if (volume_chamadas < 20) {
+            var valor_final = (tot_corrida * 0.95)
+        } else {
+            var valor_final =  ((tot_corrida * 0.5) + tot_corrida)
+        }
+        
+        var desconto_motorista = (valor_final * 0.02)
+        
+        div_resultado.innerHTML = `O valor final da corrida para o cliente será de R$${valor_final}<br>`
+        div_resultado.innerHTML += `O valor descontado do motorista será ${desconto_motorista}, logo ele receberá um valor líquido de ${valor_final - desconto_motorista}`
+    }
+</script>
