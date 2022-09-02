@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financiamento Carros</title>
+</head>
+<body>
+    <h1>Financiamento de Carros</h1>
+
+    Insira o valor do carro a vista: <input type="number" id="in_valorAvista"><br>
+    Insira a taxa de juros ao mês: <input type="number" id="in_jurosMes"><br>
+    Insira a quantidade de parcelas: <input type="number" id="in_qtdParcelas"><br>
+
+    <button onclick="calcular()">Calcular prejú</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var valor_aVista = Number(in_valorAvista.value)
+        var juros_mes = Number(in_jurosMes.value)
+        var qtdParcelas = Number(in_qtdParcelas.value)
+
+        var primeiro_termo = valor_aVista / qtdParcelas 
+        var razao = (juros_mes / 100) + 1
+
+        var soma = (primeiro_termo * ((razao ** qtdParcelas) - 1))/(razao - 1)  
+
+        var tot_1mes = valor_aVista * 0.8
+
+        var qtdCarros = soma / valor_aVista
+
+        div_resultado.innerHTML = `Seu carro vai sair por um total de R$${soma.toFixed(2)}. Após 1 mês, ele já vai valer só R$${tot_1mes.toFixed(2)}. Porque comprou financiado, vai pagar o correspondente a ${qtdCarros.toFixed()} carros.`
+    }
+</script>

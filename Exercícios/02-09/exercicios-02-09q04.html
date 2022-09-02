@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Migas</title>
+</head>
+<body>
+    <h1>Sorvereria 4Migas</h1>
+    <h2>Semana Promocional de Cobertura de Chocolate e sorvetes gourmets</h2>
+
+    Insira o valor da grama do sorvete: <input type="number" id="in_grama"><br>
+    Insira o peso em gramas do sorvete: <input type="number" id="in_grama_sorvete"><br>
+    Insira o tipo de cobertura: <input type="text" id="in_cobertura"><br>
+    Insira o tipo de sorvete: <input type="text" id="in_tipo_sorvete"><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var grama = Number(in_grama.value)
+        var qtdSorvete = Number(in_grama_sorvete.value)
+        var tipo_sorvete = in_tipo_sorvete.value
+        var tipo_cobertura = in_cobertura.value
+
+        var tot_sorvete = qtdSorvete * grama
+
+        if (tipo_sorvete == 'G' && 'Gourmet' && 'gourmet') {
+            grama = (grama * 1.89)
+        } else {
+           grama = (grama * 0.9)
+        }
+
+        if (tipo_cobertura != 'C' && 'chocolate' && 'Chocolate') {
+            grama = grama + 0.01
+            tot_sorvete = qtdSorvete * grama
+        } else {
+            tot_sorvete = tot_sorvete  
+        }
+
+        if (tot_sorvete > 10) {
+            div_resultado.innerHTML = `<div style="color: green">O seu sorvete vai custar R$${tot_sorvete.toFixed(2)} e vai comprometer a mesada.</div>`
+        } else {
+            div_resultado.innerHTML = `<div style="color: blue">Hoje você está maneirando hoje, gastou somente R$${tot_sorvete.toFixed(2)}.</div>`
+        }
+    }
+</script>

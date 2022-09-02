@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4Migas</title>
+</head>
+<body>
+    <h1>Sorvereria 4Migas</h1>
+
+    Insira o valor da grama do sorvete: <input type="number" id="in_grama"><br>
+    Insira o peso em gramas do sorvete: <input type="number" id="in_grama_sorvete"><br>
+
+    <button onclick="calcular()">Calcular</button>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var grama = Number(in_grama.value)
+        var qtdSorvete = Number(in_grama_sorvete.value)
+
+        var tot_sorvete = qtdSorvete * grama
+
+        if (tot_sorvete > 10) {
+            alert(`Esse sorvete vai comprometer a mesada.`)
+        } else {
+            alert(`Hoje você está maneirando...`)
+        }
+    }
+</script>
