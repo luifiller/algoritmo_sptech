@@ -31,22 +31,20 @@
         var qtdSorvete = Number(in_grama_sorvete.value)
         var tipo_sorvete = in_tipo_sorvete.value
         var tipo_cobertura = in_cobertura.value
-
-        var tot_sorvete = qtdSorvete * grama
-
+        
         if (tipo_sorvete == 'G' && 'Gourmet' && 'gourmet') {
-            grama = (grama * 1.89)
+            var grama_gourmet = (grama * 0.11) + grama // ou poderia multiplicar a grama por 1.89 
         } else {
-           grama = (grama * 0.9)
+            grama_gourmet = grama - (grama * 0.1) // ou poderia multiplicar a grama por 0.9
         }
-
+        
         if (tipo_cobertura != 'C' && 'chocolate' && 'Chocolate') {
-            grama = grama + 0.01
-            tot_sorvete = qtdSorvete * grama
+            var grama_gourmetC = (grama_gourmet + 0.01)
+            var tot_sorvete = qtdSorvete * grama_gourmetC
         } else {
-            tot_sorvete = tot_sorvete  
+            tot_sorvete = grama_gourmet * qtdSorvete  
         }
-
+        
         if (tot_sorvete > 10) {
             div_resultado.innerHTML = `<div style="color: green">O seu sorvete vai custar R$${tot_sorvete.toFixed(2)} e vai comprometer a mesada.</div>`
         } else {
