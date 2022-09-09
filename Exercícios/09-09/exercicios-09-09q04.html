@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+</head>
+<body>
+    <h2>Cálculo IMC</h2>
+
+    Insira o peso em quilogramas (kg): <input type="number" id="in_peso"><br>
+    Insira a altura em metros (m): <input type="number" id="in_altura"><br>
+
+    <button onclick="calcular_homem()">IMC Homem</button>
+    <button onclick="calcular_mulher()">IMC Mulher</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calcular_homem(){
+        var peso = Number(in_peso.value)
+        var altura = Number(in_altura.value)
+
+        var imcH = (peso / (altura * altura)).toFixed(2)
+
+        div_resultado.innerHTML = `O seu IMC, considerando que é uma mulher é: ${imcH}`
+    }
+
+    function calcular_mulher(){
+        var peso = Number(in_peso.value)
+        var altura = Number(in_altura.value)
+
+        var imcM = ((peso / (altura * altura))*0.9).toFixed(2)
+
+        div_resultado.innerHTML = `O seu IMC, considerando que é uma mulher é: ${imcM}`
+    }
+</script>
