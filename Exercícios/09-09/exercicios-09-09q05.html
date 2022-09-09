@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira o valor do salário bruto: <input type="number" id="in_salBruto"><br>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var salBruto = Number(in_salBruto.value)
+
+        var INSS = salBruto * 0.1
+
+        var IR = salBruto * 0.2
+
+        var sindicato = salBruto * (1/30)
+
+        var salDescontado = (salBruto - (INSS + IR + sindicato))
+
+        alert(`Apesar de seu bruto ser R$${salBruto.toFixed(2)}, após os descontos, você receberá somente R$${salDescontado.toFixed(2)}`)
+    }
+
+</script>
