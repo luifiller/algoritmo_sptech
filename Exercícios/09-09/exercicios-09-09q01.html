@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria São Jorgi</title>
+</head>
+<body>
+    <h2>Calculo da pizzaria São Jorgi</h2>
+
+    Insira o sabor da pizza: <input type="text" id="in_sabor"><br>
+
+    Insira o valor da pizza: <input type="number" id="in_valor"><br>
+    
+    Insira a quantidade de amigos: <input type="number" id="in_qtdAmigos"><br>
+    
+    <button onclick="pedir_pizza()">Pedir pizza</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function pedir_pizza(){
+        var valor_pizza = Number(in_valor.value)
+        var qtdAmigos = Number(in_qtdAmigos.value)
+
+        var tot_dividido = valor_pizza/qtdAmigos
+
+        div_resultado.innerHTML = `A pizza de ${in_sabor.value} custa R$${valor_pizza.toFixed(2)} e cada amigo vai pagar R$${tot_dividido.toFixed(2)}`
+    }
+
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas da Turma</title>
+</head>
+<body>
+    <h2>Cálculo da média de notas</h2>
+
+    Insira a 1ª nota: <input type="number" id="in_nota1"><br>
+    
+    Insira a 2ª nota: <input type="number" id="in_nota2"><br>
+
+    <button onclick="ver_media()">Ver média</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_resultado"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function ver_media(){
+        var nota1 = Number(in_nota1.value)
+        var nota2 = Number(in_nota2.value)
+
+        var media = ((nota1 + nota2)/2).toFixed(2) 
+        div_resultado.innerHTML = `Sua média foi de ${media}.`
+    }
+
+</script>
