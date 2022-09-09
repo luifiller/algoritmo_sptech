@@ -1,0 +1,102 @@
+<!-- Desenvolver o desafio de mostrar as imagens das fórmulas apenas após apertar os botões das funções no javascript -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórmula Bhaskara</title>
+</head>
+<body>
+    <h1>Sobre a Fórmula de Bhaskara</h1>
+    <div id="div_intro">
+        <p>A fórmula de Bhaskara é um método resolutivo para equações do 2º utilizado para encontrar raízes a partir dos coeficientes da equação.</p> <!-- referência utilizada https://brasilescola.uol.com.br/matematica/formula-bhaskara.htm-->
+        
+        <p>Em sua forma original, a fórmula de Bhaskara é dada pela seguinte equação:</p>
+        
+        <!-- <img src="https://s2.static.brasilescola.uol.com.br/img/2016/04/formula-de-bhaskara-em-sua-forma-original.jpg" alt="fórmula de Bhaskara" width="200" height="auto"> -->
+        
+        <p>"Para utilizar essa fórmula, é necessário lembrar que toda equação do segundo grau deve ser escrita da seguinte maneira:</p> <!--https://brasilescola.uol.com.br/matematica/formula-bhaskara.htm-->
+
+        <!-- <img src="https://s3.static.brasilescola.uol.com.br/img/2016/04/equacao-do-segundo-grau.jpg" alt="equação reduzida" width="200" height="auto"> -->
+
+        <p>"Os coeficientes dessa equação são os números que ocupam o lugar de “a”, de “b” e de “c”. Portanto, o coeficiente “a” é o número que multiplica x2; o coeficiente “b” é o número que multiplica x; e o coeficiente “c” é o número que não multiplica incógnita."</p> <!--https://brasilescola.uol.com.br/matematica/formula-bhaskara.htm-->
+
+        <div id="div_etapas">
+            <h2>Para resolver, vamos por etapas:</h2>
+
+            <ul>
+                <li>Calcular discriminante</li>
+                <li>Substitua discriminante e coeficientes na fórmula de Bhaskara</li>
+                <li>Calcule as raízes da equação</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div id="div_calculo">
+        <h3>Cálculo de Bhaskara</h3>
+
+        Insira o valor de 'a': <input type="number" id="in_A"><br>
+
+        Insira o valor de 'b': <input type="number" id="in_B"><br>
+        
+        Insira o valor de 'c': <input type="number" id="in_C"><br>
+        
+        <button onclick="calcular_delta()">Calcular</button>
+        
+        <div id="div_titulo">
+            Resultado do Delta:
+            <div id="div_resultado_Delta"></div>
+        </div>
+    </div>
+
+    <div id="div_valorX">
+        <h3>Cálculo do valor de 'x'</h3>
+
+        Insira o valor de Delta: <input type="number" id="in_X"><br>
+
+        <button onclick="calcular_X()">Calcular valores de 'x'</button>
+        <div id="div_titulo">
+            Resultado do 'x':
+            <div id="div_resultado_X"></div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
+
+<script>
+   function calcular_delta(){
+        div_resultado_Delta.innerHTML = `Para o cálculo de 'Δ' (Delta), utilizaremos a seguinte fórmula: <br> <img src="https://s2.static.brasilescola.uol.com.br/img/2016/04/formula-de-bhaskara-em-sua-forma-original.jpg" alt="fórmula de Bhaskara" width="200" height="auto"> <br>`
+    
+        A = Number(in_A.value)
+        B = Number(in_B.value)
+        C = Number(in_C.value)
+        Delta = B**2 - (4*(A*(C)))
+        
+        div_resultado_Delta.innerHTML += `O valor de Delta é: <strong style="color: green;"> ${Delta}</strong>. <br> Utilize-o para o próximo passo do cálculo de Bhaskara para encontrar os valores do 'x'.`
+        
+    }
+
+    function calcular_X(){
+        div_resultado_X.innerHTML = `Para o cálculo de 'x', utilizaremos a seguinte fórmula: <br> <img src="https://s3.static.brasilescola.uol.com.br/img/2016/04/equacao-do-segundo-grau.jpg" alt="equação reduzida" width="200" height="auto"> <br>`
+        
+        A = Number(in_A.value)
+        B = Number(in_B.value)
+        C = Number(in_C.value)
+
+        Raiz_Delta = Math.sqrt(Delta)
+
+        X1 = ((-B) + (+Raiz_Delta))/(2*A) 
+        X2 = ((-B) + (-Raiz_Delta))/(2*A)
+        
+
+        div_resultado_X.innerHTML += `O primeiro valor de X é: <strong style="color: green;">${X1}</strong> <br>`
+        div_resultado_X.innerHTML += `O segundo valor de X é: <strong style="color: green;">${X2}</strong>`
+
+    }
+</script>
