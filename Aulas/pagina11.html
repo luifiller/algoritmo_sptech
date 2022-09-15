@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=77, initial-scale=1.0">
+    <title>Classe Social</title>
+</head>
+<body>
+    
+    <h2>Ganhos das classes sociais</h2>
+
+    <select id="sel_classe">
+        <option value="20000">Classe A</option>
+        <option value="10000">Classe B</option>
+        <option value="3700">Classe C</option>
+        <option value="1500">Classe D</option>
+    </select>
+
+    <button onclick="ver_ganhos()">Ver ganhos</button>
+
+    <br><br>
+
+    <h2>Conte-me segredo</h2>
+
+    <select id="sel_segredo" onchange="ver_segredo()"> <!-- 'onchange' chama função quando seleciona uma opção na tag 'select'/'option'-->
+        <option value="">Escolha um segredo</option> <!--deixa sem valor no 'value' para que possa aparecer o comando/orientação para o usuário -->
+        <option value="Eu canto rock">JP</option>
+        <option value="Estou sempre com raiva">Bruce Banner</option>
+        <option value="Não gosto do onclick">João Teodoro</option>
+    </select>
+
+
+</body>
+</html>
+
+<script>
+    function ver_ganhos(){
+        var ganho_minimo = Number(sel_classe.value)
+        alert(`Para ser da classe, você precisa ganhar mais de ${ganho_minimo}`)
+    }
+
+    function ver_segredo(){
+        var segredo = sel_segredo.value
+
+        if (segredo != "") {
+            alert(`O segredo é: ${segredo}`)
+        }
+    }
+
+</script>
