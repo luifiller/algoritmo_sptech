@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estações do Ano</title>
+</head>
+<body>
+
+    <h2>As estações do ano e suas imagens</h2>
+    
+    <select id="sel_estacoes" onchange="ver_imagem()">
+        <option value="">selecione a estação</option>
+        <option value="https://www.infoescola.com/wp-content/uploads/2008/10/primavera.jpg">Primevera</option>
+        <option value="https://piauihoje.com/migration/public_html/media/image_bank/2016/12/verao.jpg">Verão</option>
+        <option value="https://www.lopes.com.br/blog/wp-content/uploads/2017/03/capa.jpg">Outono</option>
+        <option value="https://t5z6q4c2.rocketcdn.me/wp-content/uploads/2020/04/inverno-datas-e-caracteristicas.jpg">Inverno</option>
+    </select>
+    <br>
+    <img src id="img_estacao" style="height: 200px;">
+
+</body>
+</html>
+
+<script>
+    function ver_imagem(){
+        img_estacao.src = sel_estacoes.value
+    }
+</script>

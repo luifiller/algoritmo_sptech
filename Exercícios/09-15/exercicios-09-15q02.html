@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade Aposentadoria | INSS</title>
+</head>
+<body>
+
+    <h2>Simulador de tempo para aposentadoria</h2>
+
+    Insira a quantidade de anos que você trabalhou: <input type="number" id="in_tempo_trabalho"><br><br>
+
+    <select id="sel_trabalho">
+        <option value="">selecione uma opção</option>
+        <option value="40">Funcionário de empresa privada</option>
+        <option value="35">Funcionário de empresa pública</option>
+        <option value="45">Empreendedor</option>
+    </select> <br><br>
+
+    <button onclick="calcular_aposentadoria()">Calcular aposentadoria</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function calcular_aposentadoria(){
+        var tempo_trabalho = Number(in_tempo_trabalho.value)
+        var tipo_trabalho = Number(sel_trabalho.value)
+
+        var tempo_restante = tipo_trabalho - tempo_trabalho
+
+        div_resultado.innerHTML = `Você ainda terá que trabalhar por mais ${tempo_restante} anos para se aposentar.`
+    }
+</script>
+

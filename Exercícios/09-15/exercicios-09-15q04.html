@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oração pela paz</title>
+</head>
+<body>
+    
+    <h2>Oração pela paz - São Francisco de Assis</h2>
+
+    <select id="sel_oracao" onchange="ver_oracao()">
+        <option value="">selecione uma opção</option>
+        <option value=", que eu leve o Amor">Onde houver Ódio</option>
+        <option value=", que eu leve o Perdão">Onde houver Ofensa</option>
+        <option value=", que eu leve a União">Onde houver Discórdia</option>
+        <option value=", que eu leve a Fé">Onde houver Dúvida</option>
+        <option value=", que eu leve a Verdade">Onde houver Erro</option>
+        <option value=", que eu leve a Esperança">Onde houver Desespero</option>
+        <option value=", que eu leve a Alegria">Onde houver Tristeza</option>
+        <option value=", que eu leve a Luz">Onde houver Trevas</option>
+    </select>
+
+</body>
+</html>
+
+<script>
+    function ver_oracao(){
+        var oracao_comp = sel_oracao.value
+        alert(`${oracao_comp}`)
+    }
+
+</script>

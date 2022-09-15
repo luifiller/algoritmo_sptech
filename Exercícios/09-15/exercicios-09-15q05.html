@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+<body>
+
+    <h2>Ensinando a tabuada</h2>
+    <p>Selecione uma das opções abaixo para que seja calculada a sua devida tabuada</p>
+
+    <select id="sel_tabuada" onchange="calcular_tabuada()">
+        <option value="">selecione uma opção</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select> 
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function calcular_tabuada(){
+        var n_tabuada = Number(sel_tabuada.value)
+        var n2 = n_tabuada * 2
+        var n3 = n_tabuada * 3
+        var n4 = n_tabuada * 4
+        var n5 = n_tabuada * 5
+        var n6 = n_tabuada * 6
+        var n7 = n_tabuada * 7
+        var n8 = n_tabuada * 8
+        var n9 = n_tabuada * 9
+
+        div_resultado.innerHTML = `<br>${n_tabuada} x 2 = ${n2} <br> ${n_tabuada} x 3 = ${n3} <br> ${n_tabuada} x 4 = ${n4} <br> ${n_tabuada} x 5 = ${n5} <br> ${n_tabuada} x 6 = ${n6} <br> ${n_tabuada} x 7 = ${n7} <br> ${n_tabuada} x 8 = ${n8} <br> ${n_tabuada} x 9 = ${n9} <br>`
+    }
+</script>

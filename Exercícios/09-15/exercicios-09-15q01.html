@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe Heróis | One Punch Man</title>
+</head>
+<body>
+
+    <h2>Classes de One Punch Man</h2>
+    
+    <select id="sel_classes" onchange="ver_classe()">
+        <option value="">escolha um herói</option>
+        <option value="S">Metal Knight</option>
+        <option value="A">Máscara Doce</option>
+        <option value="S">Prisioneiro PuriPuri</option>
+        <option value="B">Fubuki</option>
+        <option value="C">Cavaleiro sem Licença</option>
+    </select>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function ver_classe(){
+        var classe_heroi = sel_classes.value
+
+        div_resultado.innerHTML = `Esse(a) herói é da classe ${classe_heroi}.`
+
+    }
+</script>
