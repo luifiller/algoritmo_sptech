@@ -22,16 +22,14 @@
     </select> <br>
 
     <button onclick="ver_escudo()">Ver escudo</button>
-
-    <div id="div_resultado">
-        <img src id="img_escudo" alt="escudo de times">
-    </div>
+    
+    <img src id="img_escudo" style="height: 200px;">
 
 </body>
 </html>
 
 <script>
     function ver_escudo(){
-        img_escudo.src = sel_times.values
+        img_escudo.src = sel_times.value
     }
 </script>
