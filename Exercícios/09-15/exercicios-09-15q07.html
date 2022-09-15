@@ -1,0 +1,37 @@
+<!-- ARRUMAR CÓDIGO | FUNÇÕES NO JS -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times de Futebol - SP</title>
+</head>
+<body>
+    
+    <h2>Times de futebol de São Paulo</h2>
+
+
+    <select id="sel_times">
+        <option value="">selecione o time</option>
+        <option value="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Brasao_do_Sao_Paulo_Futebol_Clube.svg/2054px-Brasao_do_Sao_Paulo_Futebol_Clube.svg.png">São Paulo</option>
+        <option value="https://www.imagensempng.com.br/wp-content/uploads/2021/01/Escudo-Palmeiras-Png-1024x1024.png">Palmeiras</option>
+        <option value="https://seeklogo.com/images/C/Corinthians_Bras_and__227_o-logo-E92E44B595-seeklogo.com.png">Corinthians</option>
+        <option value="https://media.santosfc.com.br/wp-content/uploads/2022/04/Escudo-sem-estrelas229x220-1.png">Santos</option>
+    </select> <br>
+
+    <button onclick="ver_escudo()">Ver escudo</button>
+
+    <div id="div_resultado">
+        <img src id="img_escudo" alt="escudo de times">
+    </div>
+
+</body>
+</html>
+
+<script>
+    function ver_escudo(){
+        img_escudo.src = sel_times.values
+    }
+</script>
