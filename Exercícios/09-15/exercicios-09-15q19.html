@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estações do Ano</title>
+</head>
+<body>
+    
+    <h2>Qual estação do ano estamos aqui no hemisfério sul?</h2>
+
+    <select id="sel_mes" onchange="analisar()">
+        <option value="">selecione a opção</option>
+        <option value="1">Janeiro</option>
+        <option value="2">Fevereiro</option>
+        <option value="3">Março</option>
+        <option value="4">Abril</option>
+        <option value="5">Maio</option>
+        <option value="6">Junho</option>
+        <option value="7">Julho</option>
+        <option value="8">Agosto</option>
+        <option value="9">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+    </select>
+
+    <div id="div_msg"></div>
+    
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var mes = Number(sel_mes.value)
+
+        if ((mes >= 3) && (mes <= 5)) {
+            div_msg.innerHTML = `Outono<br> <img src="https://www.lopes.com.br/blog/wp-content/uploads/2017/03/capa.jpg" style="height: 200px;">`
+        } else if ((mes >= 6) && (mes <= 8)) {
+            div_msg.innerHTML = `Inverno<br> <img src="https://t5z6q4c2.rocketcdn.me/wp-content/uploads/2020/04/inverno-datas-e-caracteristicas.jpg" style="height: 200px;">`
+        } else if ((mes >= 9) && (mes <= 11)) {
+            div_msg.innerHTML = `Primavera<br> <img src="https://www.infoescola.com/wp-content/uploads/2008/10/primavera.jpg" style="height: 200px;">`
+        } else {
+            div_msg.innerHTML = `Verão<br> <img src="https://piauihoje.com/migration/public_html/media/image_bank/2016/12/verao.jpg" style="height: 200px;">`
+        }
+ 
+     }
+</script>

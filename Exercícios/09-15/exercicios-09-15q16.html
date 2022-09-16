@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Não Engordar</title>
+</head>
+<body>
+    
+    <h2>Foco em não engordar durante a pandemia!</h2>
+
+    Insira o total de pães franceses que come por dia: <input type="number" id="in_qtdPaes"><br>
+    Insira o total de pacotes de bolacha recheada que come por dia: <input type="number" id="in_qtdBolacha"><br>
+    Insira o total de copos de achocolatado que toma por dia: <input type="number" id="in_qtdAchoc"><br>
+
+    <button onclick="verificar_cal()">Verificar calorias</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_msg"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    function verificar_cal(){
+        var qtdPaes = Number(in_qtdPaes.value)
+        var qtdBolacha = Number(in_qtdBolacha.value)
+        var qtdAchoc = Number(in_qtdAchoc.value)
+
+        var tot_cal = (qtdPaes * 50) + (qtdBolacha * 80) + (qtdAchoc * 70)
+
+        if (tot_cal < 200) {
+            div_msg.innerHTML = `Parabéns, vai sair em forma da quarentena!`
+        } else if (tot_cal < 400) {
+            div_msg.innerHTML = `Cuidado, vai ficar mais "fofinho(a)" após a quarentena!`
+        } else {
+            div_msg.innerHTML = `Bom, acho que muitos não vão te reconhecer após a quarentena.`
+        }
+    }
+
+</script>

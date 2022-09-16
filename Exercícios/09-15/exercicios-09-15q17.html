@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Economias</title>
+</head>
+<body>
+    
+    <h2>Quanto será que dá para economizar?</h2>
+
+    Insira o montante da sua meta de economia: <input type="number" id="in_meta"><br>
+    Insira quanto dinheiro tem guardado no momento atual: <input type="number" id="in_guardado"><br>
+
+    <button onclick="analisar()">Analisar economia</button>
+
+    <div id="div_titulo">
+        Resultado:
+        <div id="div_msg"></div>
+    </div>
+
+</body>
+</html>
+
+
+<script>
+    function analisar(){
+        var meta = Number(in_meta.value)
+        var guardado = Number(in_guardado.value)
+    
+        var tot = guardado - meta
+
+        if (tot >= 0) {
+            div_msg.innerHTML += `Parabéns, meta alcançada!<br>`
+        } 
+        
+        if (tot > 0) {
+            div_msg.innerHTML += `Meta ultrapassada em R$${(tot).toFixed(2)}`
+        } else {
+            div_msg.innerHTML = `Força! Ainda em busca da Meta! Falta R$${(tot*(-1)).toFixed(2)}`
+        }
+    }
+</script>

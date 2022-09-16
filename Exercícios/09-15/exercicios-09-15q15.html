@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poder de Compra</title>
+</head>
+<body>
+    
+    <h2>Qual é o seu poder de compra?</h2>
+
+    Insira o valor que está economizando: <input type="number" id="in_valor"><br>
+
+    <button onclick="analisar()">Poder de compra</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var valor_eco = Number(in_valor.value)
+
+        if (valor_eco <= 0) {
+            div_msg.innerHTML = `Nada de compras ☹️.<br>`
+        } else if (valor_eco <= 100) {
+            div_msg.innerHTML = `Viajem de ida e volta para Praia Grande.<br>`
+        } else if (valor_eco < 4000) {
+            div_msg.innerHTML += `Viajem de ida e volta para Praia Grande.<br> Uma boa moto usada.<br>`
+        } else {
+            div_msg.innerHTML += `Uma boa moto usada.<br> Mais alguma bobagem legal.<br>`
+        }
+    }
+</script>

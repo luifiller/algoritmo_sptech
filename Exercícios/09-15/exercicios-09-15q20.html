@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickado</title>
+</head>
+<body>
+    
+    <h2>Você é habilidoso(a)? Vai encarar?</h2>
+    
+    <button onclick="contar()">Clica neu</button>
+    
+    <div id="div_text">Você já clicou 0 vezes</div>
+    
+</body>
+</html>
+
+<script>
+    var click = 0
+
+    function contar(){
+        ++ click
+        div_text.innerHTML = `Você já clicou ${click} vezes.`
+    
+        if (click < 5) {
+            div_text.innerHTML += `<br>Dedo fraquinho, hein`
+        } else if (click <= 10) {
+            div_text.innerHTML += `<br>Dedo bom, mano`
+        } else if (click <= 15) {
+            div_text.innerHTML += `<br>Gosta de clicar, hein`
+        } else {
+            div_text.innerHTML += `<br>Eita dedo nervoso!`
+        }
+    }
+
+</script>
