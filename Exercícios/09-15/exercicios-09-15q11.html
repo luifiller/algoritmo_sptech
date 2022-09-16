@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperaturas</title>
+</head>
+<body>
+    
+    <h2>Classificações de temperaturas para seres humanos</h2>
+
+    Insira uma temperatura: <input type="number" id="in_temp" onkeyup="classificar()"> <br>
+
+    <div id="div_temp"></div>
+
+</body>
+</html>
+
+<script>
+    function classificar(){
+        var temp = Number(in_temp.value)
+
+        if (temp < 14) {
+            div_temp.innerHTML = `Congelante`
+        } else if (temp < 21) {
+            div_temp.innerHTML = `Com Frio`
+        } else if (temp < 24) {
+            div_temp.innerHTML = `Confortável`
+        } else if (temp < 31) {
+            div_temp.innerHTML = `Com Calor`
+        } else {
+            div_temp.innerHTML = `Calor Escaldante`
+        }
+    }
+</script>

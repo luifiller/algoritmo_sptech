@@ -4,15 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Esportes e Alturas</title>
 </head>
 <body>
 
-    <h2></h2>
+    <h2>Descubra o esporte que poderá praticar</h2>
+    <p>Apenas insira a altura e já tenha a resposta imediatamente!</p>
 
-    Insira a sua altura em metros: <input type="number" id="in_altura"><br>
-    
+    Insira a sua altura em centímetros: <input type="number" id="in_altura" onkeyup="analisar_altura()"><br>
+
+    <div id="div_frases"></div>
 
 
 </body>
 </html>
+
+<script>
+    function analisar_altura(){
+        var altura = Number(in_altura.value)
+        
+        var alt_metro = altura / 100
+
+        if (alt_metro < 1.65) {
+            div_frases.innerHTML = `Você pode ser piloto de corrida.`    
+        } else if (alt_metro < 1.80) {
+            div_frases.innerHTML = `Você pode ser jogador de futebol.`
+        } else {
+            div_frases.innerHTML = `Você pode ser jogador de vôlei ou basquete.`
+        }
+    }
+</script>
