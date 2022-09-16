@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descontos de Carteira Assinada</title>
+</head>
+<body>
+    
+    <h2>Conhecendo os descontos de salário</h2>
+    <ul>Foi considerado os seguintes descontos para cada opção:
+        <li>INSS - 10% do salário</li>
+        <li>IR - 20% do salário</li>
+        <li>VR - 5% do salário</li>
+    </ul>
+
+
+    Digite seu salário: <input type="number" id="in_salario">
+
+    <select id="sel_desconto">
+        <option value="">selecione uma opção</option>
+        <option value="0.9">INSS</option>
+        <option value="0.8">IR</option>
+        <option value="0.95">VT</option>
+    </select>
+
+    <button onclick="ver_desconto()">Ver desconto</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    function ver_desconto(){
+        var salario = Number(in_salario.value)
+        var desconto = Number(sel_desconto.value) 
+
+        var desc_final = salario * desconto 
+
+        div_resultado.innerHTML = `Valor desse desconto: R$${(desc_final).toFixed(2)}.`
+    }
+</script>
