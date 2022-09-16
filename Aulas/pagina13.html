@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variáveis globais</title>
+</head>
+<body>
+
+    <h2>Contador de passos</h2>
+    
+    <button onclick="andar()">Andar um passo</button>
+
+    <button onclick="verificar_passos()">Verificar passos</button>
+
+    <div id="div_msg">0 passos</div>
+
+</body>
+</html>
+
+<script>
+    var passos = 0; // variável global que pode ser acessada por qualquer outra função
+
+
+    function andar() {
+        passos ++; // o shorthand '++' é igual à 'passos = passos + 1;' | se o '++' ir antes da variável, 1º há o incremento e depois o print
+    }
+
+    function verificar_passos() {
+        div_msg.innerHTML = `${passos} passos.`;
+    }
+
+
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saudações</title>
+</head>
+<body>
+    Nome: <input type="text" id="in_nome"> <br>
+
+    <button onclick="verificar()">Verificar nome</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    var nome = '';
+
+    function verificar(){
+        nome = in_nome.value;
+        div_msg.innerHTML = `Olá, ${nome}`;
+    }
+</script>

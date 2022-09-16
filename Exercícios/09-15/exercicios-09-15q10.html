@@ -23,13 +23,13 @@
     function analisar_renda(){
         var renda = Number(in_renda.value)
 
-        if (renda < 250) {
+        if (renda <= 250) {
             div_classe.innerHTML = `Classe E`        
-        } else if (renda < 900) {
+        } else if (renda <= 900) {
             div_classe.innerHTML = `Classe D`
-        } else if (renda < 2500) {
+        } else if (renda <= 2500) {
             div_classe.innerHTML = `Classe C`
-        } else if (renda < 9500) {
+        } else if (renda <= 9500) {
             div_classe.innerHTML = `Classe B`
         } else {
             div_classe.innerHTML = `Classe A`
