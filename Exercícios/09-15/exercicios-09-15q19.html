@@ -12,18 +12,18 @@
 
     <select id="sel_mes" onchange="analisar()">
         <option value="">selecione a opção</option>
-        <option value="1">Janeiro</option>
-        <option value="2">Fevereiro</option>
-        <option value="3">Março</option>
-        <option value="4">Abril</option>
-        <option value="5">Maio</option>
-        <option value="6">Junho</option>
-        <option value="7">Julho</option>
-        <option value="8">Agosto</option>
-        <option value="9">Setembro</option>
-        <option value="10">Outubro</option>
-        <option value="11">Novembro</option>
-        <option value="12">Dezembro</option>
+        <option value="4">Janeiro</option>
+        <option value="4">Fevereiro</option>
+        <option value="1">Março</option>
+        <option value="1">Abril</option>
+        <option value="1">Maio</option>
+        <option value="2">Junho</option>
+        <option value="2">Julho</option>
+        <option value="2">Agosto</option>
+        <option value="3">Setembro</option>
+        <option value="3">Outubro</option>
+        <option value="3">Novembro</option>
+        <option value="4">Dezembro</option>
     </select>
 
     <div id="div_msg"></div>
@@ -36,15 +36,15 @@
     function analisar() {
         var mes = Number(sel_mes.value)
 
-        if ((mes >= 3) && (mes <= 5)) {
+
+        if (mes == 1) {
             div_msg.innerHTML = `Outono<br> <img src="https://www.lopes.com.br/blog/wp-content/uploads/2017/03/capa.jpg" style="height: 200px;">`
-        } else if ((mes >= 6) && (mes <= 8)) {
+        } else if (mes == 2) {
             div_msg.innerHTML = `Inverno<br> <img src="https://t5z6q4c2.rocketcdn.me/wp-content/uploads/2020/04/inverno-datas-e-caracteristicas.jpg" style="height: 200px;">`
-        } else if ((mes >= 9) && (mes <= 11)) {
+        } else if (mes == 3) {
             div_msg.innerHTML = `Primavera<br> <img src="https://www.infoescola.com/wp-content/uploads/2008/10/primavera.jpg" style="height: 200px;">`
         } else {
             div_msg.innerHTML = `Verão<br> <img src="https://piauihoje.com/migration/public_html/media/image_bank/2016/12/verao.jpg" style="height: 200px;">`
         }
- 
      }
 </script>
