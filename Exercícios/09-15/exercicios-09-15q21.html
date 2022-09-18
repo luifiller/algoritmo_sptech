@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Carteira</title>
 </head>
 <body>
+
+    <h2>Guardar ou Gastar? Eis a questão!</h2>
     
     <div id="div_txt">Valor guardado: R$0.00</div>
     
@@ -19,38 +21,37 @@
 
 <script>
     var tot = 0
+
+    function estrutura(){
+        div_txt.innerHTML = `Valor guardado: R$${(tot).toFixed(2)}`
+        
+        if (tot > 100) {
+            div_txt.innerHTML = `Valor guardado: R$${(tot).toFixed(2)}`
+            div_txt.innerHTML += `<div style="color: blue;">Finanças OK</div>`
+            div_txt.innerHTML += `<div>#ostentação</div>`
+        } else if (tot > 0) {
+            div_txt.innerHTML = `Valor guardado: R$${(tot).toFixed(2)}`
+            div_txt.innerHTML += `<div style="color: blue;">Finanças OK</div>`
+        } else if (tot < (-20)) {
+            div_txt.innerHTML = `Valor guardado: R$${(tot).toFixed(2)}`
+            div_txt.innerHTML += `<div style="color: red;">Finanças em perigo!</div>`
+            div_txt.innerHTML += `<div>Seu nome vai ficar sujo, hein?</div>`
+        } else if (tot < 0) {
+            div_txt.innerHTML = `Valor guardado: R$${(tot).toFixed(2)}`
+            div_txt.innerHTML += `<div style="color: red;">Finanças em perigo!</div>`
+        }
+    }
     
     function guardar(){
         tot += 5
-        
-        div_txt.innerHTML = `Valor guardado: R$${(tot).toFixed(2)}`
-        
-        if (tot > 0) {
-            div_txt.innerHTML = `<div style="color: blue;">Finanças OK</div>`
-        } else if (tot > 100) {
-            div_txt.innerHTML = `<div>#ostentação</div>`
-        } else if (tot < 0) {
-            div_txt.innerHTML = `<div style="color: red;">Finanças em perigo!</div>`
-        } else if (tot < (-20)) {
-            div_txt.innerHTML = `<div>Seu nome vai ficar sujo, hein?</div>`
-        }
+
+        estrutura()
     }
 
     function gastar(){
         tot -= 10
-        
-        div_txt.innerHTML = `Valor guardado: R$${(tot).toFixed(2)}`
-        
-        if (tot > 0) {
-            div_txt.innerHTML += `<div style="color: blue;">Finanças OK</div>`
-        } else if (tot > 100) {
-            div_txt.innerHTML += `<div>#ostentação</div>`
-        } else if (tot < 0) {
-            div_txt.innerHTML += `<div style="color: red;">Finanças em perigo!</div>`
-        } else if (tot < -20) {
-            div_txt.innerHTML += `<div>Seu nome vai ficar sujo, hein?</div>`
-        }
 
+        estrutura()
     }
 
 
