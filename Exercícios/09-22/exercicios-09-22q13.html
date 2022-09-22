@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2></h2>
+
+    Insira o tempo, em anos, que a pessoa trabalhou para o pai: <input placeholder="tempo de trabalho" type="number" id="in_tempo"><br>
+    Insira a quantidade, em kilos, de trigo por hectare, que as plantações renderam: <input placeholder="kilos de trigo" type="number" id="in_qtdTrigo"><br>
+    Insira a quantidade, em dias, que a pessoa faltou ao trabalho por estar doende: <input placeholder="kilos de trigo" type="number" id="in_qtdDia"><br>
+
+    <button onclick="analisar()">Deu match?</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var tempo = Number(in_tempo.value)
+        var qtdT = Number(in_qtdTrigo.value)
+        var qtdD = Number(in_qtdDia.value)
+
+        if (tempo >= 5 && qtdT >= 300 && qtdD <= 5) {
+            div_msg.innerHTML = `Minha filha será sua! <br> <img src="https://www.noivasdoriodejaneiro.com.br/wp-content/uploads/2022/01/LaMo-0068-399x532.jpg" alt="imagem noiva" height="300px">`
+        } else {
+            div_msg.innerHTML = `Deu ruim! Trabalhe mais 2 anos <br> <img src="https://static.vixbrasiltv.com/pt/sites/default/files/h/homem-bravo-0119-1400x800.jpg" alt="imagem homem bravo" height="200px">`
+        }
+    }
+
+</script>

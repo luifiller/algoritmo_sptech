@@ -4,30 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Candidato a Piloto</title>
 </head>
 <body>
     
-    Insira a altura inicial: <input type="number" id="in_inicial"><br>
-    Insira a altura inicial: <input type="number" id="in_final"><br>
+    <h2>Posso me candidatar a ser piloto?</h2>
 
-    Insira o nome: <input type="text" id="in_nome"><br>    
-    Insira a altura inicial: <input type="number" id="in_altura"><br>    
+    <h3>Altura desejada para os próximos pilotos</h3>
+    Insira a altura inicial: <input placeholder="altura inicial" type="number" id="in_inicial"><br>
+    Insira a altura final: <input placeholder="altura final" type="number" id="in_final"><br>
 
+    <h3>Dados do candidato</h3>
+    Insira o nome: <input placeholder="nome" type="text" id="in_nome"><br>    
+    Insira a altura do candidato: <input placeholder="altura do candidato" type="number" id="in_alturaCd"><br>    
+
+    <button onclick="cadastrar()">Cadastrar</button>
 
 </body>
 </html>
 
 <script>
-    function analisar() {
-        var h_inicial = Numebr(in_inicial.value)
-        var h_final = Numebr(in_final.value)
+    function cadastrar() {
+        var h_inicial = Number(in_inicial.value)
+        var h_final = Number(in_final.value)
+        var h_cd = Number(in_alturaCd.value)
+        var nome = in_nome.value
 
         var h_intervalo = h_final - h_inicial
-        if (h_intervalo < 0 ) {
+        
+        if (h_inicial <= 1 || h_intervalo <= 0 ) {
             alert(`NÃO SEGUIR EM FRENTE!`)
-        } else if () {
-            // DEPOIS DA VALIDAÇÃO DE CIMA, CONTINUAR CODANDO NA ALTERNATIVA B....
-        } else 
+        } else if (h_cd > h_inicial && h_cd < h_final) {
+            alert(`O candidato ${nome} com altura de ${h_cd} participará do processo de seleção de piloto.`)
+        } else {
+            alert(`Infelizmente o candidato ${nome} com altura de ${h_cd} não atende os requisitos`)
+        } 
     }
 </script>

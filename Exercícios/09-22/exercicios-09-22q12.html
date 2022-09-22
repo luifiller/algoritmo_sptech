@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão Fidelidade</title>
+</head>
+<body>
+    
+    <h2>Cartão fidelidade do metrô de São Paulo</h2>
+
+    Insira a quantidade de passagens para comprar: <input placeholder="quantidade passagens" type="number" id="in_qtdP"><br>
+
+    <button onclick="comprar()">Comprar</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function comprar() {
+        var qtdP = Number(in_qtdP.value)
+        var valorP = 4.4
+        var tot = 0
+
+        if (qtdP < 8 && qtdP > 50) {
+            alert(`Quantidade inválida para o Fidelidade!`)
+        } else if (qtdP >= 8 && qtdP <= 19) {
+            valorP = valorP * 0.97
+            tot = qtdP * valorP
+            div_msg.innerHTML = `Total a pagar: R$${tot.toFixed(2)}`
+        } else if (qtdP >= 20 && qtdP <= 49) {
+            valorP = valorP * 0.95
+            tot = qtdP * valorP
+            div_msg.innerHTML = `Total a pagar: R$${tot.toFixed(2)}`
+        } else {
+            valorP = valorP * 0.93
+            tot = qtdP * valorP
+            div_msg.innerHTML = `Total a pagar: R$${tot.toFixed(2)}`
+        }
+    }
+
+</script>
