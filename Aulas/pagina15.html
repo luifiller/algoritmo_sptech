@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Money & Travel</title>
+</head>
+<body>
+    
+    <h2>Saio hoje?</h2>
+    
+    Insira o quanto você tem de dinheiro: <input placeholder="dinheiro" type="number" id="in_din"><br>
+    Insira a temperatura do dia: <input placeholder="temperatura" type="number" id="in_temp"><br>
+
+    <button onclick="analisar()">Vou sair?</button>
+
+</body>
+</html>
+
+<script>
+    
+    function analisar() {  
+        var dinheiro = Number(in_din.value) 
+        var temperatura = Number(in_temp.value) 
+
+        if (dinheiro >= 100 && temperatura >= 20) {        
+            alert(`Sim! Você poderá viajar!`)
+        } else {
+            alert(`Infelizmente você não conseguirá viajar!`)
+        }
+    }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proteinas e Sobremesas</title>
+</head>
+<body>
+
+    <h2>Serei vegano(a)?</h2>
+    
+    <select id="sel_proteina" onchange="comprar()">
+        <option value="">insira a proteina</option>
+        <option value="1">Ovo</option>
+        <option value="2">Soja</option>
+        <option value="3">Carne</option>
+    </select>
+
+    <select id="sel_sobremesa" onchange="comprar()">
+        <option value="">insira a sobremesa</option>
+        <option value="1">Pudim</option>
+        <option value="2">Petit Gateau</option>
+        <option value="3">Brigadeiro de Soja</option>
+    </select>
+
+</body>
+</html>
+
+<script>
+    function comprar(){
+        var proteina = Number(sel_proteina.value)
+        var sobremesa = Number(sel_sobremesa.value)
+
+        if (proteina == 2 && sobremesa == 3) {
+            alert('Você poderia ser vegano(a)')
+        } else {
+            alert('Você NÃO pode ser vergano(a)')
+        }
+    }
+
+</script>
