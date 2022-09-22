@@ -4,31 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Frutas</title>
+    <title>Temperatura</title>
 </head>
 <body>
 
-    <h2>Consigo comprar fruta?</h2>
-    
-    Insira o nome da fruta: <input type="text" id="in_fruta"><br>
-    Insira o preço da fruta: <input type="number" id="in_preco"><br>
+    <h2>Será que a temperatura está confortável?</h2>
 
-    <button onclick="comprar()">Vou comprar?</button>
+    Insira a temperatura: <input type="number" id="in_temp"><br>x
 
-    <div id="div_compra"></div>
+    <button onclick="analisar()">Ver situação</button>
 
 </body>
 </html>
 
 <script>
-    function comprar(){
-        var fruta = in_fruta.value
-        var preco = in_preco.value
-        if (fruta == "uva" && preco < 8.5) {
-            div_compra.innerHTML = `Vou comprar.`
+    function analisar() {
+        var temperatura = Number(in_temp.value)
+        if (temperatura > 21 && temperatura < 24) {
+            alert(`Temperatura confortável 🙂`)
         } else {
-            div_compra.innerHTML = `Sem fruta hoje.`
+            alert(`Temperatura DESCONFORTÁVEL ☹️`)
         }
     }
-
 </script>

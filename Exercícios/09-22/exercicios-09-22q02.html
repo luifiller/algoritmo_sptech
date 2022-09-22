@@ -4,38 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proteinas e Sobremesas</title>
+    <title>Governo - SP</title>
 </head>
 <body>
 
-    <h2>Serei vegano(a)?</h2>
+    <h2>Direito a ajuda do governo</h2>
     
-    <select id="sel_proteina" onchange="comprar()">
-        <option value="">insira a proteina</option>
-        <option value="1">Ovo</option>
-        <option value="2">Soja</option>
-        <option value="3">Carne</option>
-    </select>
+    Insira a sua renda: <input type="number" id="in_rendaU"><br>
+    Insira a renda total da sua família: <input type="number" id="in_rendaF"><br>
 
-    <select id="sel_sobremesa" onchange="comprar()">
-        <option value="">insira a sobremesa</option>
-        <option value="1">Pudim</option>
-        <option value="2">Petit Gateau</option>
-        <option value="3">Brigadeiro de Soja</option>
-    </select>
+    <button onclick="verificar()">Verificar ajuda</button>
+
 
 </body>
 </html>
 
 <script>
-    function comprar(){
-        var proteina = Number(sel_proteina.value)
-        var sobremesa = Number(sel_sobremesa.value)
+    function verificar(){
+        var rendaU = Number(in_rendaU.value)
+        var rendaF = Number(in_rendaF.value)
 
-        if (proteina == 2 && sobremesa == 3) {
-            alert('Você poderia ser vegano(a)')
+        if (rendaU <= 1500 && rendaF <=2100) {
+            alert(`Você terá direito`)
         } else {
-            alert('Você NÃO pode ser vergano(a)')
+            alert(`Você NÃO terá direito`)
         }
     }
 

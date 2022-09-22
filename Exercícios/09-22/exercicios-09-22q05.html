@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recomenda Netflix</title>
+</head>
+<body>
+    
+    <h2>Instabilidades e recomendações na Netflix</h2>
+    <p>Entre 19h e 21h, por exemplo, é comum que ocorram instabilidades na plataforma, porque é o período em que mais há gente assistindo ao conteúdo.</p>
+
+    Insira a hora do dia que costuma acessar a Netflix: <input type="text" id="in_hora"><br>
+
+    <button onclick="recomendar()">Ver recomendação</button>
+
+    <div id="div_recomenda"></div>
+
+
+</body>
+</html>
+
+<script>
+    function recomendar() {
+        var hora = Number(in_hora.value)
+        
+        if (hora > 19 && hora < 21) {
+            div_recomenda.innerHTML = `Não é recomendável que você assista sua série favorita no horário ${hora}h!`
+        } else {
+            div_recomenda.innerHTML = `O horário ${hora}h é adequado para assistir sua série favorita!`
+        }
+    }
+
+</script>
