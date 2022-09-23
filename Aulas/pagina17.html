@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opções de Sorvetinho</title>
+</head>
+<body>
+    
+    <h2>Sorvetinho</h2>
+
+    <select id="sel_sorvete" onchange="verificar()">
+        <option value="">selecionar opção</option>
+        <option value="C">Chocolate</option>
+        <option value="C">Morango</option>
+        <option value="NC">Jiló</option>
+        <option value="NC">Feijão</option>
+        <option value="NC">Queijo</option>
+        <option value="NF">Pneu</option>
+    </select>
+
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var sabor = sel_sorvete.value
+
+        if (sabor == "NF" || sabor == "NC") {
+            alert(`Não coma!`)
+        } else {
+            alert(`Coma!`)
+        }
+    }
+</script>
