@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda emergencial</title>
+</head>
+<body>
+
+    <h2>Avaliação para ajuda emergencial ao COVID-19</h2>
+
+    Insira o valor da renda individual: <input type="number" id="in_rI"><br>
+    Insira o valor da renda familiar: <input type="number" id="in_rF"><br>
+
+    <button onclick="analisar()">Terei o benefício?</button>
+
+    <div id="div_msg"></div>
+    
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var rI = Number(in_rI.value)
+        var rF = Number(in_rF.value)
+    
+        if (rI <= 2000 || rF <= 3000) {
+            div_msg.innerHTML = `Você terá direito ao auxílio.`
+        } else {
+            div_msg.innerHTML = `Sem direito ao auxílio.`
+        }
+    }
+
+</script>

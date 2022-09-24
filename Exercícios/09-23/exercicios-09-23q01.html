@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutas da Juju</title>
+</head>
+<body>
+    
+    <h2>O que que tem na mesa da Juju? 🎶</h2>
+
+    Insira o nome de 1 fruta que esteja em sua mesa: <input placeholder="fruta" type="text" id="in_frutaM"><br>
+
+    <button onclick="analisar()">Vai comer?</button>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var fruta = in_frutaM.value
+
+        if (fruta == "Uva" || fruta == "uva" || fruta == "Abacaxi" || fruta == "abacaxi") {
+            alert(`Sim, vai comer ${fruta}.`)
+        } else {
+            alert(`A fruta ${fruta} ela não come.`)
+        }
+    }
+    
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentes Brilhantes</title>
+</head>
+<body>
+
+    <h2>Avaliação de notas para processo seletivo</h2>
+
+    Insira a nota do ENEM: <input placeholder="nota ENEM" type="number" id="in_notaE"><br>
+    Insira a nota do  vestibular interno: <input placeholder="nota vestibular interno" type="number" id="in_notaI"><br>
+
+    <button onclick="avaliar()">Avaliação</button>
+
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var notaE = Number(in_notaE.value)
+        var notaI = Number(in_notaI.value)
+
+        if (notaE >= 800 || notaI >= 700) {
+            alert(`Parabéns! Aprovado.`)
+        } else {
+            alert(`Tente semestre que vem.`)
+        }
+    }
+
+</script>
