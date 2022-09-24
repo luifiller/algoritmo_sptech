@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Númmeros Cabalísticos</title>
+</head>
+<body>
+    
+    <h2>Cliques e números cabalísticos</h2>
+
+    <h3 id="h_txt">Você já clicou 0 vezes</h3>
+
+    <button onclick="clicar()">Clique cabalístico</button>
+
+
+</body>
+</html>
+
+<script>   
+    var cont = 0
+
+    function clicar() {    
+        cont ++
+
+        h_txt.innerHTML = `Você já clicou ${cont} vezes`
+
+        if (cont == 3 || cont == 4 || cont == 7 || cont == 10) {
+            alert(`Você clicou ${cont} vezes e Juliana gosta desse número!`)
+        }
+    }
+
+</script>
