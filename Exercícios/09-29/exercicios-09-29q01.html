@@ -20,11 +20,14 @@
 
 <script>
     function entrar() {
+        div_msg.innerHTML = ``
+        
         var login = in_login.value
         var senha = in_senha.value
 
         var lC = login == "aidimin"
         var sC = senha == "seinha"
+
 
         if (lC && sC) {
             div_msg.innerHTML = `<p style="color: blue;">Usuário autenticado com sucesso!</p>`
