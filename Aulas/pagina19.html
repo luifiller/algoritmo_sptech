@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatura Agradável</title>
+</head>
+<body>
+    
+    Insira a temperatura: <input placeholder="temperatura" type="number" id="in_temperatura"><br>
+
+    <button onclick="analisar()">Analisar</button>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var temp = Number(in_temperatura.value)
+
+        // esta variável só pode ser true ou false, então o tipo dela é booleano
+        var agradavel = temp > 23
+
+        if (agradavel) {
+            alert(`Temperatura agradável`)
+        }
+
+        // a esclamação antes da variável nega o resultado booleano
+        if (!agradavel) {
+            alert(`Temperatura NÃO ESTÁ agradável`)
+        }
+
+    }
+</script>

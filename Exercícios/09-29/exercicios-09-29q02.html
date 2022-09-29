@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altura e Esporte</title>
+</head>
+<body>
+    
+    Insira a altura: <input type="number" id="in_altura">
+
+    <button onclick="analisar()">Analisar para esportes</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var altura = Number(in_altura.value)
+
+        var PeV = altura < 1.6
+        var jogador = altura > 1.6 && altura < 1.85
+
+        div_msg.innerHTML = ``
+        
+        if (PeV) {
+            div_msg.innerHTML = `Pode tentar ser piloto(a) de corrida<br>`
+            div_msg.innerHTML += `Pode tentar ser velejador(a)`
+        } else if (jogador) {
+            div_msg.innerHTML = `Pode tentar ser jogador de futebol ou handbol`
+        } 
+    }
+</script>
