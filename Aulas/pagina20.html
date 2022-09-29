@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input placeholder="Frase qualquer" type="text" id="in_frase" onkeyup="descever()"><br>
+
+    <div id="div_descricao"></div>
+
+</body>
+</html>
+
+<script>
+    function descever() {
+        var frase = in_frase.value
+
+        var tamanho = frase.length // fazer a contagem de caracteres
+        var tem_b = frase.indexOf('b') >= 0 // fazer a verificaçã se há uma letra
+        var cxAlta = frase.toUpperCase() // deixar em caixa alta
+        var cxBaixa = frase.toLowerCase() // deixar em caixa baixa
+        var rplc = frase.replaceAll('a', '1') // para substituir um caracter por outro | o 1º dentro do parenteses será o buscado e o 2º será o que substituirá o 1º
+
+        div_descricao.innerHTML = `
+            O texto tem ${tamanho} caracteres <br>
+            O texto tem a letra "b"? ${tem_b} <br>
+            Como ele ficaria em CAIXA ALTA? ${cxAlta} <br>
+            Como ele ficaria em caixa baixa? ${cxBaixa} <br>
+            Se eu trocar todos os "a" por "@": ${rplc} <br> 
+        `
+    }
+
+</script>
