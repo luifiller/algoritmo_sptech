@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estagio-vida.css">
+    <title>Estágios da Vida</title>
+</head>
+<body>
+    <div id="div_container">
+        <h2>Veja qual o estágio da sua vida e os seus pontos</h2>
+        
+        <div id="div_caixa">
+            Insira a sua idade: <input placeholder="idade" type="number" id="in_idade" onkeyup="analisar()"><br>
+            <div id="div_estagios"></div>
+        </div>
+    </div>
+    
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var idade = Number(in_idade.value)
+
+        var infancia = idade <= 12
+        var adolescencia = idade > 12 && idade <= 18
+        var idoso = idade >= 65 
+        
+        var totPonto = 0;
+        
+        if (idoso) {
+            totPonto += 50
+        } else if (adolescencia) {
+            totPonto += 20
+        } else {
+            totPonto += 10
+        }
+
+        div_estagios.innerHTML = `
+            <div class="div_inner">
+                <p>Já passou pela infância? [${infancia}]</p>
+                <p>Já passou pela adolescência? [${adolescencia}]</p>
+                <p>Já é um(a) idoso(a)? [${idoso}]</p>
+                <p>TOTAL DE PONTOS: ${totPonto}</p>
+            </div>
+        `
+    }
+
+</script>

@@ -1,0 +1,49 @@
+* {
+    background-color: #bbbbbb;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+#div_container {
+    width: 550px;
+    padding: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: rgb(21, 20, 20) solid;
+    border-radius: 20px;
+}
+
+#div_container h2{
+    margin: 0 0 18px 0;
+    text-align: center;
+}
+
+#div_caixa {
+    border: outset;
+    border-width: thin;
+    padding: 15px;
+    background-color: #ababab;
+}
+
+#div_caixa input {
+    border: inset;
+    border-radius: 10px;
+    background-color: #dbdbdb;
+    text-align: center;
+}
+
+#div_estagios {
+    background: none;
+}
+
+.div_inner {
+    margin: 12px;
+    border: black solid thin;
+    padding: 0 20px;
+}
