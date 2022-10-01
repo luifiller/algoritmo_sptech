@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Selecione o seu tipo de Pokémon: <select id="sel_iniciante">
+        <option value="">escolha o tipo de Pokémon</option>
+        <option value="1">Planta</option>
+        <option value="2">Água</option>
+        <option value="3">Fogo</option>
+    </select><br>
+
+    Selecione o tipo de Pokémon do oponente: <select id="sel_oponente">
+        <option value="">escolha o tipo de Pokémon</option>
+        <option value="1">Planta</option>
+        <option value="2">Água</option>
+        <option value="3">Fogo</option>
+    </select><br>
+
+    <button onclick="batalhar()">Batalhar!</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    var contIv = 0
+    var contId = 0
+    var contE = 0
+    
+    function batalhar() {
+        var tipoI = Number(sel_iniciante.value)
+        var tipoO = Number(sel_oponente.value)
+
+
+        var vitoriaI = tipoI == 1 && tipoO == 2 || tipoI == 2 && tipoO == 3 || tipoI == 3 && tipoO == 1
+        var vitoriaO = tipoO == 1 && tipoI == 2 || tipoO == 2 && tipoI == 3 || tipoO == 3 && tipoI == 1
+
+        if (tipoI == tipoO) {
+            div_msg.innerHTML = `A batalha empatou!`
+            contE ++
+        } else {
+            if (vitoriaI) {
+                div_msg.innerHTML = `O iniciante venceu!`
+                contIv ++
+            } else {
+                div_msg.innerHTML = `O iniciante perdeu!`
+                contId ++
+            }
+        }
+        div_msg.innerHTML += `<br>Vitórias do Iniciante: ${contIv} / Derrotas do Iniciante: ${contId} / Empates: ${contE}`
+    }
+
+</script>

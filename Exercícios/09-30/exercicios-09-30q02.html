@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    
+    <h2>Login</h2>
+
+    Insira seu login: <input placeholder="login" type="text" id="in_login"><br>
+    Insira sua senha: <input placeholder="senha" type="password" id="in_senha"><br>
+    Insira seu código de segurança: <input placeholder="código de segurança" type="password" id="in_cvs"><br>
+
+    <button onclick="analisar()">Autenticar</button>
+
+
+</body>
+</html>
+
+<script>
+    function analisar(){
+        var login = in_login.value
+        var senha = in_senha.value
+        var cvs = in_cvs.value
+
+        var loginC = login == "SPTECH"
+        var senhaC = senha == "SCHOOL"
+        var cvsC = cvs == "595"
+
+        if (loginC && senhaC && cvsC) {
+            alert(`Usuário autenticado com sucesso`)
+        } else {
+            alert(`Falha na autenticação`)
+        }
+    }
+
+</script>

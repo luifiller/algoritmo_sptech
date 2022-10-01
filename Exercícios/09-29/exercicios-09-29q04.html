@@ -19,27 +19,29 @@
 <script>
     function analisar() {
         var idade = Number(in_idade.value)
-
+        
         var infancia = idade <= 12
         var adolescencia = idade > 12 && idade <= 18
         var idoso = idade >= 65 
         
         var totPonto = 0;
-        
+
         if (idoso) {
-            totPonto += 50
+            totPonto = 80
         } else if (adolescencia) {
-            totPonto += 20
-        } else {
-            totPonto += 10
+            totPonto = 30
         }
 
         div_estagios.innerHTML = `
-            <p>Já passou pela infância? [${infancia}]</p>
-            <p>Já passou pela adolescência? [${adolescencia}]</p>
-            <p>Já é um(a) idoso(a)? [${idoso}]</p>
-            <p>TOTAL DE PONTOS: ${totPonto}</p>
+        <p>Já passou pela infância? [${infancia}]</p>
+        <p>Já passou pela adolescência? [${adolescencia}]</p>
+        <p>Já é um(a) idoso(a)? [${idoso}]</p>
+        <p>TOTAL DE PONTOS: ${totPonto}</p> 
         `
+        
+        if (idade == ''){
+            div_estagios.innerHTML = ``
+        }
     }
 
 </script>

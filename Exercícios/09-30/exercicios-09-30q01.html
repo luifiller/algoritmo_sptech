@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparo arroz</title>
+</head>
+<body>
+    <h2>Cadê o preparo de arroz? Será que está bom?</h2>
+    
+    Insira o tipo de arroz: <select id="sel_arroz">
+        <option value="">selecione a opção</option>
+        <option value="1">integral</option>
+        <option value="2">branco</option>
+    </select><br>
+
+    Insira o tempo de cozimento em minutos (min): <input type="number" id="in_temp"> <br>
+    
+    Insira a quantidade de sal em gramas (g): <input type="number" id="in_sal"> <br>
+
+    <button onclick="avaliar()">Avaliar arroz</button>
+
+    <div id="div_msg"></div>
+
+
+</body>
+</html>
+
+<script>
+    function avaliar() {
+        var tArroz = Number(sel_arroz.value)
+        var temp = Number(in_temp.value)
+        var sal = Number(in_sal.value)
+        
+        if (tArroz == 2 && temp == 10 && sal <= 10 || tArroz == 1 && temp == 20 && sal <= 15) {
+            div_msg.innerHTML = `Arroz perfeito`
+            if (tArroz == 1) {
+                div_msg.innerHTML += `<br><img src="https://nutritotal.com.br/publico-geral/wp-content/uploads/sites/2/2020/03/shutterstock_1019461927.jpg.webp" alt="" height="200px"
+                ,>`
+            } else {
+                div_msg.innerHTML += `<br><img src="https://octoshop.sfo2.digitaloceanspaces.com/lojas/gergastronomia/uploads_produto/arroz-branco-1-5f3ab18673542.jpg" alt="" height="200px">`
+            }
+        } else {
+            div_msg.innerHTML = `Seu arroz não está perfeito`
+            div_msg.innerHTML += `<br><img src="https://noticiasdatv.uol.com.br/media/_versions/erick-jacquin-freezer-bronca-pesadelo-na-cozinha-reproducao-band-min_fixed_large.jpg" height="200px">`
+        }
+    }
+
+</script>
