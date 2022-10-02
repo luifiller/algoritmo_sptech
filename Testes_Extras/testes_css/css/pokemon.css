@@ -1,0 +1,256 @@
+* {
+    font-family: 'Sansation', sans-serif;
+}
+
+/* INÍCIO DA CAIXA ANÁLISE */
+#div_main {
+    display: flex;
+    width: 853px;
+    height: 724px;
+    margin: auto;
+    padding-bottom: 15px;
+    border: solid;
+    border-radius: 90px;
+    border: inset;
+    border-color: #565656;
+    border-width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 35px;
+    background-color: #f33827; /* #ea2817 */
+}
+
+#div_logo img {
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+
+#div_analise {
+    width: 563px;
+    height: 289px;
+    margin: 23px;
+    border: inset;
+    border-width: 10px;
+    border-color: #535353;
+    border-radius: 20px;
+    padding: 15px auto;
+    background-color: #e4dcdc;
+    font-weight: bold;
+}
+
+#div_analise h4 {
+    width: 156px;
+    height: 40px;
+    background-color: #6e6e6e;
+    color: #FFF8F8;
+    border: outset;
+    border-color: #1e1e1ebc;
+    border-radius: 98%;
+    border-width: 3px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 15px auto;
+}
+
+#div_caixa-legenda {
+    width: 506px;
+    height: 138px;
+    margin: auto;
+    border: inset;
+    border-color: #565656;
+    border-width: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #5a8a2ebe;
+}
+
+
+/* TENTAR JOGAR ESSA DIV PARA A ESQUERDA */
+#div_legenda {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#div_caixa-legenda .p-legenda {
+    width: 253px;
+    height: 40px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 20px;
+    /* border: inset;
+    border-color: #4D4D4D; */
+    border-radius: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* TENTAR JOGAR ESSA DIV PARA A DIREITA */
+#div_caixa-tipo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+select {
+    padding: auto 15px;
+    font-size: 20px;
+    text-align: center;
+    border: inset;
+    border-color: #2a2a2a;
+}
+
+#sel_iniciante:hover {
+    transform: scale(1.05, 1.05);
+    transition: 5.6s;
+}
+
+#sel_iniciante:active {
+    transform: scale(0.05, 0.05);
+    transition: 8.6s;
+}    
+
+#sel_oponente:hover {
+    transform: scale(1.05, 1.05);
+    transition: 5.6s;
+}
+    
+#sel_oponente:active {
+    transform: scale(1.25, 1.25);
+    transition: 8.6s;
+}    
+
+#div_caixa-tipo #sel_iniciante, #sel_oponente  {
+    width: 152px;
+    height: 40px;
+    background-color: #4D4D4D;
+    color: #FFF8F8;
+    font-weight: bold;
+    border-radius: 30px;
+    display: flex;
+    text-align: center;
+} 
+
+#div_botao {
+    margin: 15px auto;
+    display: flex;
+}
+
+/* ADICIONAR TRANSFORM E TRANSLATE */
+#div_botao .botao {
+    width: 131px;
+    height: 40px;
+    margin: auto;
+    color: #FFF8F8;
+    background-color: #ff1500;
+    border: inset;
+    border-width: 1.5px;
+    border-color: #c34539;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    transform: scale(1.05, 1.05);
+}
+
+.botao:active {
+    transform: scale(0.95, 0.95);
+}
+
+/* FINAL DA CAIXA ANÁLISE */
+
+/* INÍCIO DA CAIXA RESULTADO */
+#div_resultado {
+    width: 270px;
+    height: 247px;
+    border: inset;
+    border-radius: 20px;
+    border: inset;
+    border-width: 10px;
+    border-color: #535353;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+    background-color: #e4dcdc;
+}
+
+#div_resultado h4 {
+    margin: 15px auto;
+    width: 156px;
+    height: 40px;
+    font-weight: bold;
+    background-color: #4D4D4D;
+    color: #FFF8F8;
+    border: outset;
+    border-color: #000000;
+    border-radius: 98%;
+    border-width: 3px;
+    border-color: #1e1e1ebc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#div_texto_resultado_caixa {
+    width: 222px;
+    height: 155px;
+    margin: auto;
+    border: inset;
+    background-color: #5a8a2ebe;
+    border-color: #565656;
+    border-width: 5px;
+    border-radius: 10px;
+    padding-bottom: 10px;
+}
+
+#div_texto_resultado {
+    display: none;
+    width: 222px;
+    height: 155px;
+    margin: 0 auto;
+    border: solid;
+    border-color: #565656;
+    border-radius: 10px;
+}
+
+#div_resultado p {
+    padding: 8px 0;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#div_img_pokemon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img_pokemon_serious {
+    width: 74px; 
+    height: 97px;
+    margin: auto;
+}
+
+#div_img_pokemon .img_pokemon {
+    width: 113px; 
+    height: 104px;
+    margin: auto;
+}
+
+/* @media (max-width: 113px) {
+    img#img-pokemonSad {
+        display: none;
+    }
+} */
