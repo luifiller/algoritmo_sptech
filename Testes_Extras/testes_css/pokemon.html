@@ -54,9 +54,16 @@
                  
                 <p id="p_resultado_aprov"></p>
         </div>
+        
+
+        <!-- INSERIR CONTADOR -->
+        <!-- <div class="div_msg">
+            <div id="div_msg_quadro">
+                <p>Vitórias do Iniciante: 0 / Derrotas do Iniciante: 0 / Empates: 0</p>
+            </div>
+        </div> -->
     </div>
 
-    <div id="div_msg"></div>
   
 </body>
 </html>
@@ -77,9 +84,6 @@
         var vitoriaO = tipoO == 1 && tipoI == 2 || tipoO == 2 && tipoI == 3 || tipoO == 3 && tipoI == 1
 
         if (tipoI == tipoO) {
-
-
-
             p_resultado_aprov.innerHTML = `
             <div id="div_texto_resultado_empate">
                     <p id="p_resultado">A batalha empatou!</p>
@@ -118,7 +122,6 @@
                 contId ++
             }
         } 
-
         // div_msg.innerHTML += `<br>Vitórias do Iniciante: ${contIv} / Derrotas do Iniciante: ${contId} / Empates: ${contE}`
     }
 

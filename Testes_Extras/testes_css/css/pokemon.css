@@ -6,7 +6,7 @@
 #div_main {
     display: flex;
     width: 853px;
-    height: 724px;
+    height: 738px;
     margin: auto;
     padding-bottom: 15px;
     border: solid;
@@ -173,11 +173,10 @@ select {
     width: 270px;
     height: 247px;
     border: inset;
-    border-radius: 20px;
-    border: inset;
     border-width: 10px;
+    border-radius: 20px;
     border-color: #535353;
-    margin: auto;
+    /* margin: auto; */
     display: flex;
     flex-direction: column;
     padding-bottom: 15px;
@@ -249,8 +248,26 @@ select {
     margin: auto;
 }
 
-/* @media (max-width: 113px) {
-    img#img-pokemonSad {
-        display: none;
-    }
-} */
+
+/* INSERIR CONTADOR */
+
+/* .div_msg {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    width: 563px;
+    height: 85px;
+     
+    border: inset;
+    border-width: 10px;
+    border-radius: 20px;
+    border-color: #535353;
+    background-color: #5a8a2ebe;
+   
+}
+ 
+.div_msg #div_msg_quadro p {
+    text-align: center;
+}  */
