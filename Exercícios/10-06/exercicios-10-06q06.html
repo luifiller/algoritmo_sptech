@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Insira o nome daquele(a) que você mais ama: <input type="text" id="in_nome"><br>
+    Quanto que o(a) ama (numero inteiro): <input type="number" id="in_qtdAma"><br>
+
+    <button onclick="expressar()">Expressar amor</button>
+
+    <div id="div_msg"></div>
+    
+</body>
+</html>
+
+<script>
+    function expressar() {
+        var nome = in_nome.value
+        var qtdAma = Number(in_qtdAma.value)
+        
+        var cont = 1 
+
+        while (cont <= qtdAma) {
+            div_msg.innerHTML += `${cont} - ${nome}, eu te amo! Sempre lembre disso!<br>`
+            cont ++
+        }
+
+
+    }
+
+</script>

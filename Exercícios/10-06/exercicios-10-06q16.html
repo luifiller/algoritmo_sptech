@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Insira a quantidade de elefantes: <input type="text" id="in_totElefante">
+
+    <button onclick="cantar()">Atazanar a médium</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function cantar() {
+        var cont = 0
+        var totElefante = in_totElefante.value
+
+        while (cont < totElefante) {
+            div_msg.innerHTML += `<br>1 elefante incomoda muita gente!<br>`
+            
+            cont ++
+            
+            div_msg.innerHTML += `${cont + 1} elefantes `
+            
+            var contInc = 0
+            while (contInc < cont + 1) {
+                div_msg.innerHTML += `incomodam, `
+                contInc ++
+            }
+            div_msg.innerHTML += `muito mais!`
+        }
+
+            
+    
+    }
+</script>

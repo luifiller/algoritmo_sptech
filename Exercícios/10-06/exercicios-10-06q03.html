@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frases Pandemia</title>
+</head>
+<body>
+    <h2>Frases da pandemia para proteção</h2>
+
+    <button onclick="dizer()">Diga algo sobre a pandemia de Covid19</button>
+    
+    <div id="div_msg"></div>
+
+</body>
+
+<script>
+    function dizer() {
+        var cont = 1; 
+
+        div_msg.innerHTML = ``
+
+        while (cont < 8) {
+            div_msg.innerHTML += `${cont} - Sempre lave as mãos, use álcool em gel nas mãos e máscara na boca!<br>`
+            cont ++ 
+        }
+    }
+
+</script>

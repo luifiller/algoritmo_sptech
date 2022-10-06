@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira um número de 20 a 100: <input type="number" id="in_valor"><br>
+
+    <button onclick="analisar()">Adoro múltiplos de 5</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var valor = Number(in_valor.value)
+        var cont = 0
+
+        div_msg.innerHTML = ``
+        if (valor >= 20 && valor <= 100) {
+            while (cont <= valor) {
+                if (cont % 5 == 0) {
+                    div_msg.innerHTML += `${cont}<br>`
+                }
+                cont ++
+            }
+        } else {
+            div_msg.innerHTML = `Insira um número entre 20 e 100`
+        }
+    }
+
+</script>

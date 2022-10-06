@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira um número para ser o início: <input type="number" id="in_nI"><br>
+    Insira um número para ser o final: <input type="number" id="in_nF"><br>
+
+    <button onclick="analisar()">S2 Pares</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var nI = Number(in_nI.value)
+        var nF = Number(in_nF.value)
+
+        while (nI <= nF) {
+            nI ++
+            if (nI % 2 == 0) {
+                div_msg.innerHTML += `${nI}<br>`
+            }
+        }
+
+
+    }
+
+</script>
