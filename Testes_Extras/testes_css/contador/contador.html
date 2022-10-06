@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/contador.css">
+    <title>Contador</title>
+</head>
+<body>
+    
+    <div class="container" id="div_container">
+        <div class="titulo" id="div_titulo">
+            <h1>Contador</h1>
+        </div>
+
+        <div class="tela" id="div_tela">
+            <div class="msg" id="div_msg">
+                <p id="p_msg">0</p>
+            </div>
+            
+            <div class="btn" id="div_btn">
+                <button onclick="resetar()">Zerar</button>
+                
+                <button onmousedown="contar()" >Contar</button>
+            </div>
+        </div>
+
+        <div class="footer" id="div_footer">
+            <h1>by Luiz Nison Filler</h1>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var cont = 0;
+
+    function contar() {
+        
+        cont = cont + 1
+        
+        p_msg.innerHTML = `${cont}`
+    }   
+
+    function resetar() {
+        p_msg.innerHTML = `0`
+    }
+</script>
