@@ -22,14 +22,12 @@
     function analisar() {
         var n = Number(in_numero.value)
         var frase = in_frase.value
-        var cont = 0
+        var cont = 1
 
         while (cont <= n) {
-            div_msg.innerHTML += `${cont} - ${frase}<br>`
+            alert(`${cont} - ${frase}`)
             cont ++
         }
-
-
     }
 
 </script>
