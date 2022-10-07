@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=7, initial-scale=1.0">
+    <title>Tabuada (In)Finita</title>
+</head>
+<body>
+    
+    <h2>Vamos calcular as tabuadas</h2>
+
+    Selecione a tabuada que deseja: <select id="sel_tabuada">
+        <option value="">tabuada</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select><br>
+
+    Selecione até que número a tabuada deve ir: <input type="number" id="in_nF"><br>
+
+    <button onclick="calcular()">Ver Tabuada</button>
+
+    <div id="div_msg"></div>
+    <p style="color: red;"></p>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var tabuada = Number(sel_tabuada.value)
+        var nF = Number(in_nF.value)
+        var cont = 1 
+
+        while (cont <= nF) {
+            var resultado = cont * tabuada
+
+            if (cont % 2 == 1) {
+                div_msg.innerHTML += `<p style="color: red;">${tabuada} x ${cont} = ${resultado}</p><br>`
+            } else {
+                div_msg.innerHTML += `<p style="color: blue;">${tabuada} x ${cont} = ${resultado}</p><br>`
+                
+            }
+
+            cont ++
+        }
+    }
+
+</script>

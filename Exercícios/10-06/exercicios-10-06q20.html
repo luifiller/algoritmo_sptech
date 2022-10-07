@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trajeto</title>
+</head>
+<body>
+
+    Insira quantos ônibus precisa pegar: <input type="number" id="in_qtdOnibus"><br>
+    Insira quantos trens precisa pegar: <input type="number" id="in_qtdTrem"><br>
+    Insira quantos metrô precisa pegar: <input type="number" id="in_qtdMetro"><br>
+    
+    <button onclick="analisar()">#Partiu Trajeto</button>
+    
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var qtdO = Number(in_qtdOnibus.value)
+        var qtdT = Number(in_qtdTrem.value)
+        var qtdM = Number(in_qtdMetro.value)
+        var cont = 1
+
+        div_msg.innerHTML = ``
+
+        while (cont <= qtdO) {
+            div_msg.innerHTML += `<br><span style="color: red;">Pegando o ${cont}º buzão</span>`
+            
+            if (cont == 2) {
+                div_msg.innerHTML += ` Começando a cansar<br>`
+            } else if (cont >= 3) {
+                div_msg.innerHTML += ` Já cansado!<br>`
+            }
+
+            cont ++ 
+        }
+
+        cont = 1
+
+        while (cont <= qtdT) {
+            div_msg.innerHTML += `<br><span style="color: green;">Pegando o ${cont}º trem</span>`
+
+            if (cont == 2) {
+                div_msg.innerHTML += ` Começando a cansar<br>`
+            } else if (cont >= 3) {
+                div_msg.innerHTML += ` Já cansado!<br>`
+            }
+
+            cont ++
+        }
+
+        cont = 1
+
+        while (cont <= qtdM) {
+            div_msg.innerHTML += `<br><span style="color: blue;">Pegando o ${cont}º metrô</span>`
+
+            if (cont == 2) {
+                div_msg.innerHTML += ` Começando a cansar<br>`
+            } else if (cont >= 3) {
+                div_msg.innerHTML += ` Já cansado!<br>`
+            }
+
+            cont ++
+        }
+    }
+
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carona</title>
+</head>
+<body>
+
+    Insira quantas pessoas entrarão no carro: <input type="number" id="in_qtdT"><br>
+    Insira quantas pessoas o carro comporta: <input type="number" id="in_totCarro"><br>
+    
+
+    <button onclick="analisar()">#Partiu Carona</button>
+    
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var qtdT = Number(in_qtdT.value)
+        var totCarro = Number(in_totCarro.value)
+        var cont = 1
+
+        div_msg.innerHTML = ``
+
+        while (cont <= qtdT) {
+            if (cont == 1) {
+                div_msg.innerHTML += `Entrou o 1º passageiro (que é o(a) motorista)<br>`
+            } else if (cont > totCarro) {
+                div_msg.innerHTML += `O ${cont}º passageiro terá que esperar!<br>`
+            } else {
+                div_msg.innerHTML += `Entrou o ${cont}º passageiro<br>`
+            }
+        
+            cont ++
+        }
+    }
+</script>

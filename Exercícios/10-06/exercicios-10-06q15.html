@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estágios da Vida</title>
+</head>
+<body>
+
+    Insira sua idade: <input type="number" id="in_idade" onkeyup="analisar()"><br>
+
+    <div id="div_msg"></div>
+    
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var idade = Number(in_idade.value)
+        var cont = 0
+        
+        div_msg.innerHTML = ``
+
+        while (cont <= idade) {
+            div_msg.innerHTML += `${cont} anos `
+            if (cont > 0 && cont <= 4) {
+                div_msg.innerHTML += `(Primeira infância)<br>`
+            } else if (cont <= 6) {
+                div_msg.innerHTML += `(Pré-escolar)<br>`
+            } else if (cont <= 10) {
+                div_msg.innerHTML += `(Segunda infância)<br>`
+            } else if (cont <= 18) {
+                div_msg.innerHTML += `(Adolescência)<br>`
+            } else if (cont <= 50) {
+                div_msg.innerHTML += `(Adulto)<br>`
+            } else if (cont <= 100) {
+                div_msg.innerHTML += `(Melhor idade)<br>`
+            } else {
+                div_msg.innerHTML += `(Matusalém)<br>`
+            }
+
+            cont ++
+        }
+
+
+    }
+</script>
