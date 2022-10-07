@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Insira o número inicial: <input type="number" id="in_nInicial"><br>
+    Insira o número final: <input type="number" id="in_nFinal"><br>
+
+    <button onclick="analisar()">Analisar</button>
+
+    <div id="div_msg">Aqui estará o resultado</div>
+
+
+</body>
+
+</html>
+
+<script>
+    function analisar() {
+        var nI = Number(in_nInicial.value)
+        var nF = Number(in_nFinal.value)
+        var boolean = nI % 2 == 0 || nI % 3 == 0 || nI % 5 == 0 || nI % 7 == 0 || nI % 11 == 0 || nI % 13 == 0
+        
+        div_msg.innerHTML = ``
+
+        if (nF == "" || nF == 0) {
+            div_msg.innerHTML += `O número final deve ser maior que o zero.`
+        } else if (nF <= nI) {
+            div_msg.innerHTML += `O número inicial deve ser menor que o número final.`
+        }
+
+        while (nI <= nF) {
+            
+            if (!boolean) {
+                div_msg.innerHTML += `O número ${nI} não é divisível pelos principais números primos`
+            }
+            
+            if (nI % 2 == 0) {
+                div_msg.innerHTML += `O número ${nI} é divisível por 2 `
+            } 
+            
+            if (nI % 3 == 0) {
+                div_msg.innerHTML += `O número ${nI} é divisível por 3 `
+            } 
+            
+            if (nI % 5 == 0) {
+                div_msg.innerHTML += `O número ${nI} é divisível por 5 `
+            } 
+            
+            if (nI % 7 == 0) {
+                div_msg.innerHTML += `O número ${nI} é divisível por 7 `
+            } 
+            
+            if (nI % 11 == 0) {
+                div_msg.innerHTML += `O número ${nI} é divisível por 11 `
+            } 
+            
+            if (nI % 13 == 0) {
+                div_msg.innerHTML += `O número ${nI} é divisível por 13 `
+            }
+            
+            div_msg.innerHTML += `<br>`
+            
+            nI++
+        }
+    }
+
+</script>

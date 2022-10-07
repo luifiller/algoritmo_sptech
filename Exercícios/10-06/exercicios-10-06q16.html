@@ -20,7 +20,7 @@
 <script>
     function cantar() {
         var cont = 0
-        var totElefante = in_totElefante.value
+        var totElefante = Number(in_totElefante.value)
 
         while (cont < totElefante) {
             div_msg.innerHTML += `<br>1 elefante incomoda muita gente!<br>`
@@ -36,8 +36,5 @@
             }
             div_msg.innerHTML += `muito mais!`
         }
-
-            
-    
     }
 </script>

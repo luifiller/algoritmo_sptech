@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br3">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco Nomico</title>
+</head>
+<body>
+    
+    <h2>Planejamento para poupar dinnheiro</h2>
+
+    Insira o quanto já tem guardado: <input type="number" id="in_totAtual"><br>
+    Insira o valor que será poupado: <input type="number" id="in_totPoupado"><br>
+    Insira a quantidade de meses: <input type="number" id="in_mes"><br>
+
+    <button onclick="poupar()">Vamos poupar</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function poupar() {
+        var totA = Number(in_totAtual.value)
+        var totP = Number(in_totPoupado.value)
+        var mes = Number(in_mes.value)
+        var cont = 1
+
+        var totF = totA + totP 
+
+        div_msg.innerHTML = ``
+
+        if (mes <= 6 || mes >= 20) {
+            div_msg.innerHTML += `A quantidade de meses tem que ser entre 6 e 20<br>`
+            if (totP == 0 || totP <= 0) {
+                div_msg.innerHTML += `O valor poupado tem que ser qualquer número maior que 0<br>`
+            }
+        } else {
+            while (cont <= mes) {
+                div_msg.innerHTML += `Marco tinha ${totA}, depois do depósito do ${cont}º mês ele ficou com ${totF}<br>`
+                cont ++ 
+                totF = totF + totP
+            }   
+            div_msg.innerHTML += `Você começou com R$${totA} <br> Durante os ${mes} meses você poupou R$${totP * mes} <br> E agora você tem R$${(totP * mes) + totA}`            
+        }
+    }
+</script>
