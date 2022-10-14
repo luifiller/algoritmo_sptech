@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clones Naurto</title>
 </head>
+
 <body>
-    
+
     <h2>Otimização da criação dos clones do Naruto</h2>
 
     Insira a quantidade de "energia" que o Naruto possui: <input type="number" id="in_qtdEnergia"><br>
-    
+
     Insira a quantidade <strong>total de clones</strong> que o Naruto fará: <input type="number" id="in_totClones"><br>
 
-    Insira a quantidade de clones que o Naruto fará <strong>por linha</strong>: <input type="number" id="in_qtdClonesLinhas"><br>
+    Insira a quantidade de clones que o Naruto fará <strong>por linha</strong>: <input type="number"
+        id="in_qtdClonesLinhas"><br>
 
     <button onclick="criar_clone()">Criar clones</button>
 
@@ -23,6 +26,7 @@
     <div id="div_msg"></div>
 
 </body>
+
 </html>
 
 <script>
@@ -31,14 +35,14 @@
         var qtdEnergiaInicial = Number(in_qtdEnergia.value)
         var totClones = Number(in_totClones.value)
         var qtdClonesLinhas = Number(in_qtdClonesLinhas.value)
-        
+
         // Variáveis com valores atribuidos manualmente
         var energiaConsumidaClone = 20
-        var contador = 0
+        var contador = 1
 
         // Variáveis por meio de conta
         var totEnergia = energiaConsumidaClone * totClones
-        var percentualSobraEnergia = (sobraEnergia / qtdEnergiaInicial) * 100 
+        var percentualSobraEnergia = (sobraEnergia / qtdEnergiaInicial) * 100
         var sobraEnergia = qtdEnergiaInicial - totEnergia
 
         // Variáveis booleanas 
@@ -59,16 +63,13 @@
                 alert(`A atual quantidade de energia que o Naruto possui não é suficiente para criar o total de clones que deseja. Por favor, insira uma quantidade de energia maior OU insira um total menor de clones a serem criados.`)
             } else {
                 while (contador <= totClones) {
-                    
-                    var contadorLinha = 0
-                    while (contadorLinha < qtdClonesLinhas) {
+
+                    if (contador % qtdClonesLinhas == 0) {
+                        div_clones.innerHTML += `<img src="https://preview.redd.it/tudjq02jost71.jpg?auto=webp&s=ed558eeba8ee7c136febe2cd0084d2ab3661b9eb" id="imagem_naruto" style="height: 80px;"><br>`
+                    } else {
                         div_clones.innerHTML += `<img src="https://preview.redd.it/tudjq02jost71.jpg?auto=webp&s=ed558eeba8ee7c136febe2cd0084d2ab3661b9eb" id="imagem_naruto" style="height: 80px;">`
-                        
-                        contadorLinha ++ 
-                        contador ++
                     }
-                    div_clones.innerHTML += `<br>`
-                    contador ++
+                    contador++
                 }
 
                 div_msg.innerHTML += `<br>
@@ -88,7 +89,7 @@
                 } else {
                     div_msg.innerHTML += `<br>TORÇA PARA O ADVERSÁRIO SER FRAQUINHO`
                 }
-            } 
+            }
         }
     }
 
