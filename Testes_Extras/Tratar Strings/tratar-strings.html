@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h2>Alteração de frases</h2>
+    
+    Insira uma frase: <input type="text" id="in_frase"><br>
+
+    <select id="sel_tratamentos" onclick="tratar()">
+        <option value="">selecione uma opção</option>
+        <option value="1">minúsculo</option>
+        <option value="2">maiúsculo</option>
+        <option value="3">tamanho da frase</option>
+        <option value="4">trocar letras "a" por "@"</option>
+        <option value="5">localização da letra "a"</option>
+    </select>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function tratar() {
+        var frase = in_frase.value
+        var option = Number(sel_tratamentos.value)
+
+        div_msg.innerHTML = ``
+
+        if (option == 1) {
+            frase = frase.toLowerCase() 
+            div_msg.innerHTML = `${frase}`
+        } else if (option == 2) {
+            frase = frase.toUpperCase()
+            div_msg.innerHTML = `${frase}`
+        } else if (option == 3) {
+            div_msg.innerHTML = `${frase.length}`
+        } else if (option == 4) {
+            frase = frase.replaceAll("a", "@")
+            div_msg.innerHTML = `${frase}`
+        } else {
+            frase = frase.indexOf("a") >= 0
+            if (!frase) {
+                div_msg.innerHTML = `Não existe "a" na sua frase!`
+            } else {
+                div_msg.innerHTML = `Existe "a" na sua frase!`
+            }
+        }
+    }
+
+</script>
