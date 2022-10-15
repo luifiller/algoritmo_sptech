@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebe pouco ou muito?</title>
+</head>
+<body>
+
+    <input placeholder="Quantas taças" id="in_tacas"> <br>
+    <input placeholder="Preço da taça" id="in_preco"> <br>
+    Qual sua tolerância a álcool? <select id="sel_tipo">
+        <option value="fraco">Fraco pra bebida</option>
+        <option value="medio">Bebe todo final de semana</option>
+        <option value="brabo">Só fica bêbado com Querosene</option>
+    </select>
+    <br>
+    <button onclick="beber()">Tomar vinho</button>
+
+    <div id="div_resultado"></div>
+    <img id="img_bebida">
+
+</body>
+</html>
+
+<script>
+    function beber() {
+        var qtdTacas = Number(in_tacas.value)
+        var precoTacas = Number(in_preco.value)
+        var tolerancia = sel_tipo.value
+        var precoFinal = qtdTacas * precoTacas
+
+        div_resultado.innerHTML = ``
+        img_bebida.innerHTML = ``
+
+        if (qtdTacas < 0 || qtdTacas > 300) {
+            alert(`Só é possível beber de 0 a 30 taças.`)
+
+        } else if (precoTacas < 0.01) {
+            alert(`Ónde já se viu vinho grátis?`)
+        } else {
+            div_resultado.innerHTML = `Zé Buduia tomou um total de ${qtdTacas} taças de vinho, pagando R$${precoFinal} por isso.`
+
+            if (tolerancia == 'fraco') {
+                if (qtdTacas >= 1 && qtdTacas <= 2) {
+                    img_bebida.src = `img/levemente.png`
+                } else if (qtdTacas >= 3 && qtdTacas <= 4) {
+                    img_bebida.src = `img/visivelmente.png`
+                } else {
+                    img_bebida.src = `img/superbebado.png`
+                }
+            } else if (tolerancia == 'medio') {
+                if (qtdTacas >= 3 && qtdTacas <= 4) {
+                    img_bebida.src = `img/levemente.png`
+                } else if (qtdTacas >= 5 && qtdTacas <= 7) {
+                    img_bebida.src = `img/visivelmente.png`
+                } else if (qtdTacas >= 8) {
+                    img_bebida.src = `img/superbebado.png`
+                }
+            } else {
+                if (qtdTacas >= 10 && qtdTacas <= 13) {
+                    img_bebida.src = `img/levemente.png`
+                } else if (qtdTacas >= 14 && qtdTacas <= 19) {
+                    img_bebida.src = `img/visivelmente.png`
+                } else if (qtdTacas >= 20) {
+                    img_bebida.src = `img/superbebado.png`
+                }
+            }
+        }
+    }    
+</script>
