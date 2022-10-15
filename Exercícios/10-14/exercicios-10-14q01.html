@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiosque do Fábio</title>
+</head>
+<body>
+
+    <h2>Quiosque Mirosmar - Controle de vendas</h2>
+    <div id="div_abertura">
+        <h3>------------------ Abertura do Quiosque ------------------</h3>
+        
+        Entre com a quantidade da Água engarrafada no estoque: <input placeholder="quantidade de água" type="number" id="in_qtdAgua"><br>
+        Entre com a quantidade Coco fechado no estoque: <input placeholder="quantidade de coco" type="number" id="in_qtdCoco"><br>
+    
+        <button onclick="abrir_quiosque()">Abrir o quiosque</button>
+    </div>
+
+    <div id="div_estoqueInicial">
+        <h3>------------------ Estoque inicial ------------------</h3>
+        
+        <p id="p_estoqueInicialAgua">Água engarrafada: </p>
+        <p id="p_estoqueInicialCoco">Coco fechado: </p>
+    </div>
+
+    <div id="div_registro">
+        <h3>------- Registro de Operações de venda -------</h3>
+    
+        Entre com a quantidade vendida: <input placeholder="quantidade vendida" type="number" id="in_qtdVenda">
+        Informe o produto vendido: <select id="sel_produtoVendido">
+            <option value="">selecione o produto</option>
+            <option value="0">Água engarrafada</option>
+            <option value="1">Coco fechado</option>
+        </select>
+    
+        <button onclick="registrar()">Registrar a Venda</button>
+        <button onclick="encerrarTurno()" style="border: grey outset; background-color: red;">Encerrar o turno</button>
+    </div>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    var qtdVenda = 0
+    var produtoVendido = 0
+    var estoqueAguaAtualizado = 0
+    var estoqueCocoAtualizado = 0
+
+    function abrir_quiosque() {
+       var qtdAgua = Number(in_qtdAgua.value)
+       var qtdCoco = Number(in_qtdCoco.value)
+
+        div_msg.innerHTML = ``
+
+        if (qtdAgua < 100) {
+            div_msg.innerHTML += `Com essa quantidade de Água engarrafada não dá para abrir o quiosque<br>`
+        } else if (qtdCoco < 200) {
+            div_msg.innerHTML += `Com essa quantidade de Coco fechado não dá para abrir o quiosque<br>`
+        } else if (qtdAgua > 100 && qtdAgua < 1000) {
+            div_msg.innerHTML += `Engarrafe mais água de coco<br>`
+            if (qtdCoco > 200 && qtdCoco < 2000) {
+                div_msg.innerHTML += `Compre mais cocos<br>`
+                
+                p_estoqueInicialAgua.innerHTML = `Água engarrafada: <strong>${qtdAgua}</strong>`
+                p_estoqueInicialCoco.innerHTML = `Coco fechado: <strong>${qtdCoco}</strong>`
+            } 
+        }
+    }
+
+
+    function registrar() {
+        var qtdAgua = Number(in_qtdAgua.value)
+        var qtdCoco = Number(in_qtdCoco.value)
+        var qtdVenda = Number(in_qtdVenda.value)
+        var produtoVendido = Number(sel_produtoVendido.value)
+        
+        if (produtoVendido == 0) {
+            estoqueAguaAtualizado = qtdAgua - qtdVenda
+            div_msg.innerHTML += `Com a venda de ${qtdVenda} de Água engarrafada o saldo no estoque é de ${estoqueAguaAtualizado}<br>`
+            qtdAgua = estoqueAguaAtualizado
+        } else {
+            estoqueCocoAtualizado = qtdCoco - qtdVenda
+            div_msg.innerHTML += `Com a venda de ${qtdVenda} de Coco fechado o saldo no estoque é de ${estoqueAguaAtualizado}<br>`
+            qtdCoco = estoqueCocoAtualizado
+        }
+    }
+
+    function encerrarTurno() {
+        div_msg.innerHTML = `
+            <h4>Vendas de Água engarrafada</h4><br>
+            <p>Saldo de produto no estoque: XXXX</p><br>
+            <p>Quantidade de vendas: YYYY</p><br>
+            <p>Porcentagem das vendas: ZZZZ</p><br>
+            
+            <br>
+
+            <h4>Vendas de Coco fechado</h4><br>
+            <p>Saldo de produto no estoque: XXXX</p><br>
+            <p>Quantidade de vendas: YYYY</p><br>
+            <p>Porcentagem das vendas: ZZZZ</p><br>        
+        `
+    }
+</script>
