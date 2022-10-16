@@ -45,14 +45,20 @@
 </html>
 
 <script>
+    var qtdAgua = 0
+    var qtdCoco = 0
     var qtdVenda = 0
     var produtoVendido = 0
     var estoqueAguaAtualizado = 0
     var estoqueCocoAtualizado = 0
+    var qtdVendasAgua = 0
+    var qtdVendasCoco = 0
+    var contadorVendasAgua = 0
+    var contadorVendasCoco = 0
 
     function abrir_quiosque() {
-       var qtdAgua = Number(in_qtdAgua.value)
-       var qtdCoco = Number(in_qtdCoco.value)
+       qtdAgua = Number(in_qtdAgua.value)
+       qtdCoco = Number(in_qtdCoco.value)
 
         div_msg.innerHTML = ``
 
@@ -73,35 +79,43 @@
 
 
     function registrar() {
-        var qtdAgua = Number(in_qtdAgua.value)
-        var qtdCoco = Number(in_qtdCoco.value)
-        var qtdVenda = Number(in_qtdVenda.value)
-        var produtoVendido = Number(sel_produtoVendido.value)
+        // qtdAgua = Number(in_qtdAgua.value)
+        // qtdCoco = Number(in_qtdCoco.value)
+        qtdVenda = Number(in_qtdVenda.value)
+        produtoVendido = Number(sel_produtoVendido.value)
         
         if (produtoVendido == 0) {
             estoqueAguaAtualizado = qtdAgua - qtdVenda
             div_msg.innerHTML += `Com a venda de ${qtdVenda} de Água engarrafada o saldo no estoque é de ${estoqueAguaAtualizado}<br>`
             qtdAgua = estoqueAguaAtualizado
+            contadorVendasAgua ++
+            // qtdVendasAgua += estoqueAguaAtualizado
         } else {
             estoqueCocoAtualizado = qtdCoco - qtdVenda
-            div_msg.innerHTML += `Com a venda de ${qtdVenda} de Coco fechado o saldo no estoque é de ${estoqueAguaAtualizado}<br>`
-            qtdCoco = estoqueCocoAtualizado
+            div_msg.innerHTML += `Com a venda de ${qtdVenda} de Coco fechado o saldo no estoque é de ${estoqueCocoAtualizado}<br>`
+            qtdCoco = estoqueCocoAtualizado 
+            contadorVendasCoco ++
+            // qtdVendasCoco  
         }
     }
 
     function encerrarTurno() {
+        var totVendas = contadorVendasAgua + contadorVendasCoco
+        var porcentagemAgua = (contadorVendasAgua / totVendas) * 100
+        var porcentagemCoco = (contadorVendasCoco / totVendas) * 100
+
         div_msg.innerHTML = `
-            <h4>Vendas de Água engarrafada</h4><br>
-            <p>Saldo de produto no estoque: XXXX</p><br>
-            <p>Quantidade de vendas: YYYY</p><br>
-            <p>Porcentagem das vendas: ZZZZ</p><br>
+            <h4>Vendas de Água engarrafada</h4>
+            <p>Saldo de produto no estoque: ${estoqueAguaAtualizado}</p>
+            <p>Quantidade de vendas: ${contadorVendasAgua}</p>
+            <p>Porcentagem das vendas: ${porcentagemAgua}%</p>
             
             <br>
 
-            <h4>Vendas de Coco fechado</h4><br>
-            <p>Saldo de produto no estoque: XXXX</p><br>
-            <p>Quantidade de vendas: YYYY</p><br>
-            <p>Porcentagem das vendas: ZZZZ</p><br>        
+            <h4>Vendas de Coco fechado</h4>
+            <p>Saldo de produto no estoque: ${estoqueCocoAtualizado}</p>
+            <p>Quantidade de vendas: ${contadorVendasCoco}</p>
+            <p>Porcentagem das vendas: ${porcentagemCoco}%</p>        
         `
     }
 </script>
