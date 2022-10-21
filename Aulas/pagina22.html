@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repetições com "for"</title>
+</head>
+<body>
+    
+    <h2>Repetindo mantras</h2>
+
+    <button onclick="repetir5()">Repetir 5x</button><br>
+
+    <input type="number" placeholder="Repetições" id="in_repeticoes">
+
+    <button onclick="repetir()">Repetir N vezes</button><br>
+
+    <div id="div_repeticoes"></div>
+
+</body>
+</html>
+
+<script>
+    function repetir() {
+        div_repeticoes.innerHTML = ``
+        for (var cont =  1; cont <= in_repeticoes.value; cont ++)  {
+            div_repeticoes.innerHTML += `${cont} - Olá, mundo! <br>`
+        }
+    }
+
+    function repetir5() {
+        div_repeticoes.innerHTML = ``
+        // 1ª parte do 'for' se chama 'setup' ou 'inicialização'; | Executado apenas 1 vez
+        // 2ª parte do 'for' é a condição de repetição (expressão lógica. pode ter &&, ||, var boolean);  
+        // 3ª parte do 'for' NÃO é um 'incremento', mas sim a última linha virtual do 'for'; | Executada após todas as linhas serem executadas  
+        for (var cont = 0; cont < 5; cont ++) {
+            div_repeticoes.innerHTML += `Foco, força e fé <br>`
+        }
+
+        // As 3 partes são opcionais. 
+    }
+    
+    function nao_me_executar() {
+        // Exemplo abaixo é um loop infinito
+        for (;;) {
+    
+        }
+
+        // Exemplo sem a 1ª parte
+        var cont = Number(in_blablabla.value)
+        for (; cont < 10; cont ++) {
+
+        }
+
+        // Exemplo sem a 3ª parte
+        for (var cont = 0; cont < 10;) {
+            if (teste_qq_coisa) {
+                cont ++
+            } else {
+                cont --
+            }
+        }
+
+
+    }
+</script>

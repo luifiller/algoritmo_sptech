@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira a quantidade de depósitos realizados: <input type="number" id="in_qtdDeposito"><br>
+    Insira o valor de cada depósito realizado: <input type="number" id="in_valorDepositado"><br>
+
+    <button onclick="acompanhar()">Acompanhar grana</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function acompanhar() {
+        var qtdDeposito = Number(in_qtdDeposito.value)
+        var valorDepositado = Number(in_valorDepositado.value)
+
+        var valorAtualDepositado = valorDepositado
+        var totDepositado = qtdDeposito * valorDepositado
+        
+        for (var cont = 1; cont <= qtdDeposito; cont ++) {
+            div_msg.innerHTML += `${cont}º Mês: R$${valorAtualDepositado}<br>`
+            valorAtualDepositado = valorAtualDepositado + valorDepositado 
+        }
+        div_msg.innerHTML += `Total guardado: R$${totDepositado}`
+    }
+
+</script>

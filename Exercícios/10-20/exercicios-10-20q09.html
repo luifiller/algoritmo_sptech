@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira a quantidade de xícaras de café com leite que já tomou: <input type="number" id="in_qtd"><br>
+
+    <button onclick="contar()">Ver quantidade</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var qtdXicara = Number(in_qtd.value)
+        for (var cont = 0; cont < qtdXicara; cont ++) {
+            div_msg.innerHTML += `
+            <img src="https://bolosparavender.com.br/wp-content/uploads/2020/08/fazer-bolo-com-leite-em-po-da-certo-como-fazer.jpg" alt="" style="width: 50px;">
+            <img src="https://thumbs.dreamstime.com/b/p%C3%B3-do-caf%C3%A9-na-colher-de-madeira-isolada-no-fundo-branco-83485944.jpg" alt="" style="width: 50px;">
+            <img src="https://thumbs.dreamstime.com/b/p%C3%B3-do-caf%C3%A9-na-colher-de-madeira-isolada-no-fundo-branco-83485944.jpg" alt="" style="width: 50px;">            
+            <br>
+            `
+        }
+    }
+
+</script>

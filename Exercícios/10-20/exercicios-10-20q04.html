@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio contador</title>
+</head>
+<body>
+
+    Insira o limite inferior: <input type="number" id="in_inferior"><br>
+    Insira o limite superior: <input type="number" id="in_superior"><br>
+
+    <button onclick="contar()">Contar</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var limite_inf = Number(in_inferior.value)
+        var limite_sup = Number(in_superior.value)
+
+        div_msg.innerHTML = ``
+
+        if (limite_inf < 1) {
+            div_msg.innerHTML += `O limite inferior tem que ser maior que 1`
+        } else if (limite_sup > 100) {
+            div_msg.innerHTML += `O limite superior tem que ser menor que 100`
+        } else {
+            for (; limite_inf <= limite_sup; limite_inf ++) {
+                div_msg.innerHTML += `${limite_inf} <br>`
+            }
+        }
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira o limite superior: <input type="number" id="in_superior"><br>
+
+    <button onclick="contar()">Contar</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    function contar() {
+        var limite_sup = Number(in_superior.value)
+
+        div_msg.innerHTML = ``
+
+        if (limite_sup > 100) {
+            div_msg.innerHTML += `O limite superior tem que ser um número menor que 100. <br>`
+        } else {
+            for (var cont = 0; cont < limite_sup; cont ++) {
+                if (cont % 5 == 0) {
+                    div_msg.innerHTML += `${cont}<br>`
+                }
+            }
+        }
+    }
+</script>
