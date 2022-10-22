@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="jogar()">Jogar dado</button><br>
+
+    <div id="div_resultado"></div>
+
+    <img id="img_dado" src="" style="width: 180px;">
+
+</body>
+</html>
+
+<script>
+    function jogar() {
+        var valor = parseInt(1+ Math.random()*6)
+
+        img_dado.src = ``
+
+        div_resultado.innerHTML = `${valor}`
+
+        if (valor == 1) {
+            img_dado.src = `https://thumbs.dreamstime.com/b/dados-brancos-com-os-pontos-pretos-que-penduram-na-meia-exibi%C3%A7%C3%A3o-n%C3%BAmero-da-volta-isolados-no-fundo-branco-130993157.jpg`
+        } else if (valor == 2) {
+            img_dado.src = `https://img.freepik.com/fotos-premium/numero-2-em-dados-limpos-vista-do-topo_118047-6753.jpg`
+        } else if (valor == 3) {
+            img_dado.src = `https://img.freepik.com/fotos-premium/numero-3-em-dados-limpos-vista-do-topo-fundo-branco-isolado_118047-6386.jpg?w=2000`
+        } else if (valor == 4) {
+            img_dado.src = `https://img.freepik.com/fotos-premium/numero-4-em-dados-limpos-vista-do-topo-fundo-branco-isolado_118047-7546.jpg`
+        } else if (valor == 5) {
+            img_dado.src = `https://img.freepik.com/fotos-premium/numero-5-em-dados-limpos-vista-do-topo_118047-6733.jpg`
+        } else if (valor == 6) {
+            img_dado.src = `https://img.freepik.com/fotos-premium/numero-6-em-dados-limpos-vista-do-topo_118047-6883.jpg`
+        }
+    }
+
+</script>
+

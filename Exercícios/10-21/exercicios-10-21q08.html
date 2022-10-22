@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota e Frequêcnia</title>
+</head>
+<body>
+    
+    <h2>Geração de notas e frequências</h2>
+
+    <button onclick="gerar_nota()">Gerar uma nota de aluno entre 0 e 10</button>
+    
+    <div id="div_nota"></div>
+    
+    <button onclick="gerar_frequencia()">Gerar uma frequência de aluno entre 0 e 100</button>
+
+    <div id="div_freq"></div>
+
+    <button onclick="avaliar()">Aprovado?</button>
+</body>
+</html>
+
+<script>
+    var nota = 0 
+    var freq = 0 
+    
+    function gerar_nota() {
+        nota = Math.random() * 10
+        div_nota.innerHTML = ``
+        div_nota.innerHTML = `${nota.toFixed(2)}`
+    }
+
+    function gerar_frequencia() {
+        freq = Math.random() * 100
+        div_freq.innerHTML = ``
+        div_freq.innerHTML = `${freq.toFixed(2)}`
+    }
+
+    function avaliar() {
+        if (nota >= 7 && freq >= 75) {
+            alert(`O aluno foi aprovado com a nota: ${nota.toFixed(2)} e frequência: ${freq.toFixed(2)}`)
+        } else {
+            alert(`O aluno foi reprovado.`)
+        }
+    }
+
+</script>

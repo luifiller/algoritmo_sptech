@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="avaliar()">Avaliar</button>
+
+    <div id="div_nota"></div>
+
+</body>
+</html>
+
+<script>
+    var nota = 0
+    function avaliar() {
+        div_nota.innerHTML = ``
+
+        nota = Math.random()*5
+        div_nota.innerHTML = `Nota recebida: ${nota.toFixed(1)} `
+    
+        if (nota <= 0.5) {
+            div_nota.innerHTML += `😢`
+        } else if (nota <= 1.5) {
+            div_nota.innerHTML += `☹️`
+        } else if (nota <= 3.5) {
+            div_nota.innerHTML += `😐`
+        } else if (nota <= 4.5) {
+            div_nota.innerHTML += `🙂`
+        } else {
+            div_nota.innerHTML += `😁`
+        }
+    
+    }
+
+</script>

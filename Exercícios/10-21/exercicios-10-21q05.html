@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpo</title>
+</head>
+<body>
+
+    <h2>Jo Ken Po</h2>
+
+    <button onclick="jogar()">Jogar</button><br>
+
+    <img id="imagem_jokenpo" src="" style="width: 200px;">
+
+</body>
+</html>
+
+<script>
+    function jogar() {
+        var n = parseInt(Math.random()*3)
+
+        imagem_jokenpo.innerHTML = ``
+
+        if (n == 1) {
+            imagem_jokenpo.src = `http://d2r9epyceweg5n.cloudfront.net/stores/001/844/874/products/14370244800-pedragres-781c34dfd01084040416343893828734-640-0.jpg`
+        } else if (n == 2) {
+            imagem_jokenpo.src = `https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Paperball_2.jpeg/220px-Paperball_2.jpeg`
+        } else {
+            imagem_jokenpo.src = `https://cdn.awsli.com.br/600x700/765/765263/produto/46150866/4c3ae3b4fe.jpg`
+        }
+    }
+
+</script>

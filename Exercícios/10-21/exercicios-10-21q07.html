@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabalistics</title>
+</head>
+<body>
+    
+    <button onclick="sortear()">Quero um cabalístico</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function sortear() {
+        var n1 = parseInt(1+Math.random()*15)
+        var nCabalistico = n1 == 3 || n1 == 4 || n1 == 7 || n1 == 10 || n1 == 12
+
+        div_msg.innerHTML = ``
+
+        if (!nCabalistico) {
+            div_msg.innerHTML = `Número sorteado: ${n1}<br>` 
+            div_msg.innerHTML += `Ah, me dá um número bom na próxima!`
+        } else {
+            div_msg.innerHTML = `Número sorteado: ${n1}<br>` 
+            div_msg.innerHTML += `Eu S2 números cabalísticos!`
+        }
+    }
+
+</script>

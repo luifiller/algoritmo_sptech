@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dadinho</title>
+</head>
+<body>
+    
+    <h2>Jogo dos dados</h2>
+
+    <button onclick="jogar1()">Jogador 1 jogar dadinho</button>
+
+    <div id="div_jogador1"></div>
+
+    <button onclick="jogar2(), analisar()">Jogador 2 jogar dadinho</button>
+
+    <div id="div_jogador2"></div>
+    <div id="div_analise"></div>
+
+</body>
+</html>
+
+<script>
+    var jogador1 = 0
+    var jogador2 = 0
+
+    function jogar1() {
+        div_jogador1.innerHTML = `` 
+        jogador1 = parseInt(1+Math.random()*6)
+        div_jogador1.innerHTML = `Sorteado: ${jogador1}.`
+    }
+
+    function jogar2() {
+        div_jogador2.innerHTML = ``
+        jogador2 = parseInt(1+Math.random()*6)
+        div_jogador2.innerHTML = `Sorteado: ${jogador2}.`        
+    }
+
+    function analisar() {
+        div_analise.innerHTML = ``
+
+        if (jogador1 > jogador2) {
+            div_analise.innerHTML = `Jogador 1 venceu`
+        } else if (jogador2 > jogador1) {
+            div_analise.innerHTML = `Jogador 2 venceu`
+        } else {
+            div_analise.innerHTML = `Empate!`
+        }
+
+    }
+
+</script>

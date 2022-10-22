@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira seu número da sorte (de 0 a 100): <input type="number" id="in_numero"><br>
+
+    <button onclick="sortear()">Valendo</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    var n = 0;
+    var nSorteio = 0;
+
+    function sortear() {
+        n = Number(in_numero.value)
+        nSorteio = parseInt(1+Math.random()*100)
+
+        div_resultado.innerHTML = ``
+
+        if (n < 0 || n > 100) {
+            alert(`Insira um número que seja de 0 a 100.`)
+        } else {
+            for (var cont = 0; nSorteio !== n; cont ++) {
+                nSorteio = parseInt(1+Math.random()*100)
+                div_resultado.innerHTML += `${nSorteio}<br>`
+            }
+            div_resultado.innerHTML += `Foram necessários ${cont} sorteios.`
+        }
+    }
+
+</script>

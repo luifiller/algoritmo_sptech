@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jo ken po</title>
+</head>
+<body>
+
+    <button onclick="jogar()">Jogar</button>
+    <div id="container" style="display: flex; flex-direction:row; justify-content: space-around;">
+        <div id="jogador1">
+            <p>Jogador 1</p>
+            <img id="img_jogador1" src="" alt="" style="width: 150px; padding: 0 8px;">
+        </div>
+    
+        <div id="jogador2">
+            <p>Jogador 2</p>
+            <img id="img_jogador2" src="" alt="" style="width: 150px; padding: 0 8px;">
+        </div>
+    </div>
+
+    <div id="div_analise" style="display: flex; justify-content: center;"></div>
+
+</body>
+</html>
+
+<script>
+    var numero1 = 0
+    var numero2 = 0
+
+    function jogar() {
+        numero1 = parseInt(Math.random() * 3)
+        numero2 = parseInt(Math.random() * 3)
+        img_jogador1.src = ``
+        img_jogador2.src = ``
+        div_analise.innerHTML = ``
+
+        if (numero1 == 1) { //Pedra == 1
+            img_jogador1.src = `http://d2r9epyceweg5n.cloudfront.net/stores/001/844/874/products/14370244800-pedragres-781c34dfd01084040416343893828734-640-0.jpg`
+            analise_jogador2()
+        } else if (numero1 == 2) { // Papel == 2
+            img_jogador1.src = `https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Paperball_2.jpeg/220px-Paperball_2.jpeg`
+            analise_jogador2()
+        } else { // Tesoura == 3
+            img_jogador1.src = `https://cdn.awsli.com.br/600x700/765/765263/produto/46150866/4c3ae3b4fe.jpg`
+            analise_jogador2()
+        }
+
+        if (numero1 == numero2) {
+            div_analise.innerHTML = `Empate`
+        } else if (numero1 == 1 && numero2 == 3 || numero1 == 2 && numero2 == 1 || numero1 == 3 && numero2 == 2) {
+            div_analise.innerHTML = `Jogador 1 ganhou porque `
+            if (numero1 == 1 && numero2 == 3) {
+                div_analise.innerHTML += `pedra quebra a tesoura`
+            } else if (numero1 == 2 && numero2 == 1) {
+                div_analise.innerHTML += `papel cobre a pedra`                
+            } else {
+                div_analise.innerHTML += `tesoura corta papel`
+            }
+        } else {
+            div_analise.innerHTML = `Jogador 2 ganhou porque `
+            if (numero2 == 1 && numero1 == 3) {
+                div_analise.innerHTML += `pedra quebra a tesoura`
+            } else if (numero2 == 2 && numero1 == 1) {
+                div_analise.innerHTML += `papel cobre a pedra`                
+            } else {
+                div_analise.innerHTML += `tesoura corta papel`
+            }
+        }
+    }
+
+    function analise_jogador2() {
+        if (numero2 == 1) {
+            img_jogador2.src = `http://d2r9epyceweg5n.cloudfront.net/stores/001/844/874/products/14370244800-pedragres-781c34dfd01084040416343893828734-640-0.jpg`
+        } else if (numero2 == 2) {
+            img_jogador2.src = `https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Paperball_2.jpeg/220px-Paperball_2.jpeg`
+        } else {
+            img_jogador2.src = `https://cdn.awsli.com.br/600x700/765/765263/produto/46150866/4c3ae3b4fe.jpg`
+        }
+    }
+
+</script>
