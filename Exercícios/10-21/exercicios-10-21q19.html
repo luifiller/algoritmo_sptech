@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador</title>
+</head>
+<body>
+
+    Insira o seu nome: <input type="text" id="in_nome"><br>
+    Insira o seu 1º número inteiro da sorte (de 1 a 10): <input type="number" id="in_numero1"><br>
+    Insira o seu 2º número inteiro da sorte (de 1 a 10): <input type="number" id="in_numero2"><br>
+    Insira o seu 3º número inteiro da sorte (de 1 a 10): <input type="number" id="in_numero3"><br>
+    
+    <button onclick="sortear()">Sortear</button>
+
+    <div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+    var n1 = 0
+    var n2 = 0
+    var n3 = 0
+
+    function sortear() {
+        var nome = in_nome.value
+        n1 = Number(in_numero1.value)
+        n2 = Number(in_numero2.value)
+        n3 = Number(in_numero3.value)
+
+        div_msg.innerHTML = ``
+
+        if (n1 < 1 || n1 > 10 && n2 < 1 || n2 > 10 && n3 < 1 || n3 > 10 ) {
+            alert(`O número da sorte deve ser de 1 a 10.`)
+        } else {
+            for (var cont1 = 0; nSorteado1 !== n1; cont1++) {
+                var nSorteado1 = parseInt(1+Math.random()*11)
+            }
+            div_msg.innerHTML += `Parabéns, ${nome}. O seu número da sorte ${n1} foi sorteado(a) após ${cont1} sorteios!<br>`
+        
+            for (var cont2 = 0; nSorteado2 !== n2; cont2++) {
+                var nSorteado2 = parseInt(1+Math.random()*11)
+            }
+            div_msg.innerHTML += `Parabéns, ${nome}. O seu número da sorte ${n2} foi sorteado(a) após ${cont2} sorteios!<br>`
+
+            for (var cont3 = 0; nSorteado3 !== n3; cont3++) {
+                var nSorteado3 = parseInt(1+Math.random()*11)
+            }
+            div_msg.innerHTML += `Parabéns, ${nome}. O seu número da sorte ${n3} foi sorteado(a) após ${cont3} sorteios!<br>`
+        }
+    } 
+
+</script>

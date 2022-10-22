@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fases da Lua</title>
+</head>
+<body>
+
+    <h2>As fases da lua do mês</h2>
+    
+    <button onclick="sortear_dia()">Ver a Lua</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function sortear_dia() {
+        var dia = parseInt(1+Math.random()*31)
+
+        div_msg.innerHTML = ``
+
+        div_msg.innerHTML = `Dia: ${dia}<br>`
+
+        if (dia <= 7) {
+            div_msg.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Dark_moon_emoji_icon_png_200x200.png" alt="" style="width: 150px;">`
+        } else if (dia <= 16) {
+            div_msg.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Full_moon_emoji_icon_png_200x200.png" alt="" style="width: 150px;">`
+        } else if (dia <= 22) {
+            div_msg.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/First_quarter_moon_emoji_icon_png_200x200.png" alt="" style="width: 150px;">`
+        } else {
+            div_msg.innerHTML += `<img src="https://cdn.shopify.com/s/files/1/1061/1924/files/Waning_crescent_moon_emoji_icon_png_200x200.png" alt="" style="width: 150px;">`
+        }
+    }
+
+</script>

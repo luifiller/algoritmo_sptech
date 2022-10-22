@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="avaliar()">Avaliar</button>
+    <div id="div_nota"></div>
+    
+    <button onclick="avaliar_equipe()">Equipe</button>
+    <div id="div_equipe"></div>
+
+</body>
+</html>
+
+<script>
+    var nota = 0
+    var cont = 0
+    var totNota = 0
+    var media = 0
+
+    function avaliar() {
+        // div_nota.innerHTML = ``
+
+        nota = Math.random()*5
+        div_nota.innerHTML += `Nota recebida: ${nota.toFixed(1)} `
+    
+        if (nota <= 0.5) {
+            div_nota.innerHTML += `😢<br>`
+        } else if (nota <= 1.5) {
+            div_nota.innerHTML += `☹️<br>`
+        } else if (nota <= 3.5) {
+            div_nota.innerHTML += `😐<br>`
+        } else if (nota <= 4.5) {
+            div_nota.innerHTML += `🙂<br>`
+        } else {
+            div_nota.innerHTML += `😁<br>`
+        }
+    cont++
+    totNota += nota
+    }
+
+    function avaliar_equipe() {
+        media = totNota / cont 
+
+        div_equipe.innerHTML += `<br>A média é: ${media.toFixed(1)} `
+
+        if (media <= 0.5) {
+            div_equipe.innerHTML += `😢<br>`
+        } else if (media <= 1.5) {
+            div_equipe.innerHTML += `☹️<br>`
+        } else if (media <= 3.5) {
+            div_equipe.innerHTML += `😐<br>`
+        } else if (media <= 4.5) {
+            div_equipe.innerHTML += `🙂<br>`
+        } else {
+            div_equipe.innerHTML += `😁<br>`
+        }
+
+
+    }
+
+</script>

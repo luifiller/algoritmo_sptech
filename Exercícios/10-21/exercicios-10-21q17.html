@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="div_msg">
+        Números pares: 0<br>
+        Números ímpares: 0
+    </div>
+
+    <button onclick="sortear()">Sortear número</button>
+
+</body>
+</html>
+
+<script>
+    function sortear() {
+        var n = parseInt(-31+Math.random()*22)
+        var cont_par = 0;
+        var cont_impar = 0;
+
+        div_msg.innerHTML = `
+            Números pares: 0<br>
+            Números ímpares: 0
+        `
+
+        if (n % 2 == 0) {
+            cont_par++
+            div_msg.innerHTML = `
+                Número sorteado: ${n.toFixed()}<br>
+                Números pares: ${cont_par}<br>
+                Números ímpares: 0    
+            `
+        } else {
+            cont_impar++
+            div_msg.innerHTML = `
+                Número sorteado: ${n.toFixed()}<br>
+                Números pares: 0<br>
+                Números ímpares: ${cont_impar}
+            `
+        }
+
+    }
+
+</script>
