@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="sortear()">Sortear 0</button>
+
+</body>
+</html>
+
+<script>
+    function sortear() {
+        var cont = 0;
+        while (true) {
+            var n1 = parseInt(Math.random()*50000001);
+            cont ++
+            if (n1 == 0) {
+                alert(`Finalmente sorteou!`)
+                break // força o término das estruturas 'while' e 'for' 
+            }            
+        }
+        alert(`Foram realizados ${cont} sorteios!`)
+    }
+
+</script>

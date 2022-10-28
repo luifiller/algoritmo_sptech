@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button onclick="sortear()">Ver minha sorte</button>
+
+    <div id="div_msg"></div>
+    
+
+</body>
+</html>
+
+<script>
+    function sortear() {
+        var contCoracao = 0
+        var contCarta = 0
+
+        div_msg.innerHTML = ``
+
+        for (var cont = 0; cont < 21; cont++) {
+            var nSorteio = parseInt(1+ Math.random()*2)
+            console.log(nSorteio)
+            if (nSorteio == 1) { // o valor 1 é para a imagem de carta
+                div_msg.innerHTML += `<img src="https://greenpng.com/wp-content/uploads/2020/07/1596123856235-300x300.png" style="width: 120px;">`
+                contCoracao++
+            } else { // o valor 2 é para a imagem de coração
+                div_msg.innerHTML += `<img src="https://media.istockphoto.com/photos/seven-of-hearts-playing-card-isolated-on-black-background-picture-id644201990?k=20&m=644201990&s=170667a&w=0&h=kvkSRyC9PCrPXwM38sPuq2EoaAqTcQOgGzj87FbK3jU=" style="width: 120px;">`
+                contCarta++
+            }
+            if (contCarta == 11 || contCoracao == 11) {
+                break
+            } 
+        }        
+        console.log(`Qauntidade de ${contCarta} cartas`);
+        if (contCarta > contCoracao) {
+            div_msg.innerHTML += `<br>Você tem mais sorte no jogo.`
+        } else {
+            div_msg.innerHTML += `<br>Você tem mais sorte no amor.`          
+        }
+    }
+
+</script>
