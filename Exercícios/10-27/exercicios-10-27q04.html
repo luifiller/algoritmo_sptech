@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Selecione o estúdio preferido: <select id="sel_estudio">
+        <option value="">selecione o estúdio</option>
+        <option value="1">Marvel</option>
+        <option value="2">DC</option>
+    </select>
+
+    <button onclick="ver_prog()">Ver programação semanal na TV</button>
+
+    <div id="div_msg"></div>
+
+</body>
+
+</html>
+
+<script>
+    function ver_prog() {
+        var estudioPreferido = Number(sel_estudio.value)
+        var filmeMarvel = ["Thor", "Homem de Ferro", "Deadpool", "Guardiões da Galaxia", "Venom"]
+        var filmeDC = ["Coringa", "Lanterna Verde", "Mulher Maravilha", "Watchmen", "Esquadrão Suicida"]
+        var sorteioFilme = 0
+        var validacao = true
+        console.clear()
+        div_msg.innerHTML = ``
+
+        for (var cont = 1; cont <= 5; cont++) {
+            var sorteioEstudio = parseInt(1 + Math.random() * 2)
+            console.log(sorteioEstudio);
+            if (estudioPreferido == sorteioEstudio) {
+                validacao = false
+                div_msg.innerHTML += `Você verá um filme que gosta no ${cont}º dia<br>`
+                sorteioFilme = parseInt(Math.random() * 5)
+                if (sorteioEstudio == 1) {
+                    div_msg.innerHTML += `O filme é: ${filmeMarvel[sorteioFilme]}`
+                } else {
+                    div_msg.innerHTML += `O filme é: ${filmeDC[sorteioFilme]}`                    
+                }
+                break
+            }
+            console.log(`${cont}º sorteio`)
+        } 
+        if (validacao) {
+            div_msg.innerHTML = `É, ou lê um livro ou assiste um filme que não gosta mesmo<br>`
+        }    
+    }
+</script>
