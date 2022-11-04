@@ -18,13 +18,18 @@
         2ª fruta: <b id="b_segunda"></b><br>
         4ª fruta: <b id="b_quarta"></b><br>
         Última fruta: <b id="b_ultima"></b> 
-    </div>
+    </div> <br>
+
+    <input placeholder="Pesquisa" type="text" id="in_pesquisa" onkeyup="pesquisar()">
+
+    <div id="div_pesquisa"></div>
 
 </body>
 </html>
 
 <script>
     var frutas = [] // vetor vazio que reeberá, posteriormente, dados inseridos pelo usuário 
+    
     function cadastrar() {
         frutas.push(in_fruta.value) // push adiciona dados no array/vetor
         in_fruta.value = ``
@@ -34,6 +39,18 @@
         b_quarta.innerHTML = frutas[3]
         b_ultima.innerHTML = frutas[frutas.length - 1]
         console.log(frutas);
+    }
+
+    function pesquisar() {
+        var resultado = frutas.indexOf(in_pesquisa.value)
+        var frase
+        
+        if (resultado < 0) {
+            frase = `Não existe`
+        } else {
+            frase = `Está na posição resultado ${resultado}`
+        }
+        div_pesquisa.innerHTML = frase
     }
 
 </script>

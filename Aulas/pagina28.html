@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Qual sobremesa comeu?
+    <input type="text" id="in_sobremesa">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <br>
+
+    <button onclick="mostrar()">Mostrar todas</button>
+    <button onclick="mostrarInvertido()">Mostrar invertido</button>
+    <button onclick="mostrarColorido()">Mostrar colorido</button>
+
+    <div id="div_sobremesa"></div>    
+
+    <input placeholder="Pesquisa" type="text" id="in_pesquisa" onkeyup="pesquisar()">
+
+    <div id="div_pesquisa"></div>
+
+
+</body>
+</html>
+
+<script>
+    var sobremesas = []
+
+    function cadastrar() {
+        sobremesas.push(in_sobremesa.value)
+    }
+
+    function mostrar() {
+        div_sobremesa.innerHTML = ``
+
+        for (var cont = 0; cont < sobremesas.length; cont++) {
+            var atual = sobremesas[cont]
+            div_sobremesa.innerHTML += `<p> ${cont + 1} - ${atual}</p> <br>`
+        }
+    }
+
+    function mostrarInvertido() {
+        div_sobremesa.innerHTML = ``
+
+        for (var cont = (sobremesas.length-1); cont >= 0; cont--) {
+            var atual = sobremesas[cont]
+            div_sobremesa.innerHTML += `<p> ${cont+1} - ${atual}</p ><br>`
+        }
+    }
+
+    function mostrarColorido() {
+        div_sobremesa.innerHTML = ``
+
+        /*
+        var cor = 'black'
+
+        if (cont % 2 = 0) {
+            cor = 'blue'
+        }
+
+        */
+
+        for (var cont = 0; cont < sobremesas.length; cont++) {
+            var atual = sobremesas[cont]
+            if (cont % 2 == 0) {
+                div_sobremesa.innerHTML += `<p style="color: blue;"> ${cont+1} - ${atual}</p>`
+            } else {
+                div_sobremesa.innerHTML += `<p style="color: black;"> ${cont+1} - ${atual}</p>`
+            }
+        }
+    }
+
+    function pesquisar() {
+        var pesquisa = in_pesquisa.value
+        var i = 0
+
+        div_pesquisa.innerHTML = ``
+
+        for (var cont = 0; cont < sobremesas.length; cont++) {
+            if (sobremesas[cont] == pesquisa) {
+                i++
+            }
+        } 
+        
+        if (i > 0) {
+            div_pesquisa.innerHTML = `Você comeu ${pesquisa} ${i} vez(es).`
+        } else {
+            div_pesquisa.innerHTML = `Você ainda não comeu ${pesquisa}.`
+        }
+        
+    }
+
+</script>
