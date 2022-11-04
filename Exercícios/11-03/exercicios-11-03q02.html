@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input placeholder="Insira o destino da viagem" type="text" id="in_destino">
+    
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="primeiraViagem()">Primeira viagem</button>
+    <button onclick="terceiraViagem()">Terceira viagem</button>
+    <button onclick="ultimaViagem()">Última viagem</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    var destino = []
+    
+    function adicionar() {
+        var destinoDesejado = in_destino.value
+        
+        destino.push(destinoDesejado)
+    }
+
+    function primeiraViagem() {
+        if (destino == "") {
+            div_resultado.innerHTML = `Ainda não viajou.`
+        } else {
+            div_resultado.innerHTML = `${destino[0]}`
+        }
+    }
+
+    function terceiraViagem() {
+        if (destino == "") {
+            div_resultado.innerHTML = `Ainda não viajou.`
+        } else {
+            div_resultado.innerHTML = `${destino[2]}`
+        }
+    }
+
+    function ultimaViagem() {
+        if (destino == "") {
+            div_resultado.innerHTML = `Ainda não viajou.`
+        } else {
+            div_resultado.innerHTML = `${destino[destino.length-1]}`
+        }
+    }
+</script>

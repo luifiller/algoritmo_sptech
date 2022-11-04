@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        
+    Insira o bairro onde já morou: <input placeholder="Insira o nome do bairro" type="text" id="in_bairro">
+    
+    <button onclick="adicionar()">Cadastrar bairro</button> <br>
+
+    Insira o número de onde morou: <input placeholder="Insira o número." type="number" id="in_numeroBairro">
+
+    <button onclick="relembrar()">Relembrar moradia</button>
+
+    <div id="div_resultado"></div>
+
+</body>
+</html>
+
+<script>
+    var bairro = [""]
+
+    function adicionar() {
+        var bairroMorado = in_bairro.value
+        bairro.push(in_bairro.value)
+    }
+
+    function relembrar() {
+        var numeroBairro = Number(in_numeroBairro.value)
+        var cont = 0
+
+        div_resultado.innerHTML = ``
+
+        if (numeroBairro > bairro.length-1) {
+            div_resultado.innerHTML = `Você ainda não morou num ${numeroBairro}º bairro!`
+        } else {
+            div_resultado.innerHTML = `Você já morou no ${bairro[numeroBairro]}.`
+        }
+    }
+
+</script>
