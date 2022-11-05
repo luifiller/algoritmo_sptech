@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Insira o nome de cada projeto que já criou na vida: <input placeholder="nome do projeto" type="text" id="in_nomeProjeto"><br>
+    
+    <button onclick="registrar()">Registrar Projeto</button>
+
+    <button onclick="mostrar()">Mostrar Projetos</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    var total = 0
+    var senioridade = 0
+
+    var nomeProjeto = [];
+
+    function registrar() {
+        nomeProjeto.push(in_nomeProjeto.value)
+
+        for (var i = 0; i < nomeProjeto.length; i++) {
+            total = i+1
+    
+            div_mensagem.innerHTML = `Você já fez ${total} projeto.`
+            console.log(total);
+        }
+
+        if (total >= 0 && total <= 4) {
+            senioridade = "júnior"
+        } else if (total >= 5 && total <= 12){
+            senioridade = "pleno"
+        } else {
+            senioridade = "sênior"
+        }
+
+        div_mensagem.innerHTML += `Por isso você é um profissional ${senioridade}`
+    }
+
+    function mostrar(){
+        div_mensagem.innerHTML = `` 
+        
+        for (var i = nomeProjeto.length-1; i >= 0; i-- ) {
+            div_mensagem.innerHTML += `<br>${nomeProjeto[i]}`
+        }
+    }
+
+</script>

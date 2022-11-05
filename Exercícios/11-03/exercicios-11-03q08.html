@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h2>Cadastro de alunos</h2>
+    
+    Insira o nome do aluno: <input type="text" id="in_nome">
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <button onclick="apagar()">Apagar</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    var nomeAluno = []
+    
+    function cadastrar() {
+        nomeAluno.push(in_nome.value)
+
+        div_mensagem.innerHTML = ``
+        
+        for (var i = (nomeAluno.length-1); i >= 0; i--) {
+            var nomeAtual = nomeAluno[i]
+            div_mensagem.innerHTML += `<br>Nome do aluno: ${nomeAtual}.`            
+        }
+
+        div_mensagem.innerHTML += `<br> Total de alunos cadastrados: ${nomeAluno.length} <br>`
+    }
+
+    function apagar() {
+        div_mensagem.innerHTML = ``
+
+        nomeAluno = []
+        console.log(nomeAluno);
+    }
+
+</script>

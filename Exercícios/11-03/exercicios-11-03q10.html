@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="div_inserirLinha">
+        <h2>Inserção de linhas de Ônibus</h2>
+        Insira o nome das linhas de ônibus que você pega durante a semana: <input type="text" id="in_nomeLinhaOnibus"><br>
+    
+        <button onclick="gravar()">Gravar buzão</button>
+    
+        <div id="div_mensagem"></div>
+    </div>
+
+    <div id="div_pesquisarLinha">
+        <h2>Pesquisa de linhas de Ônibus</h2>
+        Insira a linha de ônibus que deseja pesquisar: <input type="text" id="in_linhaPesquisada"><br>
+    
+        <button onclick="pesquisar()">Pesquisar</button>
+    
+        <div id="div_mensagemPesquisa"></div>
+    </div>
+
+
+</body>
+</html>
+
+<script>
+    var nomeLinhaOnibus = []
+
+    function gravar() {
+        nomeLinhaOnibus.push(in_nomeLinhaOnibus.value)
+
+        div_mensagem.innerHTML = ``
+
+        for (var i = nomeLinhaOnibus.length-1; i >= 0; i-- ) {
+            div_mensagem.innerHTML += `<br>${nomeLinhaOnibus[i]}`
+        }
+    }
+
+    function pesquisar() {
+        var linhaPesquisada = in_linhaPesquisada.value
+        var posicaoCadastroLinha = []
+        var cont = 0
+        var posicaoLinhaAtual = 0
+
+        div_mensagemPesquisa.innerHTML = ``
+
+        for (var i = 0; i < nomeLinhaOnibus.length; i++) {
+            var nomeLinhaAtual = nomeLinhaOnibus[i]
+            
+            if (nomeLinhaAtual == linhaPesquisada) {
+                cont++
+                posicaoLinhaAtual = i+1
+                posicaoCadastroLinha.push(posicaoLinhaAtual)  
+            }      
+        }
+
+        if (cont > 0) {
+            div_mensagemPesquisa.innerHTML += `Você já pegou essa linha ${posicaoCadastroLinha.length} vezes, nessa ordem: `
+            
+            for (var i = 0; i < posicaoCadastroLinha.length; i++) {
+                if (i >= 1) {
+                    div_mensagemPesquisa.innerHTML += `, ${posicaoCadastroLinha[i]}`
+                } else {
+                    div_mensagemPesquisa.innerHTML += `${posicaoCadastroLinha[i]}`
+                }
+            }
+
+        } else { 
+            div_mensagemPesquisa.innerHTML += `Você nunca pegou essa linha`
+        }
+        
+        div_mensagemPesquisa.innerHTML += `.` 
+    }
+    
+
+</script>
+
