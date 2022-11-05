@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vand Edor</title>
+</head>
+<body>
+    <div id="div_cadastro">
+        <h2>Cadastro e Pesquisa de Produtos</h2>
+        
+        Nome do produto: <input type="text" id="in_nomeProduto"><br>
+        
+        Tipo de prduto: <select id="sel_tipoProduto">
+            <option value="">selecione um produto</option>
+            <option value="gerais">Gerais</option>
+            <option value="alimentos">Alimentos</option>
+            <option value="eletrônicos">Eletrônicos</option>
+        </select> <br>
+        
+        Preço do produto: <input type="number" id="in_precoProduto">
+        
+        <button onclick="registrarProduto()">Registrar Produto</button>
+        
+        <button onclick="verificarProduto()">Verificar Produto</button>
+            
+        <div id="div_mensagem"></div>
+    </div>
+    
+    <div id="div_filtro">
+        <h2>Filtros</h2>
+        
+        Pesquisar por Produto: <input placeholder="pesquisar por Produto" type="text" id="in_pesquisaNomeProduto">
+        
+        <button onclick="procurarNome()">Procurar</button> <br>
+    
+        Filtrar tipo de prduto: <select id="sel_filtroProduto">
+            <option value="">selecione um produto</option>
+            <option value="gerais">Gerais</option>
+            <option value="alimentos">Alimentos</option>
+            <option value="eletrônicos">Eletrônicos</option>
+        </select>
+        
+        <button onclick="procurarTipo()">Procurar</button>
+    
+        <div id="div_procuraTipo"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    var produtos = []
+
+    function registrarProduto() {
+        var nomeProduto = in_nomeProduto.value
+        var precoProduto = in_precoProduto.value
+        var tipoProduto = sel_tipoProduto.value
+
+        if (nomeProduto == "" || precoProduto == "" || tipoProduto == "") {
+            alert(`Verifique o preenchimento dos campos e tente novamente`)
+        } else {
+            var produtoCadastrado = {
+                nomeProduto,
+                precoProduto,
+                tipoProduto,
+            }
+            console.log(produtoCadastrado.nomeProduto)
+            console.log(produtoCadastrado.precoProduto)
+            console.log(produtoCadastrado.tipoProduto)
+
+            produtos.push(produtoCadastrado)
+            console.log(produtos)
+        }
+    }
+
+    function verificarProduto() {
+        div_mensagem.innerHTML = ``
+        
+        if (produtos.length < 0) {
+            alert(`Não há produtos registrados na lista!`)
+        } else {
+            div_mensagem.innerHTML += `Lista de todos os produtos regisstrados <br>`
+
+            for (var i = 0; i < produtos.length; i++) {
+
+            div_mensagem.innerHTML += `
+                Produto: ${produtos[i].nomeProduto}<br> 
+                Preço: R$${produtos[i].precoProduto}<br>
+                Tipo: ${produtos[i].tipoProduto}<br><br>
+            `
+            }
+        }
+    }
+    
+    
+    function procurarNome() {
+        
+        div_procuraTipo.innerHTML = ``
+        
+        if (produtos.length > 0) {
+            var produtoFiltrado = []
+            var filtro = in_pesquisaNomeProduto.value
+        
+            for (var i = 0; i < produtos.length; i++) {
+                var procuraNomeProdutoAtual = produtos[i].nomeProduto
+                console.log(`Atribuição - ${procuraNomeProdutoAtual}`)
+    
+                if (filtro == procuraNomeProdutoAtual) {
+                    produtoFiltrado.push(procuraNomeProdutoAtual)
+                    console.log(`Push - ${produtoFiltrado}`)
+                    
+                    div_procuraTipo.innerHTML += `${procuraNomeProdutoAtual}<br>`
+                }
+            }
+        } else {
+            alert(`Não há nenhum produto com este nome registrado!`)
+
+        }
+    } 
+
+
+    function procurarTipo() {
+        div_procuraTipo.innerHTML = ``
+
+        if (produtos.length > 0) {
+            var produtoFiltrado = []
+            var filtro = sel_filtroProduto.value
+        
+            for (var i = 0; i < produtos.length; i++) {
+                var procuraTipoProdutoAtual = produtos[i].tipoProduto
+                
+                console.log(`Atribuição - ${procuraTipoProdutoAtual}`)
+    
+                if (filtro == procuraTipoProdutoAtual) {
+                    produtoFiltrado.push(procuraTipoProdutoAtual)
+                    console.log(`Push - ${produtoFiltrado}`)
+                    
+                    div_procuraTipo.innerHTML += `${procuraTipoProdutoAtual}<br>`
+                }
+            }
+        } else {
+            alert(`Não há nenhum tippo com este nome registrado!`)
+
+        }
+    }
+</script>

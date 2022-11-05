@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus Contatos</title>
+</head>
+<body>
+    <h2>Cadastrando contatos</h2>
+
+    Insira o nome do contato: <input type="text" id="in_nome"><br>
+    Insira o telefone do contato:<input type="text" id="in_telefone"><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir</button>
+
+    <div id="div_contato"></div>
+
+</body>
+</html>
+
+<script>
+    var contatos = []
+
+    function cadastrar() {
+        var contato = {
+            nome: in_nome.value, 
+            telefone: in_telefone.value
+        }
+
+        contatos.push(contato)
+    }
+
+    function exibir() {
+        div_contato.innerHTML = ""
+
+        for (var i = 0; i < contatos.length; i++) {
+
+            var objetoContatoAtual = contatos[i] 
+
+            div_mensagem.innerHTML += `
+                Nome: ${objetoContatoAtual.nome} <br> 
+                Telefone: ${objetoContatoAtual.telefone}<br><br>
+            `
+        }
+    }
+</script>
