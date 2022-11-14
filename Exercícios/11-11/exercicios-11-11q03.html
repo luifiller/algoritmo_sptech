@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanhas Futebol</title>
+</head>
+<body>
+    <h2>Controle dos jogos</h2>
+
+    Indique o resultado: <select id="sel_resultado">
+        <option value="">insira o resultado</option>
+        <option value="0">Vitória</option>
+        <option value="1">Empate</option>
+        <option value="2">Derrota</option>
+    </select> <br>
+
+    <button onclick="registrarJogo()">Registrar jogo</button>
+
+    <div id="div_mensagem"></div>
+    
+    <br><hr>
+
+    <h2>Pesquisa por jogo</h2>
+
+    Indique qual jogo que saber resultado: <input type="number" id="in_pesquisa" onkeyup="pesquisar()"> <br>
+    
+    <div id="div_pesquisa"></div>
+
+
+</body>
+</html>
+
+<script>
+    var resultado = [];
+
+    
+    function registrarJogo() {
+        var totalVitoria = 0;
+        var totalDerrota = 0;
+        var totalEmpate = 0;
+        var totalPonto = 0;
+        var aproveitamento = 0;
+
+        var resultadoJogo = Number(sel_resultado.value);
+
+        div_mensagem.innerHTML = ``
+
+        resultado.push(resultadoJogo);
+        console.log(resultado);
+
+        for (var i = 0; i < resultado.length; i++) {
+            var resultadoAtual = resultado[i];
+
+            if (resultadoAtual == 0) {
+                totalVitoria++;
+                totalPonto += 3;
+                console.log(`TOTAL PONTO VITORIA: ${totalPonto}`);
+
+            } else if (resultadoAtual == 1) {
+                totalEmpate++;
+                totalPonto += 1;
+                console.log(`TOTAL PONTO EMPATE: ${totalPonto}`);
+            } else {
+                totalDerrota++;
+                console.log(`TOTAL PONTO DERROTA: ${totalPonto}`);
+            }
+
+            console.log(`TOTAL PONTO GERAL: ${totalPonto}`);
+        } 
+        
+        aproveitamento = (totalPonto / (resultado.length * 3)) * 100;
+
+        div_mensagem.innerHTML = `
+        O time teve: ${totalVitoria} vitórias, ${totalEmpate} empates, ${totalDerrota} derrotas <br>
+
+        Pontuação total: ${totalPonto} pontos <br>
+
+        Aproveitamento: ${aproveitamento.toFixed(2)}%
+        `;
+    }
+
+    function pesquisar() {
+        var pesquisa = Number(in_pesquisa.value);
+        var resultadoAtual = 0;
+
+        div_pesquisa.innerHTML = ``
+
+        if (pesquisa > resultado.length) {
+            div_pesquisa.innerHTML = `Não foi cadastrado um ${pesquisa}º jogo`
+        } else {
+
+            for (var i = 0; i < resultado.length; i++) {
+                if (pesquisa == i) {
+                    resultadoAtual = resultado[i]
+                    posicaoAtual = i + 1
+                    console.log(`Dentro do IF/FOR: ${resultadoAtual}`);
+                    break
+                }
+            }
+            
+            console.log(`Fora do FOR ${resultadoAtual}`);
+
+            if (resultadoAtual == 0) {
+                div_pesquisa.innerHTML = `No ${pesquisa}º jogo, o time Ganhou`
+            } else if (resultadoAtual == 1) {
+                div_pesquisa.innerHTML = `No ${pesquisa}º jogo, o time Empatou`
+            } else if (resultadoAtual == 2) {
+                div_pesquisa.innerHTML = `No ${pesquisa}º jogo, o time Perdeu`
+            }    
+        }
+    }
+
+    /*
+    [0] - 1 - Vitoria
+    [1] - 2 - Derrota 
+    [2] - 3 - Empate
+    [3] - 4 - Vitoria 
+    */
+
+</script>

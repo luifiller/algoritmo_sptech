@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Notas - Alice</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            color: brown;
+        }
+
+        #div_inputs {
+            padding-bottom: 12px;
+        }
+
+        .input {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="div_container_registro">
+        <h2>Análise de performance de Alunos -  Registro</h2>
+    
+        <div id="div_inputs">
+            <div class="input">
+                <p>Entre com o Nome do aluno:</p>
+                
+                <input type="text" id="in_nomeAluno"> <br>
+            </div>
+    
+            <div class="input">
+                <p>Entre com a Nota do aluno:</p>
+    
+                <input type="number" id="in_notaAluno"> <br>
+            </div>
+        </div>
+    
+        <div class="div_botoes">
+            <button onclick="registrar()">Registrar</button>
+            
+            <button onclick="analisar()">Analisar</button>
+        </div>
+        
+        <div id="div_mensagem"></div>
+    </div>
+
+    <div id="div_container_analise" style="display: none;">
+        <h2>Análise de performance de Alunos -  Pesquisa</h2>
+
+        Entre com o intervalo de notas: <input placeholder="De" type="number" id="in_inicio">
+        <input placeholder="Até" type="number" id="in_final"> <br>
+    
+        <button onclick="pesquisar()">Pesquisar</button>
+
+        <div id="div_pesquisa"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var nomes = [];
+    var notas = [];
+    var listados = [];
+
+    function registrar() {
+        var nome = in_nomeAluno.value;
+        var nota = Number(in_notaAluno.value);
+        
+        var erroNota = nota == "" || nota < 0 || nota > 10;
+        var erroNome = nome  == "";
+        
+        if (erroNome || erroNota) {
+            if (erroNota) {
+                alert(`A nota deve estar entre 0 e 10.`);
+            }   
+                
+            if (erroNome) {
+                alert(`Deve preencher o nome.`);
+            }
+        } else {
+            nomes.push(nome);
+            notas.push(nota);
+
+            div_mensagem.innerHTML = ``
+
+            for (var i = nomes.length - 1; i >= 0; i--) {
+                div_mensagem.innerHTML += `
+                    Aluno ${i+1}: ${nomes[i]} <br>
+                    Nota: ${notas[i]}. <br> <br>
+                `
+            }
+        }        
+    }
+
+    function analisar() {
+        document.getElementById('div_container_registro').style.display = 'none';
+        document.getElementById('div_container_analise').style.display = 'block';
+    }
+
+    function pesquisar() {
+        var inicio = Number(in_inicio.value);
+        var final = Number(in_final.value);
+
+        var mediaNota = 0;
+        var somaTotalListados = 0;
+
+        var maiorNota = Math.max.apply(null, notas);
+        var menorNota = Math.min.apply(null, notas);
+
+        var inicioErro = inicio < 0 || inicio > 10 || inicio > final;
+        var finalErro = final < 0 || final > 10;
+
+        if (inicioErro || finalErro) {
+            if (inicioErro) {
+                alert(`O valor inicial ("De") tem que estar entre 0 e 10 e tem que estar dentro do intervalo final ("Até"").`)
+            }
+                
+            if (finalErro) {
+                alert(`O valor final ("Até") tem que estar entre 0 e 10.`)
+            }
+        } else {
+            div_pesquisa.innerHTML = ``
+
+            for (var i = 0; i < nomes.length; i++) {
+                if (notas[i] >= inicio && notas[i] <= final) {
+                    listados.push(notas[i])
+                    console.log(`Os nomes dos listados: ${listados}`);
+
+                    somaTotalListados += notas[i]
+                    console.log(`Somatória das notas listadas: ${somaTotalListados}`);
+                
+                    div_pesquisa.innerHTML += `
+                        O aluno ${nomes[i]} ficou com a nota ${notas[i]} <br>
+                    `
+                }
+                mediaNota = somaTotalListados / listados.length
+            }
+
+            div_pesquisa.innerHTML += `
+            Total de alunos registrados: <br> <br> ${nomes.length} <br> <br>
+            Total de alunos listado: ${listados.length} <br> <br>
+            Maior Nota = ${maiorNota} <br> <br>
+            Menor Nota = ${menorNota} <br> <br>
+            Média da Nota = ${mediaNota.toFixed(2)} <br> <br>
+            `
+        }
+    }
+
+</script>

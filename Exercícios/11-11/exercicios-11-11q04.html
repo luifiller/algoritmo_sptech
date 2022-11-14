@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletro</title>
+</head>
+<body>
+
+    <h2>Loja Eletrônica</h2>
+
+    Nome do produto: <input type="text" id="in_nomeProduto"><br>
+    Preço de compra: <input type="number" id="in_precoProduto"><br>
+    
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatarEstoque()">Relatório de estoque</button>
+
+    <div id="div_relatorio"></div>
+
+</body>
+</html>
+
+<script>
+    var precoVenda = 0;
+
+    var nomes = []
+    var precos = []
+
+    function cadastrar() {
+        var nomeProduto = in_nomeProduto.value;
+        var precoProduto = Number(in_precoProduto.value);
+    
+        nomes.push(nomeProduto);
+        precos.push(precoProduto);    
+        console.log(nomes);
+        console.log(precos);
+    }
+
+    function relatarEstoque() {
+        var precoVenda = 0;
+
+        div_relatorio.innerHTML = `Total de produtos: ${nomes.length} <br> <br>`
+        
+        for (var i = 0; i < nomes.length; i++) {
+            precoVenda = precos[i] * 1.25
+            div_relatorio.innerHTML += `
+                Produto ${i+1}: ${nomes[i]} <br>
+                Preço de compra: R$${precos[i].toFixed(2)}. Vender por ${precoVenda.toFixed(2)} <br> <br>
+            `
+        }
+
+        /* 
+        Se fosse para pesquisa ao contrário:
+        
+        for (var i = nomes.length - 1; i >= 0; i--) {
+            precoVenda = precos[i] * 1.25
+            div_relatorio.innerHTML += `
+                Produto ${i}: ${nomes[i]} <br>
+                Preço de compra: R$${precos[i]}. Vender por ${precoVenda} <br> <br>
+            `
+        }
+        */
+
+
+
+    }
+
+</script>

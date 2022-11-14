@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eletro</title>
+</head>
+<body>
+
+    <h2>Loja Eletrônica</h2>
+
+    Nome do produto: <input type="text" id="in_nomeProduto"><br>
+    Preço de compra: <input type="number" id="in_precoProduto"><br>
+    
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="relatarEstoque()">Relatório de estoque</button>
+
+    <div id="div_relatorio"></div>
+
+</body>
+</html>
+
+<script>
+    var precoVenda = 0;
+
+    var nomes = []
+    var precos = []
+    var precosVenda = []
+
+    function cadastrar() {
+        var nomeProduto = in_nomeProduto.value;
+        var precoProduto = Number(in_precoProduto.value);
+    
+        nomes.push(nomeProduto);
+        precos.push(precoProduto);   
+        precosVenda.push(precoProduto * 1.25) 
+        console.log(nomes);
+        console.log(precos);
+        console.log(precosVenda);
+    }
+
+    var produtoCaro = 0;
+    var produtoBarato = 0; 
+    var somaTotal = 0;
+    var somaPrecosVenda = 0;
+    var mediaPrecoVenda = 0;
+
+    function relatarEstoque() {
+        div_relatorio.innerHTML = ``
+        
+        div_relatorio.innerHTML = `Total de produtos: ${nomes.length} <br> <br>`
+        
+        for (var i = 0; i < nomes.length; i++) {
+            div_relatorio.innerHTML += `
+                Produto ${i+1}: ${nomes[i]} <br>
+                Preço de compra: R$${precos[i].toFixed(2)}. Vender por ${precosVenda[i].toFixed(2)} <br> <br>
+            `;
+        }
+
+        
+        for (var i = 0; i < nomes.length; i++) {
+            var Atual = nomes[i];
+            var precoPrimeiro = precos[0];
+            var precoAtual = precos[i];
+            
+
+            if (precos[i] > precos[i+1]) {
+                produtoCaro = nomes[i];
+            } 
+
+            if (precos[i] < precos[i+1]) {
+                produtoBarato = nomes[i];
+            }
+
+            
+            somaTotal += precos[i]
+            somaPrecosVenda += precosVenda[i]
+        }
+            mediaPrecoVenda = somaPrecosVenda / precosVenda.length 
+
+        div_relatorio.innerHTML += `
+            Produto mais caro: ${produtoCaro} <br>
+            Produto mais barato: ${produtoBarato} <br>
+            Soma dos preços de compra dos produtos: ${somaTotal.toFixed(2)} <br>
+            Média de preço de venda dos produtos: ${mediaPrecoVenda.tofixed(2)} <br>
+        `;
+    }
+
+</script>

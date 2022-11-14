@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Notas - Alice</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            color: brown;
+        }
+
+        #div_inputs {
+            padding-bottom: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="div_container_registro">
+        <h2>Análise de performance de Alunos -  Registro</h2>
+    
+        <div id="div_inputs">
+            <div class="input">
+                <label for="in_nomeAluno">Entre com o Nome do aluno:</label> 
+                
+                <input type="text" id="in_nomeAluno"> <br> <br>
+            </div>
+    
+            <div class="input">
+                <label for="in_nota1Aluno">Nota da 1ª Avaliação Continuada:</label> 
+                <input type="number" id="in_nota1Aluno"> <br> <br>
+                
+                <label for="in_nota2Aluno">Nota da 2ª Avaliação Continuada:</label> 
+                <input type="number" id="in_nota2Aluno"> <br> <br>
+
+                <label for="in_nota3Aluno">Nota da 3ª Avaliação Continuada:</label> 
+                <input type="number" id="in_nota3Aluno"> <br> <br>
+            </div>
+        </div>
+    
+        <div class="div_botoes">
+            <button onclick="registrar()">Registrar</button>
+            
+            <button onclick="analisar()">Analisar</button>
+        </div>
+        
+        <div id="div_mensagem"></div>
+    </div>
+
+    <div id="div_container_analise" style="display: none;">
+        <h2>Análise de performance de Alunos -  Pesquisa</h2>
+
+        Entre com o intervalo de notas: <input placeholder="De" type="number" id="in_inicio">
+        <input placeholder="Até" type="number" id="in_final"> <br>
+    
+        <button onclick="pesquisar()">Pesquisar todas avaliações</button>
+
+
+        Selecione a avaliação que deseja pesquisar como filtro: <select id="sel_avalicao">
+            <option value="">selecione a avaliação</option>
+            <option value="1">1ª</option>
+            <option value="2">2ª</option>
+            <option value="3">3ª</option>
+        </select>
+
+        <button onclick="pesquisarIntervalo()">Pesquisar apenas uma avaliação</button>
+
+        <div id="div_pesquisa"></div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var nomes = [];
+    var notas1 = [];
+    var notas2 = [];
+    var notas3 = [];
+
+    var listados1 = [];
+    var listados2 = [];
+    var listados3 = [];
+
+    function registrar() {
+        var nome = in_nomeAluno.value;
+        var nota1 = Number(in_nota1Aluno.value);
+        var nota2 = Number(in_nota2Aluno.value);
+        var nota3 = Number(in_nota3Aluno.value);
+        
+        var erroNota = nota1 == "" || nota1 < 0 || nota1 > 10 || nota2 == "" || nota2 < 0 || nota2 > 10 || nota3 == "" || nota3 < 0 || nota3 > 10;
+        var erroNome = nome  == "";
+        
+        if (erroNome || erroNota) {
+            if (erroNota) {
+                alert(`A nota deve estar entre 0 e 10.`);
+            }   
+                
+            if (erroNome) {
+                alert(`Deve preencher o nome.`);
+            }
+        } else {
+            nomes.push(nome);
+            notas1.push(nota1);
+            notas2.push(nota2);
+            notas3.push(nota3);
+
+            div_mensagem.innerHTML = ``
+
+            for (var i = nomes.length - 1; i >= 0; i--) {
+                div_mensagem.innerHTML += `
+                    Aluno ${i+1}: ${nomes[i]} <br>
+                    Nota 1ª Avaliação Continuada: ${notas1[i]}. <br> <br>
+                    Nota 2ª Avaliação Continuada: ${notas2[i]}. <br> <br>
+                    Nota 3ª Avaliação Continuada: ${notas3[i]}. <br> <br>
+                `
+            }
+        }        
+    }
+
+    function analisar() {
+        document.getElementById('div_container_registro').style.display = 'none';
+        document.getElementById('div_container_analise').style.display = 'block';
+    }
+    
+    function pesquisar() {
+        var inicio = Number(in_inicio.value);
+        var final = Number(in_final.value);
+
+        var mediaNotaGeral = 0;
+        var somaTotalListados1 = 0;
+        var somaTotalListados2 = 0;
+        var somaTotalListados3 = 0;
+        
+        var maiorNota1 = Math.max.apply(null, notas1);
+        var maiorNota2 = Math.max.apply(null, notas2);
+        var maiorNota3 = Math.max.apply(null, notas3);
+
+        var menorNota1 = Math.min.apply(null, notas1);
+        var menorNota2 = Math.min.apply(null, notas2);
+        var menorNota3 = Math.min.apply(null, notas3);
+
+        var maiorNotaGeral = 0;
+        var menorNotaGeral = 0;
+
+        // Validação de nota  maior
+        if (maiorNota1 > maiorNota2) {
+            maiorNotaGeral = maiorNota1
+            if (maiorNota1 > maiorNota3) {
+                maiorNotaGeral = maiorNota1
+            }
+        } 
+
+        if (maiorNota2 > maiorNota1) {
+            maiorNotaGeral = maiorNota2
+            if (maiorNota2 > maiorNota3) {
+                maiorNotaGeral = maiorNota2
+            }
+        } 
+
+        if (maiorNota3 > maiorNota1) {
+            maiorNotaGeral = maiorNota3
+            if (maiorNota3 > maiorNota1) {
+                maiorNotaGeral = maiorNota3
+            }
+        } 
+
+        // Validação de nota  menor
+        if (maiorNota1 < maiorNota2) {
+            menorNotaGeral = maiorNota1
+            if (maiorNota1 < maiorNota3) {
+                menorNotaGeral = maiorNota1
+            }
+        } 
+
+        if (maiorNota2 < maiorNota1) {
+            menorNotaGeral = maiorNota2
+            if (maiorNota2 < maiorNota3) {
+                menorNotaGeral = maiorNota2
+            }
+        } 
+
+        if (maiorNota3 < maiorNota1) {
+            menorNotaGeral = maiorNota3
+            if (maiorNota3 < maiorNota1) {
+                menorNotaGeral = maiorNota3
+            }
+        } 
+
+        var inicioErro = inicio < 0 || inicio > 10 || inicio > final;
+        var finalErro = final < 0 || final > 10;
+
+        if (inicioErro || finalErro) {
+            if (inicioErro) {
+                alert(`O valor inicial ("De") tem que estar entre 0 e 10 e tem que estar dentro do intervalo final ("Até"").`)
+            }
+                
+            if (finalErro) {
+                alert(`O valor final ("Até") tem que estar entre 0 e 10.`)
+            }
+        } else {
+            div_pesquisa.innerHTML = ``
+
+            for (var i = 0; i < nomes.length; i++) {
+                if (notas1[i] >= inicio && notas1[i] <= final) {
+                    listados1.push(notas1[i])
+                    listados2.push(notas2[i])
+                    listados3.push(notas3[i])
+
+                    somaTotalListados1 += notas1[i]
+                
+                    div_pesquisa.innerHTML += `
+                        O aluno ${nomes[i]} ficou com a nota ${notas1[i]} na 1ª Avaliação Continuada. <br>
+                        O aluno ${nomes[i]} ficou com a nota ${notas2[i]} na 2ª Avaliação Continuada. <br>
+                        O aluno ${nomes[i]} ficou com a nota ${notas3[i]} na 3ª Avaliação Continuada. <br>
+                    `
+                }
+                mediaNotaGeral = (somaTotalListados1 + somaTotalListados2 + somaTotalListados3) / (listados1.length + listados2.length + listados3.length) 
+            }
+
+            div_pesquisa.innerHTML += `
+            Total de alunos registrados: <br> <br> ${nomes.length} <br> <br>
+            Total de alunos listado: ${listados1.length} <br> <br>
+            Maior Nota = ${maiorNotaGeral} <br> <br>
+            Menor Nota = ${menorNotaGeral} <br> <br>
+            Média da Nota = ${mediaNotaGeral.toFixed(2)} <br> <br>
+            `
+        }
+    }
+
+    function pesquisarIntervalo(){
+        var inicio = Number(in_inicio.value);
+        var final = Number(in_final.value);
+        var opAvaliacao = Number(sel_avalicao.value);
+
+        var mediaNotaGeral = 0;
+        var somaTotalListados1 = 0;
+        var somaTotalListados2 = 0;
+        var somaTotalListados3 = 0;
+
+        var maiorNota1 = Math.max.apply(null, notas1);
+        var maiorNota2 = Math.max.apply(null, notas2);
+        var maiorNota3 = Math.max.apply(null, notas3);
+
+        var menorNota1 = Math.min.apply(null, notas1);
+        var menorNota2 = Math.min.apply(null, notas2);
+        var menorNota3 = Math.min.apply(null, notas3);
+
+        
+        var inicioErro = inicio < 0 || inicio > 10 || inicio > final;
+        var finalErro = final < 0 || final > 10;
+
+        
+        if (inicioErro || finalErro) {
+            if (inicioErro) {
+                alert(`O valor inicial ("De") tem que estar entre 0 e 10 e tem que estar dentro do intervalo final ("Até"").`)
+            }
+            
+            if (finalErro) {
+                alert(`O valor final ("Até") tem que estar entre 0 e 10.`)
+            }
+        } else {
+            div_pesquisa.innerHTML = ``
+            if (opAvaliacao == 1) {
+                for (var i = 0; i < nomes.length; i++) {
+                    if (notas1[i] >= inicio && notas1[i] <= final) {
+                        listados1.push(notas1[i])
+    
+                        somaTotalListados1 += notas1[i]
+                    
+                        div_pesquisa.innerHTML += `
+                            O aluno ${nomes[i]} ficou com a nota ${notas1[i]} na 1ª Avaliação Continuada. <br>
+                        `
+                    }
+                    mediaNotaGeral = somaTotalListados1 / listados1.length; 
+                }
+    
+                div_pesquisa.innerHTML += `
+                Total de alunos registrados: <br> <br> ${nomes.length} <br> <br>
+                Total de alunos listado: ${listados1.length} <br> <br>
+                Maior Nota = ${maiorNota1} <br> <br>
+                Menor Nota = ${menorNota1} <br> <br>
+                Média da Nota = ${mediaNotaGeral.toFixed(2)} <br> <br>
+                `                
+            } else if (opAvaliacao == 2) {    
+                for (var i = 0; i < nomes.length; i++) {
+                    if (notas1[i] >= inicio && notas1[i] <= final) {
+                        listados2.push(notas2[i])
+
+                        somaTotalListados2 += notas2[i]
+                    
+                        div_pesquisa.innerHTML += `
+                            O aluno ${nomes[i]} ficou com a nota ${notas2[i]} na 2ª Avaliação Continuada. <br>
+                        `
+                    }
+                    mediaNotaGeral = somaTotalListados2 / listados2.length; 
+                }
+
+                div_pesquisa.innerHTML += `
+                Total de alunos registrados: <br> <br> ${nomes.length} <br> <br>
+                Total de alunos listado: ${listados2.length} <br> <br>
+                Maior Nota = ${maiorNota2} <br> <br>
+                Menor Nota = ${menorNota2} <br> <br>
+                Média da Nota = ${mediaNotaGeral.toFixed(2)} <br> <br>
+                `
+            } else {
+                for (var i = 0; i < nomes.length; i++) {
+                    if (notas1[i] >= inicio && notas1[i] <= final) {
+                        listados3.push(notas3[i])
+
+                        somaTotalListados3 += notas3[i]
+                    
+                        div_pesquisa.innerHTML += `
+                            O aluno ${nomes[i]} ficou com a nota ${notas3[i]} na 3ª Avaliação Continuada. <br>
+                        `
+                    }
+                    mediaNotaGeral = somaTotalListados3 / listados3.length;
+                }
+
+                div_pesquisa.innerHTML += `
+                Total de alunos registrados: <br> <br> ${nomes.length} <br> <br>
+                Total de alunos listado: ${listados3.length} <br> <br>
+                Maior Nota = ${maiorNota3} <br> <br>
+                Menor Nota = ${menorNota3} <br> <br>
+                Média da Nota = ${mediaNotaGeral.toFixed(2)} <br> <br>
+                `
+            }
+        }
+    }
+
+</script>

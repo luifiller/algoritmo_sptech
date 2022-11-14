@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantidade de filhos</title>
+</head>
+<body>
+    <h2>Controle de gastos com filhos</h2>
+
+    Insira o nome do seu filho: <input type="text" id="in_nomeFilho"><br>
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizarFamilia()">Atualizar Família</button>
+    
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    var nome = [];
+    var mensalidadeParticular = 3000;
+    var mensalidadePublica = 1500;
+
+    function cadastrar() {
+        var nomeFilho = in_nomeFilho.value;
+        var nomeIgual = false;
+        var nomeAtual = "";
+
+
+        for (var i = 0; i < nome.length; i++) {
+            nomeAtual = nome[i];
+            
+            if (nomeFilho == nomeAtual) {
+                nomeIgual = true;
+                console.log(`Dentro do FOR: ${nomeIgual}`);
+                alert(`Não pode mais de 1 filho com o mesmo nome!`);
+                break;
+            }
+        }
+
+        if (!nomeIgual) {
+            console.log(`Dentro do IF fora do FOR: ${nomeIgual}`);
+            nome.push(nomeFilho);
+            console.log(nome);    
+            console.log(nome.length);
+        }
+    }
+
+    function atualizarFamilia() {
+        var qtdFilhos = nome.length;
+        var custoParticular = (qtdFilhos * mensalidadeParticular).toFixed(2);
+        var custoPublica = (qtdFilhos * mensalidadePublica).toFixed(2);
+
+        div_mensagem.innerHTML = ``
+
+        div_mensagem.innerHTML = `
+            Você tem ${qtdFilhos} filhos <br>
+            Seu custo mensal será aproximadamente R$${custoParticular} se colocar eles em escola particular ou R$${custoPublica} se eles estudarem em escola pública
+        `;
+    }
+</script>
