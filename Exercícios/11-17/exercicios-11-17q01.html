@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira a frequência: <input type="number" id="in_freq"> <br>
+    Insira a 1ª nota: <input type="number" id="in_nota1"> <br>
+    Insira a 2ª nota: <input type="number" id="in_nota2" onkeyup="verificar()"> <br>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var freq = Number(in_freq.value) 
+        var nota1 = Number(in_nota1.value) 
+        var nota2 = Number(in_nota2.value)
+        
+        var media = (nota1 + nota2) / 2
+        
+        var frase = media >= 6 && freq >= 75 ? 'Parbéns, você passou' : 'Tente outra vez';
+            
+        div_msg.innerHTML = frase
+    }
+
+</script>

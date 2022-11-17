@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira a frequência do aluno: <input type="number" id="in_freq"><br>
+
+    <button onclick="analisar()">Analisar frequência</button>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function analisar() {
+        var freq = Number(in_freq.value)
+        
+        var freqAnalise = freq >= 75 ? 'https://st.depositphotos.com/2117297/2784/i/450/depositphotos_27846735-stock-photo-happy-tourist-sightseeing-city-with.jpg' : 'https://media.gazetadopovo.com.br/2017/08/298e8518ba6191db012724dad7d52bab-gpMedium.jpg'
+
+        div_msg.innerHTML = `<img src=${freqAnalise}>`
+    }
+    
+</script>

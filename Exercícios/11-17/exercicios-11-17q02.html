@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Insira seu login: <input type="text" id="in_login"><br>
+    Insira sua senha: <input type="password" id="in_senha"><br>
+    Insira seu código de segurança: <input type="password" id="in_codigo" onkeyup="verificar()"><br>
+
+    <div id="div_msg"></div>
+
+</body>
+</html>
+
+<script>
+    function verificar() {
+        var login = in_login.value
+        var senha = in_senha.value
+        var codigo = in_codigo.value
+        
+        var frase = login == 'SPTECH' && senha == 'SCHOOL' && codigo == '595' ? 'Usuário autenticado com sucesso' : 'Falha na autenticação'
+        
+        div_msg.innerHTML = frase
+    }
+
+</script>
