@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Notas - Alice</title>
+
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            color: brown;
+        }
+
+        #div_inputs {
+            padding-bottom: 12px;
+        }
+
+        .input {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="div_container_registro">
+        <h2>Análise de performance de Alunos - Registro</h2>
+    
+        <div id="div_inputs">
+            <div class="input">
+                <p>Entre com o Nome do aluno:</p>
+                
+                <input type="text" id="in_nomeAluno"> <br>
+            </div>
+    
+            <div class="input">
+                <p>Entre com a Nota do aluno:</p>
+    
+                <input type="number" id="in_notaAluno"> <br>
+            </div>
+        </div>
+    
+        <div class="div_botoes">
+            <button onclick="registrar()">Registrar</button>
+            
+            <button onclick="analisar()">Analisar</button>
+        </div>
+        
+        <div id="div_mensagem"></div>
+    </div>
+
+    <hr>
+
+    <div id="div_filtro-pesquisa" style="display: none;">
+        <div id="pesquisa-parte2">
+            <h2>Análise de performance de Alunos - Pesquisa</h2>
+    
+            Entre com o intervalo de notas: <input placeholder="De" type="number" id="in_inicio">
+            <input placeholder="Até" type="number" id="in_final"> <br>
+        
+            <button onclick="pesquisar()">Pesquisar</button>
+    
+            <div id="div_pesquisa"></div>
+        </div>
+    
+        <div id="pesquisa-parte3">
+            <h2>Filtros de pesquisa por nota</h2>
+    
+            Selecione o filtro para a busca sobre o aluno: <select id="sel_filtro">
+                <option value="">selecione opção</option>
+                <option value="0">Nome</option>
+                <option value="1">Nota maior que</option>
+                <option value="2">Nota menor que</option>
+            </select><br>
+    
+            Insira o termo a ser filtrado <input type="text" id="in_filtro"><br>
+    
+            <button onclick="filtrar()">Aplicar Filtros</button>
+    
+            <div id="div_filtro"></div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    var listados = [];
+    var alunos = {
+        nome: [],
+        nota: []
+    };
+
+    var nomeFiltrado = [];
+    var notaMaiorFiltrada = [];
+    var notaMenorFiltrada = [];
+
+    function analisar() {
+        document.getElementById('div_container_registro').style.display = 'none';
+        document.getElementById('div_filtro-pesquisa').style.display = 'block';
+    }
+
+    function registrar() {
+        var nomeAluno = in_nomeAluno.value;
+        var notaAluno = Number(in_notaAluno.value);
+        
+        var erroNota = notaAluno == "" || notaAluno < 0 || notaAluno > 10;
+        var erroNome = nomeAluno  == "";
+        
+        if (erroNome || erroNota) {
+            if (erroNota) {
+                alert(`A nota deve estar entre 0 e 10.`);
+            }   
+                
+            if (erroNome) {
+                alert(`Deve preencher o nome.`);
+            }
+        } else {
+            alunos.nome.push(nomeAluno);
+            alunos.nota.push(notaAluno);
+            console.log(alunos.nome);
+            console.log(alunos.nota);
+
+            div_mensagem.innerHTML = ``;
+
+            for (var i = alunos.nome.length - 1; i >= 0; i--) {
+                div_mensagem.innerHTML += `
+                    Aluno ${i+1}: ${alunos.nome[i]} <br>
+                    Nota: ${alunos.nota[i]}. <br> <br>
+                `
+            };
+        }        
+    }
+
+    function pesquisar() {
+        var inicio = Number(in_inicio.value);
+        var final = Number(in_final.value);
+
+        var mediaNota = 0;
+        var somaTotalListados = 0;
+
+        var maiorNota = Math.max.apply(null, alunos.nota);
+        var menorNota = Math.min.apply(null, alunos.nota);
+
+        var inicioErro = inicio < 0 || inicio > 10 || inicio > final;
+        var finalErro = final < 0 || final > 10;
+
+        if (inicioErro || finalErro) {
+            if (inicioErro) {
+                alert(`O valor inicial ("De") tem que estar entre 0 e 10 e tem que estar dentro do intervalo final ("Até"").`)
+            }
+                
+            if (finalErro) {
+                alert(`O valor final ("Até") tem que estar entre 0 e 10.`)
+            }
+        } else {
+            div_pesquisa.innerHTML = ``
+
+            for (var i = 0; i < alunos.nome.length; i++) {
+                if (alunos.nota[i] >= inicio && alunos.nota[i] <= final) {
+                    listados.push(alunos.nota[i])
+                    console.log(`Os nomes dos listados: ${listados}`);
+
+                    somaTotalListados += alunos.nota[i]
+                    console.log(`Somatória das notas listadas: ${somaTotalListados}`);
+                
+                    div_pesquisa.innerHTML += `
+                        O aluno ${alunos.nome[i]} ficou com a nota ${alunos.nota[i]} <br>
+                    `
+                }
+                mediaNota = somaTotalListados / listados.length
+            }
+
+            div_pesquisa.innerHTML += `
+            Total de alunos registrados: <br> <br> ${alunos.nome.length} <br> <br>
+            Total de alunos listado: ${listados.length} <br> <br>
+            Maior Nota = ${maiorNota} <br> <br>
+            Menor Nota = ${menorNota} <br> <br>
+            Média da Nota = ${mediaNota.toFixed(2)} <br> <br>
+            `
+        }
+    }
+
+    function filtrar() {
+        var opFiltro = Number(sel_filtro.value)
+        var filtro = in_filtro.value
+
+        if (opFiltro == 0) {
+            for (var i = 0; i < alunos.nome.length; i++) {
+                var nomeAtual = alunos.nome[i];
+
+                if (filtro == nomeAtual) {
+                    nomeFiltrado.push(nomeAtual)
+                }
+            }
+
+            for (var i = 0; i < nomeFiltrado.length; i++) {
+                div_filtro.innerHTML += `Nome dos aluno filtrado: ${nomeFiltrado[i]}`
+            }
+
+        } else if (opFiltro == 1) {
+            for (var i = 0; i < alunos.nota.length; i++) {
+                var notaAtual = alunos.nota[i];
+
+                filto = Number(in_filtro.value);
+
+                if (notaAtual > filtro) {
+                    notaMaiorFiltrada.push(notaAtual);
+                }
+            }
+
+            for (var i = 0; i < notaMaiorFiltrada.length; i++) {
+                div_filtro.innerHTML += `Notas maiores filtradas: ${notaMaiorFiltrada[i]}`
+            }
+        } else {
+            for (var i = 0; i < alunos.nota.length; i++) {
+                var notaAtual = alunos.nota[i];
+
+                filto = Number(in_filtro.value);
+
+                if (notaAtual > filtro) {
+                    notaMenorFiltrada.push(notaAtual);
+                }
+            }
+
+            for (var i = 0; i < notaMenorFiltrada.length; i++) {
+                div_filtro.innerHTML += `Notas menores filtradas: ${notaMenorFiltrada[i]}`
+            }
+        }
+    
+    }
+
+</script>
