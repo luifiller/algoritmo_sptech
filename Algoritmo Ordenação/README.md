@@ -5,7 +5,7 @@ No diretório de cada algoritmo de ordenação, há subdiretórios com as implem
 
 ## Algoritmos implementados
 - [X] Bubble Sort
-- [ ] Selection Sort
+- [X] Selection Sort
 - [ ] Insertion Sort
 - [ ] Merge Sort
 - [ ] Quick Sort
